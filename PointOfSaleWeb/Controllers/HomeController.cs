@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PointOfSaleWeb.Models;
+using PointOfSale.Models;
 using System.Diagnostics;
 
-namespace PointOfSaleWeb.Controllers
+namespace PointOfSale.Controllers
 {
     public class HomeController : Controller
     {

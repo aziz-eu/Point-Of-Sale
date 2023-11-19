@@ -1,0 +1,11 @@
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\bin\Debug\net6.0\PointOfSale.Models.deps.json
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\bin\Debug\net6.0\PointOfSale.Models.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\bin\Debug\net6.0\PointOfSale.Models.pdb
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\obj\Debug\net6.0\PointOfSale.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\obj\Debug\net6.0\PointOfSale.Models.AssemblyInfoInputs.cache
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\obj\Debug\net6.0\PointOfSale.Models.AssemblyInfo.cs
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\obj\Debug\net6.0\PointOfSale.Models.csproj.CoreCompileInputs.cache
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\obj\Debug\net6.0\PointOfSale.Models.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\obj\Debug\net6.0\refint\PointOfSale.Models.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\obj\Debug\net6.0\PointOfSale.Models.pdb
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSale.Models\obj\Debug\net6.0\ref\PointOfSale.Models.dll

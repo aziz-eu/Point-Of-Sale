@@ -13,6 +13,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PointOfSale.DataAccess\PointOfSale.DataAccess.csproj" />
+    <ProjectReference Include="..\PointOfSale.Models\PointOfSale.Models.csproj" />
   </ItemGroup>
 
 </Project>
