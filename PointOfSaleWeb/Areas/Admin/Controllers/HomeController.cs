@@ -2,10 +2,12 @@
 using PointOfSale.Models;
 using System.Diagnostics;
 
-namespace PointOfSale.Controllers
+namespace PointOfSaleWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class HomeController : Controller
     {
+    
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

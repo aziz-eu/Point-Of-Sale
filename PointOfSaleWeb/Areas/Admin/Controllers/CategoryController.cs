@@ -4,8 +4,9 @@ using PointOfSale.Data;
 using PointOfSale.DataAccess.Repository.IRepository;
 using PointOfSale.Models;
 
-namespace PointOfSale.Controllers
+namespace PointOfSaleWeb.Areas.Admin.Controllers
 {
+    [Area ("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -15,14 +16,15 @@ namespace PointOfSale.Controllers
         }
 
         public IActionResult Index()
-        {   
+        {
             IEnumerable<Category> categoryList = _unitOfWork.Category.GetAll();
-                
+
             return View(categoryList);
         }
-        public IActionResult Create() { 
-        
-        return View();
+        public IActionResult Create()
+        {
+
+            return View();
         }
 
         [HttpPost]
@@ -30,7 +32,7 @@ namespace PointOfSale.Controllers
         public IActionResult Create(Category obj)
         {
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _unitOfWork.Category.Add(obj);
                 _unitOfWork.Save();
@@ -44,13 +46,13 @@ namespace PointOfSale.Controllers
 
         public IActionResult Edit(int? id)
         {
-            if(id == null || id == 0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
             var category = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
 
-            if(category == null)
+            if (category == null)
             {
                 return NotFound();
             }
@@ -74,10 +76,11 @@ namespace PointOfSale.Controllers
             return View(obj);
 
         }
-        
-        public IActionResult Delete(int? id) {
 
-            var category = _unitOfWork.Category.GetFirstOrDefault(u=> u.Id == id);
+        public IActionResult Delete(int? id)
+        {
+
+            var category = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
 
             return View(category);
         }
@@ -87,10 +90,10 @@ namespace PointOfSale.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
-          
-            var category = _unitOfWork.Category.GetFirstOrDefault(u=>u.Id == id);
 
-            if(category == null)
+            var category = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+
+            if (category == null)
             {
                 return NotFound();
             }
