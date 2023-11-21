@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PointOfSale.Models
 {
@@ -9,5 +10,7 @@ namespace PointOfSale.Models
 
         [Required]
         public string Name { get; set; }
+
+        public string? Description { get; set; }
     }
 }

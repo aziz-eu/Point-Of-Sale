@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSaleWeb\\wwwroot\\js\\category.js",
+      "PackagePath": "staticwebassets\\js\\category.js"
+    },
+    {
       "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSaleWeb\\wwwroot\\js\\supplier.js",
       "PackagePath": "staticwebassets\\js\\supplier.js"
     },

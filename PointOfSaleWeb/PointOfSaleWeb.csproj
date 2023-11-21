@@ -33,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Views\Category\" />
     <Folder Include="Areas\Customer\Controllers\" />
     <Folder Include="Controllers\" />
   </ItemGroup>

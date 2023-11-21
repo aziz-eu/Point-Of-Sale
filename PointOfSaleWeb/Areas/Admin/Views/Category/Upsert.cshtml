@@ -1,0 +1,47 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Category";
+}
+
+
+<div class="border my-3 p-3">
+
+    <h2>@(Model.Id != 0 ? "Edit Category" : "Add New Category") </h2>
+
+    <form method="post" asp-action="Upsert">
+        <input asp-for="Id" hidden />
+        <div class="my-3">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Description"></label>
+            <input class="form-control" asp-for="Description" />
+        </div>
+
+
+
+        <div class="my-4">
+            @if (Model.Id != 0)
+            {
+                <button class="btn btn-primary" type="submit">Update</button>
+            }
+            else
+            {
+                <button class="btn btn-primary" type="submit">Add</button>
+            }
+
+            <a asp-controller="Supplier" asp-action="Index" class="btn btn-secondary">Back To List</a>
+        </div>
+
+
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

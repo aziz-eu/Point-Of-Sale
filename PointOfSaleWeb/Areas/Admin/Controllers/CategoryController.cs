@@ -17,91 +17,84 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Category> categoryList = _unitOfWork.Category.GetAll();
-
-            return View(categoryList);
-        }
-        public IActionResult Create()
-        {
-
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Category obj)
-        {
+        public IActionResult Upsert(int? id) {
 
-            if (ModelState.IsValid)
+            Category category = new();
+
+            if(id == 0 || id ==null)
             {
-                _unitOfWork.Category.Add(obj);
-                _unitOfWork.Save();
-                TempData["success"] = "Category Added Successfully";
-                return RedirectToAction(nameof(Index));
-
+                // Create Category
+                return View(category);
             }
-
-            return View(obj);
-        }
-
-        public IActionResult Edit(int? id)
-        {
-            if (id == null || id == 0)
+            else
             {
-                return NotFound();
+                // Edit 
+                category = _unitOfWork.Category.GetFirstOrDefault(x => x.Id == id);
+                return View(category);
             }
-            var category = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
-
-            if (category == null)
-            {
-                return NotFound();
-            }
-
-            return View(category);
-
+        
+        
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category obj)
+        public IActionResult Upsert(Category category)
         {
-            if (ModelState.IsValid)
+
+           if(ModelState.IsValid)
             {
-                _unitOfWork.Category.Update(obj);
+                if (category.Id == 0)
+                {
+                    _unitOfWork.Category.Add(category);
+                    TempData["success"] = "New Category Add Sccessful";
+                }
+                else
+                {
+                    _unitOfWork.Category.Update(category);
+                    TempData["success"] = "Category Update Sccessful";
+                }
                 _unitOfWork.Save();
-                TempData["success"] = "Category Updated Successfully";
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(obj);
+           return View(category);
+
 
         }
 
-        public IActionResult Delete(int? id)
-        {
 
-            var category = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
 
-            return View(category);
+        #region API CALL
+
+        public IActionResult GetAll() {
+            var category = _unitOfWork.Category.GetAll();
+
+            return Json(new { data =category });
+        
         }
 
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public IActionResult DeletePost(int? id)
-        {
+        [HttpDelete]
+        public IActionResult Delete(int? id) {
 
             var category = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
-
-            if (category == null)
+            if(category == null)
             {
-                return NotFound();
+                return Json(new {success =  false , message= "Error while deleteing" });
             }
+            
             _unitOfWork.Category.Remove(category);
             _unitOfWork.Save();
-            TempData["success"] = "Category Deleted Successfully";
-            return RedirectToAction(nameof(Index));
+            return Json(new { success = true, message = "Delete Successful" });
+            
+        
+        
         }
+
+        #endregion
 
 
     }

@@ -22,7 +22,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
             Supplier supplier = new();
 
-            if(id == null || id == 0)
+            if(id == 0 || id == null)
             {
                 //Create
 
@@ -75,7 +75,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         var suppier = _unitOfWork.Supplier.GetFirstOrDefault(u => u.Id == id);
             if (suppier == null)
             {
-                return Json(new { success = true, message = "Error While Deleting" });
+                return Json(new { success = false, message = "Error While Deleting" });
             }
             _unitOfWork.Supplier.Remove(suppier);
             _unitOfWork.Save();
