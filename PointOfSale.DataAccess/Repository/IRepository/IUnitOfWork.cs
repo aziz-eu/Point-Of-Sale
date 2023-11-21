@@ -11,6 +11,8 @@ namespace PointOfSale.DataAccess.Repository.IRepository
     {
         ICategoryRepository Category { get; }
         ISupplierRepository Supplier { get; }
+
+        IUnitsOfMeasurmentRepository UnitOfMeasurment { get; }
         void Save();
     }
 }

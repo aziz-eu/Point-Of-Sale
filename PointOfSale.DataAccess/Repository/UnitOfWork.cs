@@ -1,5 +1,6 @@
 ﻿using PointOfSale.Data;
 using PointOfSale.DataAccess.Repository.IRepository;
+using PointOfSale.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,15 @@ namespace PointOfSale.DataAccess.Repository
             _db = db;
             Category = new CategoryRepository (_db);
             Supplier = new SupplierRepository (_db);
-           
-        
+            UnitOfMeasurment = new UnitsOfMeasurementRepository(_db);
+
+
+
         }
         public ICategoryRepository Category { get; private set; }
         public ISupplierRepository Supplier { get; private set; }
+
+        public IUnitsOfMeasurmentRepository UnitOfMeasurment { get; private set; }
 
         public void Save()
         {

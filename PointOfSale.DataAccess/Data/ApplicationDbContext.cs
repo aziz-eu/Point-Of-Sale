@@ -13,5 +13,7 @@ namespace PointOfSale.Data
 
         public DbSet <Category> Categories {  get; set; }
         public DbSet <Supplier> Suppliers { get; set; }
+        public DbSet <UnitsOfMeasurement> UnitsOfMeasurement { get; set;}
+
     }
 }

@@ -69,6 +69,26 @@ namespace PointOfSale.Migrations
 
                     b.ToTable("Suppliers");
                 });
+
+            modelBuilder.Entity("PointOfSale.Models.UnitsOfMeasurement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UnitsOfMeasurement");
+                });
 #pragma warning restore 612, 618
         }
     }
