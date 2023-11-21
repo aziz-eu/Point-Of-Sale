@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JvjjdQLpI6cMWuQ2X05eu9ikoQzpaQlvHm1GGE/ncIE=",
+  "Hash": "+i3n3Am5KdRLpc3FAX63xzwTqsrKyII32eWb3SZjQn4=",
   "Source": "PointOfSaleWeb",
   "BasePath": "_content/PointOfSaleWeb",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\supplier.js"
+    },
+    {
+      "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSaleWeb\\wwwroot\\js\\unitOfMeasurement.js",
+      "SourceId": "PointOfSaleWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSaleWeb\\wwwroot\\",
+      "BasePath": "_content/PointOfSaleWeb",
+      "RelativePath": "js/unitOfMeasurement.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\unitOfMeasurement.js"
     },
     {
       "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSaleWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

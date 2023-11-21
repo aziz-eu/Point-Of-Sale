@@ -1,12 +1,12 @@
-﻿@model Category
+﻿@model UnitsOfMeasurement
 @{
-    ViewData["Title"] = "Category";
+    ViewData["Title"] = "Unit Of Measurement";
 }
 
 
 <div class="border my-3 p-3">
 
-    <h2>@(Model.Id != 0 ? "Edit Category" : "Add New Category") </h2>
+    <h2>@(Model.Id != 0 ? "Edit Measurement Unit" : "Add New Measurement Unit") </h2>
 
     <form method="post" asp-action="Upsert">
         <input asp-for="Id" hidden />
@@ -18,7 +18,7 @@
 
         <div class="my-3">
             <label asp-for="Description"></label>
-            <input class="form-control" asp-for="Description" />
+            <input class="required-warning" class="form-control" asp-for="Description" />
         </div>
 
 
