@@ -1,0 +1,58 @@
+﻿@model Supplier
+@{
+    ViewData["Title"] = "Delete Category";
+}
+
+
+<div class="border my-3 p-3">
+
+    <h2>@(Model.Id != 0 ? "Edit Supplier Info" : "Add New Supplier") </h2>
+
+    <form method="post" asp-action="Upsert">
+        <input asp-for="Id" hidden />
+        <div class="my-3">
+            <label asp-for="Company"></label>
+            <input class="form-control" asp-for="Company" />
+            <span asp-validation-for="Company"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="ContactPerson"></label>
+            <input class="form-control" asp-for="ContactPerson" />
+            <span asp-validation-for="ContactPerson"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="PhoneNumber"></label>
+            <input class="form-control" asp-for="PhoneNumber" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Email"></label>
+            <input class="form-control" asp-for="Email" />
+
+        </div>
+
+        <div class="my-4">
+            @if(Model.Id != 0)
+            {
+                <button class="btn btn-primary" type="submit">Update</button>
+            }
+            else
+            {
+                <button class="btn btn-primary" type="submit">Add</button>
+            }
+            
+            <a asp-controller="Supplier" asp-action="Index" class="btn btn-secondary">Back To List</a>
+        </div>
+
+
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

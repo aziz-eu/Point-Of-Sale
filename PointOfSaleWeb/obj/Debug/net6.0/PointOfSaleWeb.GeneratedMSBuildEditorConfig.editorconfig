@@ -16,28 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/18622/Desktop/ASP.NET/PointOfSale/PointOfSaleWeb/Areas/Admin/Views/Category/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/18622/Desktop/ASP.NET/PointOfSale/PointOfSaleWeb/Areas/Admin/Views/Category/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/18622/Desktop/ASP.NET/PointOfSale/PointOfSaleWeb/Areas/Admin/Views/Category/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/18622/Desktop/ASP.NET/PointOfSale/PointOfSaleWeb/Areas/Admin/Views/Category/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/18622/Desktop/ASP.NET/PointOfSale/PointOfSaleWeb/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/18622/Desktop/ASP.NET/PointOfSale/PointOfSaleWeb/Areas/Admin/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/18622/Desktop/ASP.NET/PointOfSale/PointOfSaleWeb/Areas/Admin/Views/Supplier/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3VwcGxpZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/18622/Desktop/ASP.NET/PointOfSale/PointOfSaleWeb/Areas/Admin/Views/Supplier/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3VwcGxpZXJcVXBzZXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/18622/Desktop/ASP.NET/PointOfSale/PointOfSaleWeb/Areas/Admin/Views/_ViewImports.cshtml]

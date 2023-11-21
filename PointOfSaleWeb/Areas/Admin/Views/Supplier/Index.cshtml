@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Manage Supplier";
+}
+
+<div>
+    <div class="row my-4">
+        <div class="col-6"><h2>Supplier List</h2></div>
+        <div class="col-6 text-end"><a class="btn btn-primary" asp-controller="Supplier" asp-action="Upsert">Add New Supplier</a></div>
+
+    </div>
+    <table class="table table-striped" id="tblData" style="width:100%">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Contract Person</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <td></td>              
+            </tr>
+        </thead>
+        
+    </table>
+</div>
+
+@section Scripts{
+    <script src = "~/js/supplier.js"></script>
+}
+

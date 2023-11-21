@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+thead{
+    background-color:black;
+    color: white;
+}
