@@ -20,8 +20,8 @@ function loadDataTable() {
                 "render": function (data) {
                     return `
                     
-                     <div>
-                        <a href="/Admin/UnitOfMeasurement/Upsert?id=${data}" class="btn btn-primary">Edit</a>
+                     <div class="btn-column">
+                        <a href="/Admin/UnitOfMeasurement/Upsert?id=${data}" class="btn btn-primary me-1">Edit</a>
                         <a onClick="Delete('/Admin/UnitOfMeasurement/Delete/${data}')" class="btn btn-danger">Delete</a>
                      </div>
                         
