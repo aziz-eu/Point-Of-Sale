@@ -19,14 +19,15 @@ namespace PointOfSale.DataAccess.Repository
             Category = new CategoryRepository (_db);
             Supplier = new SupplierRepository (_db);
             UnitOfMeasurment = new UnitsOfMeasurementRepository(_db);
+            Product = new ProductRepository (_db);
 
 
 
         }
         public ICategoryRepository Category { get; private set; }
         public ISupplierRepository Supplier { get; private set; }
-
         public IUnitsOfMeasurmentRepository UnitOfMeasurment { get; private set; }
+        public IProductRepository Product {  get; private set; }
 
         public void Save()
         {
