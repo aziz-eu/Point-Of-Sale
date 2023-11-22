@@ -66,15 +66,14 @@ namespace PointOfSale.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("SellPrice")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("SellPrice")
+                        .HasColumnType("int");
 
                     b.Property<int>("SupplierId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UnitPrice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UnitPrice")
+                        .HasColumnType("int");
 
                     b.Property<int>("UnitsOfMeasurementId")
                         .HasColumnType("int");

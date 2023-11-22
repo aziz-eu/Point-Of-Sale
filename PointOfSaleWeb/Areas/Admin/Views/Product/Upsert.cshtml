@@ -1,0 +1,87 @@
+﻿@model PointOfSale.Models.ViewModels.ProductVM
+@{
+    ViewData["Title"] = "Products";
+}
+
+
+<div class="border my-3 p-3">
+
+    <h2>@(Model.Product.Id != 0 ? "Edit Supplier Info" : "Add New Supplier") </h2>
+
+    <form method="post" asp-action="Upsert">
+        <input asp-for="Product.Id" hidden />
+        <div class="my-3">
+            <label asp-for="Product.Name"></label>
+            <input class="form-control" asp-for="Product.Name" />
+            <span class="required-warning" asp-validation-for="Product.Name"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Product.BarCode"></label>
+            <input class="form-control" asp-for="Product.BarCode" />
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Product.UnitPrice"></label>
+            <input class="form-control" asp-for="Product.UnitPrice" />
+            <span class="required-warning" asp-validation-for="Product.UnitPrice"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Product.SellPrice"></label>
+            <input class="form-control" asp-for="Product.SellPrice" />
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Product.Quantity"></label>
+            <input class="form-control" asp-for="Product.Quantity" />
+            <span class="required-warning" asp-validation-for="Product.Quantity"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Product.CategoryId"></label>
+            <select class="form-select" asp-for="Product.CategoryId" asp-items="Model.CategoryList">
+                <option selected disabled>-- Select Category --</option>
+            </select>            
+            <span class="required-warning" asp-validation-for="Product.CategoryId"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.SupplierId"></label>
+            <select class="form-select" asp-for="Product.SupplierId" asp-items="Model.SupplierList">
+                <option selected disabled>-- Select Supplier --</option>
+            </select>
+            <span class="required-warning" asp-validation-for="Product.SupplierId"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Product.UnitsOfMeasurementId"></label>
+            <select class="form-select" asp-for="Product.UnitsOfMeasurementId" asp-items="Model.UnitsList">
+                <option selected disabled>-- Select Category --</option>
+            </select>
+            <span class="required-warning" asp-validation-for="Product.UnitsOfMeasurementId"></span>
+        </div>
+
+
+
+        <div class="my-4">
+            @if (Model.Product.Id != 0)
+            {
+                <button class="btn btn-primary" type="submit">Update</button>
+            }
+            else
+            {
+                <button class="btn btn-primary" type="submit">Add</button>
+            }
+
+            <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Back To List</a>
+        </div>
+
+
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

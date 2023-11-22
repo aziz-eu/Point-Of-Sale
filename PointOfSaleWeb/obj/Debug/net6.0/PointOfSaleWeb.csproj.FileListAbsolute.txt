@@ -251,3 +251,8 @@ C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Point
 C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\PointOfSale.Models.pdb
 C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\PointOfSale.DataAccess.dll
 C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\PointOfSale.DataAccess.pdb
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\obj\Debug\net6.0\PointOfSaleWeb.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
