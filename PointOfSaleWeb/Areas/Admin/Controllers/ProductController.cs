@@ -77,7 +77,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 else
                 {
                     _unitOfWork.Product.Update(obj.Product);
-                    TempData["success"] = "Category Product Sccessful";
+                    TempData["success"] = "Update Product Sccessful";
                 }
                 _unitOfWork.Save();
                 return RedirectToAction(nameof(Index));

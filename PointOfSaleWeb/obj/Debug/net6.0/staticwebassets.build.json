@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+i3n3Am5KdRLpc3FAX63xzwTqsrKyII32eWb3SZjQn4=",
+  "Hash": "fra9n/igcz1Svo41jKebImx09KOHpNDZFxNpOsYMY2o=",
   "Source": "PointOfSaleWeb",
   "BasePath": "_content/PointOfSaleWeb",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\category.js"
+    },
+    {
+      "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSaleWeb\\wwwroot\\js\\product.js",
+      "SourceId": "PointOfSaleWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSaleWeb\\wwwroot\\",
+      "BasePath": "_content/PointOfSaleWeb",
+      "RelativePath": "js/product.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\product.js"
     },
     {
       "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSaleWeb\\wwwroot\\js\\supplier.js",
