@@ -13,8 +13,11 @@ function loadDataTable() {
         },
         "columns": [
             { "data": "name" },
-            { "data": "sellPrice" },
-            {"data" : "categoryId"},
+            { "data": "supplier.company" },
+            { "data": "category.name" },
+            { "data": "quantity"},
+            { "data": "unitsOfMeasurement.name" },
+            { "data": "unitPrice" },
 
 
             {

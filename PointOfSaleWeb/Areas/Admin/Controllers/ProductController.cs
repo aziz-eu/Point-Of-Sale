@@ -93,7 +93,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll() {
 
-            var product = _unitOfWork.Product.GetAll();
+            var product = _unitOfWork.Product.GetAll(includeProperties : "Category,Supplier,UnitsOfMeasurement");
 
             return Json(new { data = product });
         }
