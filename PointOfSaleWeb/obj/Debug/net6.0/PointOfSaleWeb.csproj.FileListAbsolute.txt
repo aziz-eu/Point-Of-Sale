@@ -256,3 +256,12 @@ C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Micro
 C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\PointOfSale.Utility.dll
+C:\Users\18622\Desktop\ASP.NET\PointOfSale\PointOfSaleWeb\bin\Debug\net6.0\PointOfSale.Utility.pdb
