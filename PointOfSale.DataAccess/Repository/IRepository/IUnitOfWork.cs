@@ -13,6 +13,8 @@ namespace PointOfSale.DataAccess.Repository.IRepository
         ISupplierRepository Supplier { get; }
         IUnitsOfMeasurmentRepository UnitOfMeasurment { get; }
         IProductRepository Product { get; }
+        ICartRepository Cart { get; }
+        IApplicationUserRepository ApplicationUser { get; }
         void Save();
     }
 }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace PointOfSale.DataAccess.Repository.IRepository
 {
-     public interface ICategoryRepository : IRepository<Category>
+    public interface ICartRepository : IRepository<Cart>
     {
-       
+
     }
 }

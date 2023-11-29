@@ -29,6 +29,10 @@ namespace PointOfSale.DataAccess.Repository
         public IUnitsOfMeasurmentRepository UnitOfMeasurment { get; private set; }
         public IProductRepository Product {  get; private set; }
 
+        public ICartRepository Cart {  get; private set; }
+
+        public IApplicationUserRepository ApplicationUser { get; private set; }
+
         public void Save()
         {
             _db.SaveChanges();
