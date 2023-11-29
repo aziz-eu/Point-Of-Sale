@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8snDlt5LoIVUBJXmfMlgEHm2Zq9ktjLwkJYGW2wWPhgnxwDwTcyN4Eu/uLob0RHT92pVsdkOuK1WaUnUO15smg==",
+  "dgSpecHash": "8tGfRB2dCh9u2Rk+bTk+PLhwlts6360bPEFijVnpENTwtd9tVW7HNDpCVszAHthA4KHvTnnvMOK4gBVf/x1kmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSale.Utility\\PointOfSale.Utility.csproj",
+  "projectFilePath": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.Utility\\PointOfSale.Utility.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\18622\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.23\\microsoft.aspnetcore.cryptography.internal.6.0.23.nupkg.sha512",
     "C:\\Users\\18622\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.23\\microsoft.aspnetcore.cryptography.keyderivation.6.0.23.nupkg.sha512",

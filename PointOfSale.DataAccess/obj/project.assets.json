@@ -8006,11 +8006,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSale.DataAccess\\PointOfSale.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.DataAccess\\PointOfSale.DataAccess.csproj",
       "projectName": "PointOfSale.DataAccess",
-      "projectPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSale.DataAccess\\PointOfSale.DataAccess.csproj",
+      "projectPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.DataAccess\\PointOfSale.DataAccess.csproj",
       "packagesPath": "C:\\Users\\18622\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSale.DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\18622\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8027,8 +8027,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSale.Models\\PointOfSale.Models.csproj": {
-              "projectPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSale.Models\\PointOfSale.Models.csproj"
+            "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.Models\\PointOfSale.Models.csproj": {
+              "projectPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.Models\\PointOfSale.Models.csproj"
             }
           }
         }

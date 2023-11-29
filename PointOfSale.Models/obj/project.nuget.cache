@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YyeTAISk9rx5pviuTpO9gRs3TCSw7DqvphSUdZ0rZPBlS9DAsJI3BfQbaaB2KXirNqD0j2Ox3y2ngn8aATuyVQ==",
+  "dgSpecHash": "3Q0qiy5gTqnCKF/7AyrQT7StjxGnTuwkdsq/nULDjS8l51GSyoSrFV5O/ZjmLlJJ5ei35Oe1BlwlvAyfmyS02w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSale.Models\\PointOfSale.Models.csproj",
+  "projectFilePath": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.Models\\PointOfSale.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\18622\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\18622\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

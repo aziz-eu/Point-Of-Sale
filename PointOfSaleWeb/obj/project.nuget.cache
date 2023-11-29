@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "77cw7V15NTISWACLjJcUBoijOCD235sEJ1wqYQq+SPkqv58etNadBH/7WmxsDhmRH6EqBnRKNdMEwqskM5MYHw==",
+  "dgSpecHash": "Stww7sMVVp75O6CscqDsRInaJXXBsTPVJFWgH/g7V9VDZYdee6NB2JdmqobrineUcOpbjpyqkSbo1LHm3cAggQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\18622\\Desktop\\ASP.NET\\PointOfSale\\PointOfSaleWeb\\PointOfSaleWeb.csproj",
+  "projectFilePath": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\PointOfSaleWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\18622\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\18622\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
