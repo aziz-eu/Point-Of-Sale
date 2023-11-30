@@ -1,0 +1,46 @@
+﻿@model PointOfSale.Models.ViewModels.InvoiceVM
+@{
+    ViewData["Title"] = "Products";
+}
+
+
+<div class="border my-3 p-3">
+
+    <h2>Create Invoice </h2>
+
+    <form method="post" asp-action="Upsert">
+        <input asp-for="Cart.Id" hidden />
+      @*   <div class="my-3">
+            <label asp-for="Product.Name"></label>
+            <input class="form-control" asp-for="Product.Name" />
+            <span class="required-warning" asp-validation-for="Product.Name"></span>
+        </div>
+ *@
+        <div class="my-3">
+            <label asp-for="Cart.ProdouctId"></label>
+            <select class="form-select" asp-for="Cart.ProdouctId" asp-items="Model.ProductList">
+                <option selected disabled>-- Select Category --</option>
+            </select>
+            <span class="required-warning" asp-validation-for="Cart.ProdouctId"></span>
+        </div>
+
+
+
+        <div class="my-4">
+            
+            
+                <button class="btn btn-primary" type="submit">Create</button>
+            
+
+            <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Back To List</a>
+        </div>
+
+
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

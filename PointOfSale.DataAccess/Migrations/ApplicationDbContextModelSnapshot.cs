@@ -240,7 +240,13 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Property<string>("ApplicationUserId1")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
                     b.Property<int>("ProdouctId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("count")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
