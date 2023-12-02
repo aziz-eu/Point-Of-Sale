@@ -19,5 +19,6 @@ namespace PointOfSale.Data
 
         public DbSet <ApplicationUser> ApplicationUsers { get; set; }
         public DbSet <Cart> Carts { get; set; }
+        public DbSet <VatRate> VatRates { get; set; }
     }
 }
