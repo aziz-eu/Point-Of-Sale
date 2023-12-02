@@ -33,6 +33,7 @@ namespace PointOfSale.DataAccess.Repository
         public ICartRepository Cart {  get; private set; }
 
         public IApplicationUserRepository ApplicationUser { get; private set; }
+        public IVatRateRepository VatRate { get; private set; }
 
         public void Save()
         {

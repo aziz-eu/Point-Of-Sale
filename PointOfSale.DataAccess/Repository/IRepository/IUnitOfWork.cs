@@ -15,6 +15,7 @@ namespace PointOfSale.DataAccess.Repository.IRepository
         IProductRepository Product { get; }
         ICartRepository Cart { get; }
         IApplicationUserRepository ApplicationUser { get; }
+        IVatRateRepository VatRate { get; }
         void Save();
     }
 }
