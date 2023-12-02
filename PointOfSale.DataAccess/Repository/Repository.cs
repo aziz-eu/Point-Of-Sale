@@ -54,7 +54,7 @@ namespace PointOfSale.DataAccess.Repository
         public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
-            query.Where(filter);
+            query = query.Where(filter);
              if(includeProperties!= null)
             {
                 foreach (var includeProp in includeProperties.Split(new char []{ ','},StringSplitOptions.RemoveEmptyEntries))
@@ -65,5 +65,6 @@ namespace PointOfSale.DataAccess.Repository
             }
             return query.FirstOrDefault();
         }
+
     }
 }

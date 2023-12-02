@@ -10,5 +10,8 @@ namespace PointOfSale.DataAccess.Repository.IRepository
     public interface ICartRepository : IRepository<Cart>
     {
 
+        int UpdateCount(Cart cart, int count);
+        double UpdatePrice(Cart cart, double price);
+
     }
 }

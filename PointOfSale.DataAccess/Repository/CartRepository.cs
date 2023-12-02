@@ -17,6 +17,17 @@ namespace PointOfSale.DataAccess.Repository
         {
             _db = db;
         }
-       
+
+        public double UpdatePrice(Cart cart, double price)
+        {
+            cart.Price = price;
+            return cart.Count;
+        }
+
+        public int UpdateCount(Cart cart, int count)
+        {
+            cart.Count = count;
+            return cart.Count;
+        }
     }
 }

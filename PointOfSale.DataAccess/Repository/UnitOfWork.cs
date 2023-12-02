@@ -20,7 +20,8 @@ namespace PointOfSale.DataAccess.Repository
             Supplier = new SupplierRepository (_db);
             UnitOfMeasurment = new UnitsOfMeasurementRepository(_db);
             Product = new ProductRepository (_db);
-
+            Cart = new CartRepository (_db);
+            ApplicationUser = new ApplicationUserRepository (_db);
 
 
         }

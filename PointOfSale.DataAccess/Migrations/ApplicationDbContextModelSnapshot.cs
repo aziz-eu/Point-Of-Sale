@@ -234,11 +234,12 @@ namespace PointOfSale.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ApplicationUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ApplicationUserId1")
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -246,12 +247,9 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Property<int>("ProdouctId")
                         .HasColumnType("int");
 
-                    b.Property<int>("count")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId1");
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("ProdouctId");
 
@@ -443,7 +441,9 @@ namespace PointOfSale.DataAccess.Migrations
                 {
                     b.HasOne("PointOfSale.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
-                        .HasForeignKey("ApplicationUserId1");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("PointOfSale.Models.Product", "Product")
                         .WithMany()
