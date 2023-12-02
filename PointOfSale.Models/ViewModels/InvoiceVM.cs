@@ -14,6 +14,9 @@ namespace PointOfSale.Models.ViewModels
         public IEnumerable<Cart> ListCart { get; set; }
 
         public double CartTotal { get; set; }
+        public double VatRate { get; set; }
+        public double VatTotal {  get; set; }
+        public double Total { get; set; }
 
         [ValidateNever]
         public IEnumerable<SelectListItem> ProductList { get; set; }

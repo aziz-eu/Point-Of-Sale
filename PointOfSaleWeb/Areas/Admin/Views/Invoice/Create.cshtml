@@ -74,9 +74,9 @@
        
 
 </table>
-    <h1>Sub Total: @Model.CartTotal.ToString("n")</h1>
-    <h1>VAT (5%): @(((Model.CartTotal * 5)/100).ToString("n"))</h1>
-    <h1>Grand Total :  @((Model.CartTotal + (Model.CartTotal * 5) / 100).ToString("n")) </h1>
+    <h1>Sub Total : @Model.CartTotal.ToString("n")</h1>
+    <h1>Vat (@Model.VatRate)% : @Model.VatTotal.ToString("n")</h1>
+    <h1>Grand Total :  @Model.Total.ToString("n") </h1>
 </div>
 
 <div>

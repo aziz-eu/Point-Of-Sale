@@ -27,6 +27,8 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
         public IActionResult Create()
         {
+
+
             InvoiceVM invoiceVM = new InvoiceVM()
             {
                 Cart = new(),
@@ -43,6 +45,12 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             { 
                 invoiceVM.CartTotal += item.Count*item.Price;
             }
+            VatRate vat = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1);
+            invoiceVM.VatRate = vat.Vat;
+
+            invoiceVM.VatTotal = _unitOfWork.VatRate.CalculateVat(invoiceVM.CartTotal, vat);
+
+            invoiceVM.Total = invoiceVM.CartTotal + invoiceVM.VatTotal;
 
             return View(invoiceVM);
         }
@@ -59,6 +67,8 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
                 obj.Cart.ApplicationUserId = claim.Value;
 
+
+              
               Cart cart = _unitOfWork.Cart.GetFirstOrDefault(u => u.ProdouctId == obj.Cart.ProdouctId);
 
                 if(cart == null) {

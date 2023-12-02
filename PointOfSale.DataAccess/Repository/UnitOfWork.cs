@@ -22,6 +22,7 @@ namespace PointOfSale.DataAccess.Repository
             Product = new ProductRepository (_db);
             Cart = new CartRepository (_db);
             ApplicationUser = new ApplicationUserRepository (_db);
+            VatRate = new VatRepository (_db);
 
 
         }

@@ -16,6 +16,13 @@ namespace PointOfSale.DataAccess.Repository
         {
             
         }
+
+        public double CalculateVat(double number, VatRate vat)
+        {
+            vat.Vat = number * (vat.Vat/100);
+            return vat.Vat;
+        }
+
         public void Update(VatRate vatRate)
         {
             _db.VatRates.Update(vatRate);

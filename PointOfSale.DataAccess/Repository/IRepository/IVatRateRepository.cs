@@ -10,5 +10,7 @@ namespace PointOfSale.DataAccess.Repository.IRepository
     public interface IVatRateRepository : IRepository<VatRate>
     {
         void Update(VatRate vatRate);
+
+        double CalculateVat(double number, VatRate vat);
     }
 }
