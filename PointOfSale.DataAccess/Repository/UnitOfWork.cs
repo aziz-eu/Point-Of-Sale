@@ -23,6 +23,8 @@ namespace PointOfSale.DataAccess.Repository
             Cart = new CartRepository (_db);
             ApplicationUser = new ApplicationUserRepository (_db);
             VatRate = new VatRepository (_db);
+            InvoiceDetail = new InvoiceDetailRepository (_db);
+            InvoiceHeader = new InvoiceHeaderRepository (_db);
 
 
         }
@@ -36,6 +38,9 @@ namespace PointOfSale.DataAccess.Repository
         public IApplicationUserRepository ApplicationUser { get; private set; }
         public IVatRateRepository VatRate { get; private set; }
 
+        public IInvoiceDetailRepository InvoiceDetail {  get; private set; }
+
+        public IInvoiceHeaderRepository InvoiceHeader { get; private set; }
         public void Save()
         {
             _db.SaveChanges();
