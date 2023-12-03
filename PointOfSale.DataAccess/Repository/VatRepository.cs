@@ -19,8 +19,8 @@ namespace PointOfSale.DataAccess.Repository
 
         public double CalculateVat(double number, VatRate vat)
         {
-            vat.Vat = number * (vat.Vat/100);
-            return vat.Vat;
+            var totalVat = number * (vat.Vat/100);
+            return totalVat;
         }
 
         public void Update(VatRate vatRate)

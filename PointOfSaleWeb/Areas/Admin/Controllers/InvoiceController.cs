@@ -66,9 +66,8 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 var claimIdentity = (ClaimsIdentity)User.Identity;
                 var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
                 obj.Cart.ApplicationUserId = claim.Value;
+                              
 
-
-              
               Cart cart = _unitOfWork.Cart.GetFirstOrDefault(u => u.ProdouctId == obj.Cart.ProdouctId);
 
                 if(cart == null) {
@@ -118,7 +117,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
             InvoiceVM.ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product");
             InvoiceVM.VatRate = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1);
-            InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Paid;
+            InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Due;
             InvoiceVM.InvoiceHeader.CreatedAt= DateTime.Now;
             InvoiceVM.InvoiceHeader.ApplicationUserId = claim.Value;
 
@@ -126,8 +125,25 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             {
                 InvoiceVM.InvoiceHeader.SubTotal += item.Count * item.Price;
             }
+            if (InvoiceVM.InvoiceHeader.SubTotal <= 0)
+            {
+                TempData["success"] = "Please Add Item First";
+                return RedirectToAction(nameof(Create));
+            }
             InvoiceVM.InvoiceHeader.Vat = _unitOfWork.VatRate.CalculateVat(InvoiceVM.InvoiceHeader.SubTotal, InvoiceVM.VatRate);
             InvoiceVM.InvoiceHeader.Total = InvoiceVM.InvoiceHeader.SubTotal + InvoiceVM.InvoiceHeader.Vat;
+            InvoiceVM.InvoiceHeader.UnpaidAmount = InvoiceVM.InvoiceHeader.Total - InvoiceVM.InvoiceHeader.PaidAmount;
+            if(InvoiceVM.InvoiceHeader.UnpaidAmount < 1)
+            {
+                InvoiceVM.InvoiceHeader.UnpaidAmount = 0;
+                InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Paid;
+            }
+
+            if (InvoiceVM.InvoiceHeader.PaidAmount> InvoiceVM.InvoiceHeader.Total)
+            {
+                TempData["success"] = "Ivalid Amount";
+                return RedirectToAction(nameof(Create));
+            }
 
             _unitOfWork.InvoiceHeader.Add(InvoiceVM.InvoiceHeader);
             _unitOfWork.Save();
