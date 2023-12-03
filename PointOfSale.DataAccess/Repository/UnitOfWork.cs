@@ -23,8 +23,9 @@ namespace PointOfSale.DataAccess.Repository
             Cart = new CartRepository (_db);
             ApplicationUser = new ApplicationUserRepository (_db);
             VatRate = new VatRepository (_db);
+            InvoiceHeader = new InvoiceHeaderRepository(_db);
             InvoiceDetail = new InvoiceDetailRepository (_db);
-            InvoiceHeader = new InvoiceHeaderRepository (_db);
+        
 
 
         }

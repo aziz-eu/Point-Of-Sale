@@ -1,6 +1,6 @@
 ﻿@model PointOfSale.Models.ViewModels.InvoiceVM
 @{
-    ViewData["Title"] = "Products";
+    ViewData["Title"] = "Invoice";
 }
 
 
@@ -45,6 +45,8 @@
     </form>
 </div>
 
+<form method="post" asp-action="Save">
+
 <div>
 <table class="table table-striped table-bordered" id="tblData" style="width:100%">
     <thead>
@@ -74,35 +76,45 @@
        
 
 </table>
-    <h1>Sub Total : @Model.CartTotal.ToString("n")</h1>
-    <h1>Vat (@Model.VatRate)% : @Model.VatTotal.ToString("n")</h1>
-    <h1>Grand Total :  @Model.Total.ToString("n") </h1>
+    <h1>Sub Total : @Model.InvoiceHeader.SubTotal.ToString("n")</h1>
+    <h1>Vat (@Model.VatPercentage)% : @Model.InvoiceHeader.Vat.ToString("n")</h1>
+    <h1>Grand Total :  @Model.InvoiceHeader.Total.ToString("n") </h1>
 </div>
 
 <div>
     <div class="my-3">
-        <label ></label>
-        <input class="form-control" />
-        <span class="required-warning"></span>
+        <label asp-for="@Model.InvoiceHeader.PaidAmount" ></label>
+            <input asp-for="@Model.InvoiceHeader.PaidAmount" class="form-control" />
+            <span asp-validation-for="@Model.InvoiceHeader.PaidAmount" class="required-warning"></span>
     </div>
     <div class="my-3">
-        <label></label>
-        <input class="form-control" />
-        <span class="required-warning"></span>
+            <label asp-for="@Model.InvoiceHeader.Name"></label>
+           <input asp-for="@Model.InvoiceHeader.Name" class="form-control" />
+        <span asp-validation-for="@Model.InvoiceHeader.Name" class="required-warning"></span>
     </div>
-    <div class="my-3">
-        <label></label>
-        <input class="form-control" />
-        <span class="required-warning"></span>
-    </div>
-    <div class="my-3">
-        <label></label>
-        <input class="form-control" />
-        <span class="required-warning"></span>
-    </div>
+
+        <div class="my-3">
+            <label asp-for="@Model.InvoiceHeader.PhoneNumbar"></label>
+            <input asp-for="@Model.InvoiceHeader.PhoneNumbar" class="form-control" />
+            <span asp-validation-for="@Model.InvoiceHeader.PhoneNumbar" class="required-warning"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="@Model.InvoiceHeader.Email"></label>
+            <input asp-for="@Model.InvoiceHeader.Email" class="form-control" />
+            <span asp-validation-for="@Model.InvoiceHeader.Email" class="required-warning"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="@Model.InvoiceHeader.Address"></label>
+            <input asp-for="@Model.InvoiceHeader.Address" class="form-control" />
+            <span asp-validation-for="@Model.InvoiceHeader.Address" class="required-warning"></span>
+        </div>
 
     
 </div>
+    <div class="my-4">
+        <button class="btn btn-primary" type="submit">Create</button>
+    </div>
+</form>
 
 
 @section Scripts{

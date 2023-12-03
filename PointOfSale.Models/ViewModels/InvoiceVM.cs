@@ -11,12 +11,10 @@ namespace PointOfSale.Models.ViewModels
     public class InvoiceVM
     {
         public Cart Cart { get; set; }
+        public InvoiceHeader InvoiceHeader { get; set; }
+        public VatRate VatRate { get; set; }
         public IEnumerable<Cart> ListCart { get; set; }
-
-        public double CartTotal { get; set; }
-        public double VatRate { get; set; }
-        public double VatTotal {  get; set; }
-        public double Total { get; set; }
+        public double VatPercentage { get; set; }
 
         [ValidateNever]
         public IEnumerable<SelectListItem> ProductList { get; set; }
