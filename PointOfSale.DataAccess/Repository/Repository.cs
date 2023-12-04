@@ -18,7 +18,7 @@ namespace PointOfSale.DataAccess.Repository
         public Repository(ApplicationDbContext db)
         {
             _db = db;
-            //_db.Products.Include(u => u.Category).Include(u => u.Supplier).Include(u => u.UnitsOfMeasurement);
+            //_db.Products.Include(u => u.UnitsOfMeasurement).Include(u => u.Supplier).Include(u => u.UnitsOfMeasurement);
             this.dbSet = _db.Set<T>();
            
         }

@@ -25,9 +25,9 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             return View();
         }
 
+
         public IActionResult Create()
         {
-
 
             InvoiceVM invoiceVM = new InvoiceVM()
             {
@@ -39,6 +39,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                         Value = u.Id.ToString(),
                     }),
                 ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product"),
+
                 InvoiceHeader = new(),
                 VatRate = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1)
             };
@@ -166,6 +167,40 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             _unitOfWork.Save();
             return RedirectToAction("Index");
         }
+
+
+        #region API CALLS
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            IEnumerable<InvoiceHeader> invoiceHeaders;
+
+            invoiceHeaders = _unitOfWork.InvoiceHeader.GetAll(includeProperties: "ApplicationUser");
+
+            return Json(new { data = invoiceHeaders });
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int? id)
+        {
+
+            var product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
+            if (product == null)
+            {
+                return Json(new { success = false, message = "Error Whiling Delete" });
+            }
+            else
+            {
+                _unitOfWork.Product.Remove(product);
+                _unitOfWork.Save();
+                return Json(new { success = true, message = "Delete Successful" });
+            }
+
+        }
+
+        #endregion
+
 
     }
 }
