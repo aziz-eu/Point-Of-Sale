@@ -247,17 +247,11 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Property<int>("ProdouctId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UnitsOfMeasurementId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("ProdouctId");
-
-                    b.HasIndex("UnitsOfMeasurementId");
 
                     b.ToTable("Carts");
                 });
@@ -352,7 +346,7 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Property<double>("Total")
                         .HasColumnType("float");
 
-                    b.Property<double?>("UnpaidAmount")
+                    b.Property<double>("UnpaidAmount")
                         .HasColumnType("float");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -559,17 +553,9 @@ namespace PointOfSale.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PointOfSale.Models.UnitsOfMeasurement", "UnitsOfMeasurement")
-                        .WithMany()
-                        .HasForeignKey("UnitsOfMeasurementId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("ApplicationUser");
 
                     b.Navigation("Product");
-
-                    b.Navigation("UnitsOfMeasurement");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.InvoiceDetail", b =>

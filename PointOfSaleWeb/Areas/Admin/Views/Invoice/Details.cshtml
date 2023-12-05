@@ -1,0 +1,44 @@
+﻿@model PointOfSale.Models.ViewModels.InvoiceVM
+@{
+    ViewData["Title"] = "Invoice Details";
+}
+
+<div>
+    <div class="row my-4">
+        <div class="col-6"><h2>Product List</h2></div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-controller="Invoice" asp-action="Edit" asp-route-id="@Model.InvoiceHeader.Id">Edit</a>
+            <a class="btn btn-primary" asp-controller="Invoice" asp-action="Edit">Print</a>
+            <a class="btn btn-primary" asp-controller="Invoice" asp-action="Edit">Download</a>
+            </div>
+
+    </div>
+    </div>
+<h1>Invo No : @Model.InvoiceHeader.Id</h1>
+<h1>Name : @Model.InvoiceHeader.Name</h1>
+<h1>@Model.InvoiceHeader.PhoneNumbar</h1>
+
+<table class="table table-striped">
+
+    <tr>
+        <td>Product</td>
+        <td>Unit Price</td>
+        <td>Qty</td>
+        <td>Total</td>
+      
+    </tr>
+@foreach(var  item in @Model.InvoiceDetails)
+{
+    <tr>
+    <td>@item.Product.Name</td>
+        <td>@item.Price</td>
+        <td>@item.Count</td>
+        <td> @((item.Price * item.Count))</td>
+        </tr>
+
+    
+}
+</table>
+<h1>SUB TOTAL:@Model.InvoiceHeader.SubTotal</h1>
+<h1>VAT :@Model.InvoiceHeader.Vat</h1>
+<h1>TORAL :@Model.InvoiceHeader.Total</h1>

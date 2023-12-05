@@ -19,7 +19,7 @@ namespace PointOfSale.Models
         public double Vat {  get; set; }
         public double Total { get; set; }
         public double PaidAmount { get; set; }
-        public double? UnpaidAmount { get; set; }
+        public double UnpaidAmount { get; set; }
         public string PaymentSataus { get; set; }
         [Required]
         public string Name { get; set; }
@@ -31,6 +31,9 @@ namespace PointOfSale.Models
         [ForeignKey (nameof(ApplicationUserId))]
         [ValidateNever]
         public ApplicationUser ApplicationUser { get; set; }
+
+        [NotMapped]
+        public double UpdateDue {  get; set; }
 
     }
 }

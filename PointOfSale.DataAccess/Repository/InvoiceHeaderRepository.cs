@@ -14,7 +14,7 @@ namespace PointOfSale.DataAccess.Repository
         public ApplicationDbContext _db;
         public InvoiceHeaderRepository(ApplicationDbContext db) : base(db)
         {
-            
+            _db = db;
         }
         public void Update(InvoiceHeader invoiceHeader)
         {
@@ -28,6 +28,13 @@ namespace PointOfSale.DataAccess.Repository
             {
                 obj.PaymentSataus = paymentStatus;
             }
+        }
+
+        public double UpdateUnPaidAmount(int id, double amount)
+        {
+            var obj = _db.InvoiceHeaders.FirstOrDefault(x => x.Id == id);
+            return 0;
+
         }
     }
 }

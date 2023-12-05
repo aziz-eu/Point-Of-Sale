@@ -1,0 +1,74 @@
+﻿@model PointOfSale.Models.ViewModels.InvoiceVM
+@{
+    ViewData["Title"] = "Invoice Edit";
+}
+
+<div class="border my-3 p-3">
+
+    <h2>Edit Invoice </h2>
+
+
+       <table class="table table-striped">
+            <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+            </tr>
+
+            @foreach (var item in Model.InvoiceDetails)
+            {
+
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Count</td>
+                    <td>@item.Price</td>
+                    <td>@((item.Price* @item.Count).ToString("n"))</td>
+                   
+                </tr>
+
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td>@Model.InvoiceHeader.Total</td>  
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Paid</td>
+                <td>@Model.InvoiceHeader.PaidAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Due</td>
+                <td>@Model.InvoiceHeader.UnpaidAmount</td>
+                <td></td>
+            </tr>
+
+        </table>
+
+       
+
+        <div class="row">
+        </div>
+
+        <form method="post" asp-action="EditPost">
+            <input asp-for="InvoiceHeader.Id"/>
+        <div class="my-3 col-lg-2">
+            <label asp-for="InvoiceHeader.UpdateDue"></label>
+            <input class="form-control" asp-for="InvoiceHeader.UpdateDue" />
+            <span class="required-warning" asp-validation-for="InvoiceHeader.UpdateDue"></span>
+
+
+            <div class="my-4 col-lg-2">
+                <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+        </div>
+        </form>
+</div>

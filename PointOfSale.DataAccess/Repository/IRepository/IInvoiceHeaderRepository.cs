@@ -12,5 +12,7 @@ namespace PointOfSale.DataAccess.Repository.IRepository
         void Update (InvoiceHeader invoiceHeader);
 
         void UpdatePaymentStatus(int id, string? paymentStatus = null);
+
+        double UpdateUnPaidAmount(int id ,double amount);
     }
 }

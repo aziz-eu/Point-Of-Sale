@@ -25,6 +25,16 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             return View();
         }
 
+        public IActionResult Details(int id)
+        {
+            InvoiceVM = new InvoiceVM()
+            {
+                InvoiceHeader = _unitOfWork.InvoiceHeader.GetFirstOrDefault(x => x.Id == id),
+                InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties : "Product")
+
+            };
+            return View(InvoiceVM);
+        }
 
         public IActionResult Create()
         {
@@ -166,6 +176,56 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             _unitOfWork.Cart.RemoveRange(InvoiceVM.ListCart);
             _unitOfWork.Save();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            InvoiceVM = new InvoiceVM()
+            {
+                InvoiceHeader = _unitOfWork.InvoiceHeader.GetFirstOrDefault(x => x.Id == id),
+                InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties: "Product")
+
+            };
+            return View(InvoiceVM);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditPost(InvoiceVM InvoiceVM)
+        {
+            try
+            {
+               var invoiceHeader =  _unitOfWork.InvoiceHeader.GetFirstOrDefault(u=> u.Id == InvoiceVM.InvoiceHeader.Id);
+
+                if (InvoiceVM.InvoiceHeader.UpdateDue > invoiceHeader.UnpaidAmount  || InvoiceVM.InvoiceHeader.UpdateDue <0)
+                {
+                    TempData["Success"] = "Please Enter Valid Ammount";
+                    return RedirectToAction(nameof(Edit), new {id = invoiceHeader.Id});
+                }
+                invoiceHeader.PaidAmount = invoiceHeader.PaidAmount + InvoiceVM.InvoiceHeader.UpdateDue;
+                invoiceHeader.UnpaidAmount = invoiceHeader.UnpaidAmount - InvoiceVM.InvoiceHeader.UpdateDue;
+
+                if(invoiceHeader.UnpaidAmount< 1)
+                {
+                    invoiceHeader.PaymentSataus = SD.PaymentStatus_Paid;
+                    invoiceHeader.UnpaidAmount = 0;
+                }
+             
+
+                _unitOfWork.InvoiceHeader.Update(invoiceHeader);
+                    _unitOfWork.Save();
+                
+                
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+
+            }
+           
+            return View(InvoiceVM);
+
         }
 
 
