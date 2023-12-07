@@ -247,14 +247,15 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         public IActionResult Delete(int? id)
         {
 
-            var product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
-            if (product == null)
+            var inovceHeader = _unitOfWork.InvoiceHeader.GetFirstOrDefault(u => u.Id == id);
+         
+            if (inovceHeader == null)
             {
                 return Json(new { success = false, message = "Error Whiling Delete" });
             }
             else
             {
-                _unitOfWork.Product.Remove(product);
+                _unitOfWork.InvoiceHeader.Remove(inovceHeader);
                 _unitOfWork.Save();
                 return Json(new { success = true, message = "Delete Successful" });
             }

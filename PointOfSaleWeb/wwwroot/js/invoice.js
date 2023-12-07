@@ -31,12 +31,16 @@ function loadDataTable() {
             {
                 "data": "id",
                 "render": function (data) {
-                    return `                    
+               
+                    return `
+                    
                      <div class="btn-column">
-                        <a href="/Admin/Invoice/Details?id=${data}" class="btn btn-primary me-1">Details</a>
-                      
-                     </div>                       
+                         <a href="/Admin/Invoice/Details?id=${data}" class="btn btn-primary me-1">Details</a>
+                        <a onClick="Delete('/Admin/Invoice/Delete/${data}')" class="btn btn-danger">Delete</a>
+                     </div>
+                                          
                     `
+
                 }
 
             }
