@@ -42,6 +42,7 @@ namespace PointOfSale.DataAccess.Repository
         public IInvoiceDetailRepository InvoiceDetail {  get; private set; }
 
         public IInvoiceHeaderRepository InvoiceHeader { get; private set; }
+        public ICompanyRepository Company { get; private set; }
         public void Save()
         {
             _db.SaveChanges();
