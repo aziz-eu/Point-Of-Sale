@@ -14,11 +14,11 @@ namespace PointOfSale.Models
 
         [Required]
         public string Company { get; set; }
-        [Required]
-        public string ContactPerson { get; set; }
+       
+        public string? ContactPerson { get; set; }
 
-        [Required]
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
+       
+        public string? PhoneNumber { get; set; }
+        public string? Email { get; set; }
     }
 }

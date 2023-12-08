@@ -80,15 +80,25 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         [HttpDelete]
         public IActionResult Delete(int? id) {
 
-            var category = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
-            if(category == null)
+            try
             {
-                return Json(new {success =  false , message= "Error while deleteing" });
+                var category = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+                if (category == null)
+                {
+                    return Json(new { success = false, message = "Error while deleteing" });
+                }
+
+                _unitOfWork.Category.Remove(category);
+                _unitOfWork.Save();
+                return Json(new { success = true, message = "Delete Successful" });
+
             }
-            
-            _unitOfWork.Category.Remove(category);
-            _unitOfWork.Save();
-            return Json(new { success = true, message = "Delete Successful" });
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "First Delete the Releted Products" });
+            }
+
+           
             
         
         

@@ -14,6 +14,7 @@
 
     </div>
     </div>
+    @Model.Company.Name;
 <h1>Invo No : @Model.InvoiceHeader.Id</h1>
 <h1>Name : @Model.InvoiceHeader.Name</h1>
 <h1>@Model.InvoiceHeader.PhoneNumbar</h1>
@@ -34,6 +35,7 @@
         <td>@item.Price</td>
         <td>@item.Count</td>
         <td> @((item.Price * item.Count))</td>
+        <td>@Model.AmountInWord</td>
         </tr>
 
     

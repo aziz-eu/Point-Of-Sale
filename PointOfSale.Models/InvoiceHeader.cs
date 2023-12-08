@@ -27,10 +27,10 @@ namespace PointOfSale.Models
         public string? Email { get; set; }
         public string? Address { get; set; }
 
-        public string ApplicationUserId {  get; set; }
+        public string? ApplicationUserId {  get; set; }
         [ForeignKey (nameof(ApplicationUserId))]
         [ValidateNever]
-        public ApplicationUser ApplicationUser { get; set; }
+        public ApplicationUser? ApplicationUser { get; set; }
 
         [NotMapped]
         public double UpdateDue {  get; set; }

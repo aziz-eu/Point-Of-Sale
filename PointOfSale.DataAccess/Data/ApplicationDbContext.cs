@@ -12,6 +12,47 @@ namespace PointOfSale.Data
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>()
+             .HasOne(e => e.Category)
+             .WithMany()
+             .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Product>()
+            .HasOne(e => e.Supplier)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Product>()
+           .HasOne(e => e.UnitsOfMeasurement)
+           .WithMany()
+           .OnDelete(DeleteBehavior.Restrict);
+
+           
+
+            modelBuilder.Entity<Cart>()
+           .HasOne(e => e.Product)
+           .WithMany()
+           .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<InvoiceHeader>()
+                .HasOne(e=>e.ApplicationUser)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+            modelBuilder.Entity<InvoiceDetail>()
+                .HasOne(e=>e.Product)
+                .WithMany()
+                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<InvoiceDetail>()
+                .HasOne(e=>e.InvoiceHeader)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+
         public DbSet <Category> Categories {  get; set; }
         public DbSet <Supplier> Suppliers { get; set; }
         public DbSet <UnitsOfMeasurement> UnitsOfMeasurement { get; set;}
@@ -21,6 +62,7 @@ namespace PointOfSale.Data
         public DbSet <VatRate> VatRates { get; set; }
         public DbSet <InvoiceHeader> InvoiceHeaders { get; set; }
         public DbSet<InvoiceDetail> InvoiceDetails { get; set; }
-        public DbSet<Company> Companys { get; set; } 
+        public DbSet<Company> Companys { get; set; }
+       
     }
 }

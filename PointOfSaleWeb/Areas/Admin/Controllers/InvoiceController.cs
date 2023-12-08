@@ -27,14 +27,14 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
         public IActionResult Details(int id)
         {
-            var ammountInWord = NumberToWords(20020);
             InvoiceVM = new InvoiceVM()
             {
-                
                 InvoiceHeader = _unitOfWork.InvoiceHeader.GetFirstOrDefault(x => x.Id == id),
-                InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties : "Product")
-
-            };
+                InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties : "Product"),
+                Company = _unitOfWork.Company.GetFirstOrDefault(x => x.Id == 1),
+                 };
+            var totalAmmount = Convert.ToInt32(Math.Round(InvoiceVM.InvoiceHeader.Total));
+            InvoiceVM.AmountInWord = NumberToWords(totalAmmount);
             return View(InvoiceVM);
         }
 
@@ -76,9 +76,9 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
             try
             {
-                var claimIdentity = (ClaimsIdentity)User.Identity;
-                var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
-                obj.Cart.ApplicationUserId = claim.Value;
+                //var claimIdentity = (ClaimsIdentity)User.Identity;
+                //var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                //obj.Cart.ApplicationUserId = claim.Value;
                               
 
               Cart cart = _unitOfWork.Cart.GetFirstOrDefault(u => u.ProdouctId == obj.Cart.ProdouctId);
@@ -268,28 +268,28 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         public static string NumberToWords(int number)
         {
             if (number == 0)
-                return "zero";
+                return "Zero";
 
             if (number < 0)
-                return "minus " + NumberToWords(Math.Abs(number));
+                return "Minus " + NumberToWords(Math.Abs(number));
 
             string words = "";
 
             if ((number / 1000000) > 0)
             {
-                words += NumberToWords(number / 1000000) + " million ";
+                words += NumberToWords(number / 1000000) + " Million ";
                 number %= 1000000;
             }
 
             if ((number / 1000) > 0)
             {
-                words += NumberToWords(number / 1000) + " thousand ";
+                words += NumberToWords(number / 1000) + " Thousand ";
                 number %= 1000;
             }
 
             if ((number / 100) > 0)
             {
-                words += NumberToWords(number / 100) + " hundred ";
+                words += NumberToWords(number / 100) + " Hundred ";
                 number %= 100;
             }
 
@@ -298,8 +298,8 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 if (words != "")
                     words += "and ";
 
-                var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
-                var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+                var unitsMap = new[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
+                var tensMap = new[] { "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
 
                 if (number < 20)
                     words += unitsMap[number];
@@ -307,7 +307,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 {
                     words += tensMap[number / 10];
                     if ((number % 10) > 0)
-                        words += "-" + unitsMap[number % 10];
+                        words += " " + unitsMap[number % 10];
                 }
             }
 

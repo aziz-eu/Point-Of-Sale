@@ -234,10 +234,6 @@ namespace PointOfSale.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
@@ -248,8 +244,6 @@ namespace PointOfSale.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("ProdouctId");
 
@@ -374,7 +368,6 @@ namespace PointOfSale.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ApplicationUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -479,15 +472,12 @@ namespace PointOfSale.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContactPerson")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -598,19 +588,11 @@ namespace PointOfSale.DataAccess.Migrations
 
             modelBuilder.Entity("PointOfSale.Models.Cart", b =>
                 {
-                    b.HasOne("PointOfSale.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("PointOfSale.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProdouctId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("ApplicationUser");
 
                     b.Navigation("Product");
                 });
@@ -626,7 +608,7 @@ namespace PointOfSale.DataAccess.Migrations
                     b.HasOne("PointOfSale.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("InvoiceHeader");
@@ -639,8 +621,7 @@ namespace PointOfSale.DataAccess.Migrations
                     b.HasOne("PointOfSale.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("ApplicationUser");
                 });
@@ -650,19 +631,19 @@ namespace PointOfSale.DataAccess.Migrations
                     b.HasOne("PointOfSale.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("PointOfSale.Models.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("SupplierId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("PointOfSale.Models.UnitsOfMeasurement", "UnitsOfMeasurement")
                         .WithMany()
                         .HasForeignKey("UnitsOfMeasurementId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
