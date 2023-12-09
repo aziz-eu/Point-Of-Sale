@@ -436,14 +436,15 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SellPrice")
+                    b.Property<double?>("SellPrice")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("SupplierId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SupplierId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UnitPrice")
-                        .HasColumnType("int");
+                    b.Property<double?>("UnitPrice")
+                        .IsRequired()
+                        .HasColumnType("float");
 
                     b.Property<int>("UnitsOfMeasurementId")
                         .HasColumnType("int");
@@ -637,8 +638,7 @@ namespace PointOfSale.DataAccess.Migrations
                     b.HasOne("PointOfSale.Models.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("SupplierId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("PointOfSale.Models.UnitsOfMeasurement", "UnitsOfMeasurement")
                         .WithMany()

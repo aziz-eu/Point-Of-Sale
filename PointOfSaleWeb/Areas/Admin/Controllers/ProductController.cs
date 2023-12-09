@@ -99,18 +99,27 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         }
 
         [HttpDelete] 
-        public IActionResult Delete(int? id) { 
-        
-            var product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
-            if(product == null) {
-                return Json(new { success = false, message = "Error Whiling Delete" });
-            }
-            else
+        public IActionResult Delete(int? id)
+        {
+            try
             {
-                _unitOfWork.Product.Remove(product);
-                _unitOfWork.Save();
-                return Json(new { success = true, message = "Delete Successful" });
+                var product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
+                if (product == null)
+                {
+                    return Json(new { success = false, message = "Error Whiling Delete" });
+                }
+                else
+                {
+                    _unitOfWork.Product.Remove(product);
+                    _unitOfWork.Save();
+                    return Json(new { success = true, message = "Delete Successful" });
+                }
+            } catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error Whiling Delete! Some Invoice Has the item!" });
             }
+        
+          
         
         }
 

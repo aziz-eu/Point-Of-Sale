@@ -130,9 +130,8 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
             InvoiceVM.ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product");
             InvoiceVM.VatRate = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1);
-            InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Due;
             InvoiceVM.InvoiceHeader.CreatedAt= DateTime.Now;
-            InvoiceVM.InvoiceHeader.ApplicationUserId = claim.Value;
+           
 
             foreach (var item in InvoiceVM.ListCart)
             {
@@ -150,6 +149,10 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             {
                 InvoiceVM.InvoiceHeader.UnpaidAmount = 0;
                 InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Paid;
+            }
+            else
+            {
+                InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Due;
             }
 
             if (InvoiceVM.InvoiceHeader.PaidAmount> InvoiceVM.InvoiceHeader.Total)

@@ -59,7 +59,16 @@ p {
     transition: all 0.35s ease-in-out;
     box-shadow: 0 0 35px 0 rgba(49, 57, 66, 0.5);
     z-index: 1111;
+    height: 100vh;
+    position: fixed;
+    overflow: scroll;
+    overflow-x: hidden;
 }
+
+    #sidebar::-webkit-scrollbar {
+        width: 5px;
+        background-color: #212A3E;
+    }
 
 
     /* Sidebar collapse */
@@ -67,6 +76,10 @@ p {
 #sidebar.collapsed {
         margin-left: -264px;
     }
+.main-box {
+    margin-left: 264px;
+}
+
 
 .main {
     display: flex;
@@ -164,15 +177,17 @@ a.sidebar-link{
 }
 
 
-thead{
-    background-color:black;
-    color: white;
-}
 
 .required-warning{
 
     color: darkred;
 }
+
+.btn{
+    font-size: .8rem;
+    padding: 3px 12px;
+}
+
 .btn-column{
    display: flex;
    align-content:center;
@@ -184,3 +199,78 @@ thead{
 #tblData_filter {
     margin-bottom: 1rem;
 }
+
+
+/* Tbl  */
+table {
+    font-family: arial, sans-serif;
+    width: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+  }
+
+
+thead {
+    background-color: #212A3E;
+    color: #e6edf1;
+    font-weight: bold;
+    ;
+}
+  table thead th {
+/*    color: #ffffff;*/
+    background: #0094ff;
+    padding: 10px;
+    border: 1px solid #ebebec;
+    font-weight: 500;
+  }
+  
+  table tr {
+/*    background: #ffffff;*/
+  }
+
+    table tr td {
+        border: 1px solid #e6edf1;
+        padding: 4px;
+        font-size: 1rem;
+        vertical-align: central;
+    }
+  
+  .row.amount-inword{
+    font-size: .7rem;
+    font-weight: bold;
+
+  }
+  @media only screen and (max-width: 640px) {
+    table thead {
+      display: none;
+    }
+  
+    table tbody {
+      display: block;
+    }
+  
+    table tbody tr td {
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+  
+    table tbody tr {
+      margin-bottom: 20px;
+      display: block;
+      border: 1px solid #004976;
+/*      background: #f9f9f9;*/
+      overflow: hidden;
+    }
+  
+    table tbody td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      width: 30%;
+      display: flex;
+      background: #004976;
+      color: #fff;
+      padding: 15px;
+      margin-inline-end: 10px;
+    }
+  }

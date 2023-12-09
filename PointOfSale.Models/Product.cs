@@ -19,18 +19,18 @@ namespace PointOfSale.Models
         [Required]
         public int Quantity { get; set; }
         [Required]            
-        public int UnitPrice { get; set; }
-        public int? SellPrice { get; set; }
+        public double? UnitPrice { get; set; }
+        public double? SellPrice { get; set; }
         public int CategoryId { get; set; }
 
         [ForeignKey(nameof(CategoryId))]
         [ValidateNever]
         public Category Category { get; set; }
 
-        public int SupplierId { get; set; }
+        public int? SupplierId { get; set; }
         [ForeignKey(nameof(SupplierId))]
         [ValidateNever]
-        public Supplier Supplier { get; set; }
+        public Supplier? Supplier { get; set; }
 
         public int UnitsOfMeasurementId { get; set; }
 

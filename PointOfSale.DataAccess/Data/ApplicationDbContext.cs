@@ -22,7 +22,7 @@ namespace PointOfSale.Data
             modelBuilder.Entity<Product>()
             .HasOne(e => e.Supplier)
             .WithMany()
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<Product>()
            .HasOne(e => e.UnitsOfMeasurement)
