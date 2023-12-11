@@ -14,7 +14,7 @@ namespace PointOfSale.DataAccess.Repository
        private ApplicationDbContext _db;
         public VatRepository(ApplicationDbContext db) : base(db) 
         {
-            
+            _db = db;
         }
 
         public double CalculateVat(double number, VatRate vat)

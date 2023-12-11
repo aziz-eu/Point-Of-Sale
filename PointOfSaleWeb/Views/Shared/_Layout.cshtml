@@ -87,14 +87,17 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard"
-                           aria-expanded="false" aria-controls="dashboard">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#settings"
+                           aria-expanded="false" aria-controls="settings">
                             <i class="fa-solid fa-gear pe-2"></i>
                             Settings
                         </a>
-                        <ul id="dashboard" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <ul id="settings" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a class="sidebar-link" asp-area="Admin" asp-controller="Invoice" asp-action="Index">Invoice List</a>
+                                <a class="sidebar-link" asp-area="Admin" asp-controller="Company" asp-action="Edit">Company Info</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" asp-area="Admin" asp-controller="Vat" asp-action="Edit">VAT Info</a>
                             </li>
                            
                         </ul>

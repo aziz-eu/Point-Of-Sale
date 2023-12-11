@@ -1,0 +1,79 @@
+﻿@model Company
+
+@{
+    ViewData["Title"] = "Company Info";
+}
+
+
+<div class="border my-3 p-3">
+
+    <h1>Company Info</h1>
+
+    <form method="post" asp-action="Edit">
+        <input asp-for="Id" hidden />
+
+        <div class="my-3">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+            <span class="required-warning" asp-validation-for="Name"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="AribicName"></label>
+            <input class="form-control" asp-for="AribicName" />
+            <span class="required-warning" asp-validation-for="AribicName"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="TRN"></label>
+            <input class="form-control" asp-for="TRN" />
+            <span class="required-warning" asp-validation-for="TRN"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="ClstTRN"></label>
+            <input class="form-control" asp-for="ClstTRN" />
+            <span class="required-warning" asp-validation-for="ClstTRN"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="PhoneNumber1"></label>
+            <input class="form-control" asp-for="PhoneNumber1" />
+            <span class="required-warning" asp-validation-for="PhoneNumber1"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="PhoneNumber2"></label>
+            <input class="form-control" asp-for="PhoneNumber2" />
+            <span class="required-warning" asp-validation-for="PhoneNumber2"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="AribicPhoneNumber1"></label>
+            <input class="form-control" asp-for="AribicPhoneNumber1" />
+            <span class="required-warning" asp-validation-for="AribicPhoneNumber1"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="AribicPhoneNumber2"></label>
+            <input class="form-control" asp-for="AribicPhoneNumber2" />
+            <span class="required-warning" asp-validation-for="AribicPhoneNumber2"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Email"></label>
+            <input class="form-control" asp-for="Email" />
+            <span class="required-warning" asp-validation-for="Email"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Address"></label>
+            <input class="form-control" asp-for="Address" />
+            <span class="required-warning" asp-validation-for="Address"></span>
+        </div>
+
+
+
+
+        <div class="my-4">
+
+            <button class="btn btn-primary" type="submit">Update</button>
+
+
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back To Home</a>
+        </div>
+
+
+    </form>
+    </div>

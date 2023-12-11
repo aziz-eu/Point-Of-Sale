@@ -1,0 +1,33 @@
+﻿@model VatRate
+
+@{
+    ViewData["Title"] = "VAT";
+}
+
+
+<div class="border my-3 p-3">
+
+   <h1>VAT Info</h1>
+
+    <form method="post" asp-action="Edit">
+        <input asp-for="Id"  hidden />
+        
+        <div class="my-3">
+            <label asp-for="Vat"></label>
+            <input class="form-control" asp-for="Vat" />
+            <span class="required-warning" asp-validation-for="Vat"></span>
+        </div>
+
+ 
+
+
+        <div class="my-4">
+
+                <button class="btn btn-primary" type="submit">Update</button>
+          
+              
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back To Home</a>
+        </div>
+
+
+    </form>
