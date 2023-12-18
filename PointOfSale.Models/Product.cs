@@ -15,23 +15,29 @@ namespace PointOfSale.Models
         [Required]
         public string Name { get; set; }
 
+        [Display(Name = "Bar Code")]
         public string? BarCode { get; set; }
         [Required]
         public int Quantity { get; set; }
-        [Required]            
+        [Required]
+        [Display(Name = "Unit Price")]
         public double? UnitPrice { get; set; }
+        [Display(Name= "Sell Price")]
         public double? SellPrice { get; set; }
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
         [ForeignKey(nameof(CategoryId))]
         [ValidateNever]
+
         public Category Category { get; set; }
 
+        [Display(Name = "Supplicer")]
         public int? SupplierId { get; set; }
         [ForeignKey(nameof(SupplierId))]
         [ValidateNever]
         public Supplier? Supplier { get; set; }
-
+        [Display(Name = "Measure Unit")]
         public int UnitsOfMeasurementId { get; set; }
 
         [ForeignKey(nameof(UnitsOfMeasurementId))]

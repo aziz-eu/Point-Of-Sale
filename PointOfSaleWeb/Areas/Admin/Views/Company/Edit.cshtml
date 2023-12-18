@@ -67,6 +67,16 @@
             <input class="form-control" asp-for="AribicAddress" />
             <span class="required-warning" asp-validation-for="AribicAddress"></span>
         </div>
+        <div class="my-3">
+            <label asp-for="PostOfficeNo"></label>
+            <input class="form-control" asp-for="PostOfficeNo" />
+            <span class="required-warning" asp-validation-for="PostOfficeNo"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="AribicPostOfficeNo"></label>
+            <input class="form-control" asp-for="AribicPostOfficeNo" />
+            <span class="required-warning" asp-validation-for="AribicPostOfficeNo"></span>
+        </div>
 
 
 
@@ -82,3 +92,8 @@
 
     </form>
     </div>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

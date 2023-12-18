@@ -298,6 +298,10 @@ namespace PointOfSale.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("AribicPostOfficeNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ClstTRN")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -315,6 +319,10 @@ namespace PointOfSale.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostOfficeNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

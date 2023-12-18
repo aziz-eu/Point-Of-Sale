@@ -59,16 +59,17 @@
         </div>
 
         <form method="post" asp-action="EditPost">
-            <input asp-for="InvoiceHeader.Id"/>
+            <input hidden asp-for="InvoiceHeader.Id"/>
         <div class="my-3 col-lg-2">
             <label asp-for="InvoiceHeader.UpdateDue"></label>
             <input class="form-control" asp-for="InvoiceHeader.UpdateDue" />
             <span class="required-warning" asp-validation-for="InvoiceHeader.UpdateDue"></span>
+        </div>
 
 
             <div class="my-4 col-lg-2">
                 <button class="btn btn-primary" type="submit">Save</button>
             </div>
-        </div>
+        
         </form>
 </div>

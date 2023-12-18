@@ -393,10 +393,16 @@ table {
   }
 
   @@media print {
-    body {-webkit-print-color-adjust: exact;}
+    body {
+        
+        -webkit-print-color-adjust: exact;
+        background-color: white;
+    
+    }
     }
     @@page { size: auto;
       margin: 10mm 10mm 0mm 10mm;   }
+
 
 
     </style>
@@ -524,6 +530,7 @@ table {
                             <a class="btn btn-primary" asp-controller="Invoice" asp-action="Edit" asp-route-id="@Model.InvoiceHeader.Id">Edit</a>
 
                             <a class="btn btn-primary" onclick="printDiv('printArea')">Print</a>
+                            <a class="btn btn-primary" asp-controller="Invoice" asp-action="DeliveryNote" asp-route-id="@Model.InvoiceHeader.Id">Delivery Note</a>
                         </div>
 
                         <div class="invoice printArea" id="printArea">
@@ -541,7 +548,7 @@ table {
                                                 <p>Mobile: @Model.Company.PhoneNumber1</p>
                                                 <p>Mobile: @Model.Company.PhoneNumber2</p>
                                                 <p>Address: @Model.Company.Address</p>
-                                                <p>P.O. Box 12033 </p>
+                                                <p>P.O. Box No: @Model.Company.PostOfficeNo </p>
                                             </div>
                                             <div class="col-4 middle-card">
                                                 <div>
@@ -559,7 +566,7 @@ table {
                                                 <p>متحرك: @Model.Company.AribicPhoneNumber1 </p>
                                                 <p>متحرك: @Model.Company.AribicPhoneNumber2 </p>
                                                 <p>لعنوان: @Model.Company.AribicAddress</p>
-                                                <p>ص.ب. ١٣٠٥٣</p>
+                                                <p>ص.ب. @Model.Company.AribicPostOfficeNo</p>
 
 
                                             </div>

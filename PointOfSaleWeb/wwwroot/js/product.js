@@ -17,7 +17,7 @@ function loadDataTable() {
             { "data": "category.name" },
             { "data": "quantity"},
             { "data": "unitsOfMeasurement.name" },
-            { "data": "unitPrice" },
+            { "data": "sellPrice" },
 
 
             {

@@ -10,6 +10,7 @@ using System.Security.Claims;
 namespace PointOfSaleWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class InvoiceController : Controller
     {
 
@@ -70,7 +71,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+       
         public IActionResult Create(InvoiceVM obj)
         {
 
@@ -233,6 +234,8 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
         }
 
+        
+
 
         #region API CALLS
 
@@ -264,7 +267,17 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             }
 
         }
-
+        public IActionResult DeliveryNote(int id)
+        {
+            InvoiceVM = new InvoiceVM()
+            {
+                InvoiceHeader = _unitOfWork.InvoiceHeader.GetFirstOrDefault(x => x.Id == id),
+                InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties: "Product"),
+                Company = _unitOfWork.Company.GetFirstOrDefault(x => x.Id == 1),
+            };      
+            
+            return View(InvoiceVM);
+        }
         #endregion
 
 
