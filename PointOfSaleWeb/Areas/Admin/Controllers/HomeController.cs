@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PointOfSale.Models;
 using System.Diagnostics;
 
 namespace PointOfSaleWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class HomeController : Controller
     {
     
