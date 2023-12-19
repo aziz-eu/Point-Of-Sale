@@ -672,7 +672,7 @@ table {
                                                         <td class="text-end">@Model.InvoiceHeader.SubTotal.ToString("n")</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-end">VAT (@Model.VatPercentage)</td>
+                                                        <td class="text-end">VAT (@(((Model.InvoiceHeader.Vat * 100) / Model.InvoiceHeader.SubTotal).ToString("0.0"))%)</td>
                                                         <td class="text-end">@Model.InvoiceHeader.Vat.ToString("n")</td>
                                                     </tr>
                                                     <tr>
