@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PointOfSale.DataAccess.Repository.IRepository;
 using PointOfSale.Models;
@@ -7,6 +8,7 @@ using PointOfSale.Models.ViewModels;
 namespace PointOfSaleWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class ProductController : Controller
     {
         public readonly IUnitOfWork _unitOfWork;

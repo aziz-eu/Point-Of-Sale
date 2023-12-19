@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using PointOfSale.Data;
 using PointOfSale.DataAccess.Repository.IRepository;
@@ -7,6 +8,7 @@ using PointOfSale.Models;
 namespace PointOfSaleWeb.Areas.Admin.Controllers
 {
     [Area ("Admin")]
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
