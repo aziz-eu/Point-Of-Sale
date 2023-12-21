@@ -31,9 +31,10 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             InvoiceVM = new InvoiceVM()
             {
                 InvoiceHeader = _unitOfWork.InvoiceHeader.GetFirstOrDefault(x => x.Id == id),
-                InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties : "Product"),
+                InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties: "Product"),
                 Company = _unitOfWork.Company.GetFirstOrDefault(x => x.Id == 1),
-                 };
+                UnitsOfMeasurement = _unitOfWork.UnitOfMeasurment.GetAll()                
+            };
             var totalAmmount = Convert.ToInt32(Math.Round(InvoiceVM.InvoiceHeader.Total));
             InvoiceVM.AmountInWord = NumberToWords(totalAmmount);
             return View(InvoiceVM);
@@ -41,7 +42,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
         public IActionResult Create()
         {
-            
+
             InvoiceVM invoiceVM = new InvoiceVM()
             {
                 Cart = new(),
@@ -51,8 +52,8 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                         Text = u.Name,
                         Value = u.Id.ToString(),
                     }),
-                ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product"),
-
+                ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product"),        
+                UnitsOfMeasurement = _unitOfWork.UnitOfMeasurment.GetAll(),
                 InvoiceHeader = new(),
                 VatRate = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1)
             };
@@ -274,6 +275,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 InvoiceHeader = _unitOfWork.InvoiceHeader.GetFirstOrDefault(x => x.Id == id),
                 InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties: "Product"),
                 Company = _unitOfWork.Company.GetFirstOrDefault(x => x.Id == 1),
+                UnitsOfMeasurement = _unitOfWork.UnitOfMeasurment.GetAll()
             };      
             
             return View(InvoiceVM);

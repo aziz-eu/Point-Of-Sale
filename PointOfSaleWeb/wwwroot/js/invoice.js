@@ -11,17 +11,18 @@ function loadDataTable() {
         ajax: {
             "url": "/Admin/Invoice/GetAll"
         },
-/*        order: [0, 'desc'],*/
+        order: [0, 'desc'],
         "columns": [
+           
+            { "data": "id" },
             {
                 "data": "createdAt",
-                "render": function (data) {                   
+                "render": function (data) {
                     var date = new Date(data);
                     var month = date.getMonth() + 1;
                     return (month.toString().length > 1 ? month : "0" + month) + "/" + date.getDate() + "/" + date.getFullYear();
                 }
             },
-            { "data": "id" },
             { "data": "name" },
             {"data": "phoneNumbar" },
             { "data": "total" },

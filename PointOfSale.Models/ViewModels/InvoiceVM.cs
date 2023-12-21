@@ -13,6 +13,7 @@ namespace PointOfSale.Models.ViewModels
         public Cart Cart { get; set; }
         public InvoiceHeader InvoiceHeader { get; set; }
         public IEnumerable<InvoiceDetail> InvoiceDetails { get; set; }
+        public IEnumerable<UnitsOfMeasurement> UnitsOfMeasurement { get; set; }
         public VatRate VatRate { get; set; }
         public IEnumerable<Cart> ListCart { get; set; }
         public Company Company { get; set; }

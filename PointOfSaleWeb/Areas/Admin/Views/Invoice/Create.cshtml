@@ -55,7 +55,7 @@
             <th>Unit Price</th>          
             <th>Quantity</th>
             <th>Measure</th>
-            <th>Toral</th>
+            <th>Total</th>
 
             <td></td>
         </tr>
@@ -67,7 +67,14 @@
                     <td>@item.Product.Name</td>
                     <td>@item.Price</td>
                     <td>@item.Count</td>
-                    <td>@item.Product.UnitsOfMeasurementId</td>
+                    @foreach(var unit in Model.UnitsOfMeasurement)
+                    {
+                        @if(item.Product.UnitsOfMeasurementId == unit.Id)
+                        {
+                            <td>@unit.Name</td>
+                        }
+                    }
+                   
                     <td>@((item.Price * item.Count).ToString("n"))</td>
                     <td class="text-center"><a asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
 

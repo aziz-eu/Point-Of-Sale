@@ -656,7 +656,14 @@
                                                     <td>@items.Product.Name</td>
                                                  
                                                     <td class="text-end">@items.Count</td>
-                                                    <td class="p-0">@items.Product.UnitsOfMeasurement</td>
+                                                    @foreach(var unit in Model.UnitsOfMeasurement)
+                                                    {
+                                                        @if(items.Product.UnitsOfMeasurementId == unit.Id)
+                                                        {
+                                                            <td class="p-0">@unit.Name</td>
+                                                        }
+                                                    }
+                                                
                                                  
                                                 </tr>
                                                 index++;
