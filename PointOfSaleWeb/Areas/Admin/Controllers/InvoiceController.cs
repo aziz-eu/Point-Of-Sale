@@ -78,12 +78,16 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
             try
             {
-                //var claimIdentity = (ClaimsIdentity)User.Identity;
-                //var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
-                //obj.Cart.ApplicationUserId = claim.Value;
-                              
+                                              
 
               Cart cart = _unitOfWork.Cart.GetFirstOrDefault(u => u.ProdouctId == obj.Cart.ProdouctId);
+                var product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == obj.Cart.ProdouctId);
+                if(product.Quantity< obj.Cart.Count)
+                {
+                    TempData["error"] = "Please Update Your Product Quantity";
+                    return RedirectToAction(nameof(Create));
+
+                }
 
                 if(cart == null) {
                     _unitOfWork.Cart.Add(obj.Cart);
@@ -168,17 +172,26 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
             foreach (var item in InvoiceVM.ListCart)
             {
-                InvoiceDetail invoiceDetail = new()
+              
+               InvoiceDetail invoiceDetail = new()
                 {
+                   
                     
                     InvoiceId = InvoiceVM.InvoiceHeader.Id,
                     ProductId = item.ProdouctId,
                     Count = item.Count,
-                    Price = item.Price,
-                    
+                    Price = item.Price,                            
                 };
+
                 _unitOfWork.InvoiceDetail.Add(invoiceDetail);
                 _unitOfWork.Save();
+                var product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == item.ProdouctId);
+                if (product != null)
+                {
+                    product.Quantity = product.Quantity - item.Count;
+                    _unitOfWork.Save();
+                    
+                }
             }
             _unitOfWork.Cart.RemoveRange(InvoiceVM.ListCart);
             _unitOfWork.Save();

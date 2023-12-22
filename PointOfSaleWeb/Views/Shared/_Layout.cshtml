@@ -23,17 +23,33 @@
                 <!-- Sidebar Navigation -->
                 <ul class="sidebar-nav">
 
+                    @* Home *@
+
                     <li class="sidebar-item">
                        
                             <a class="sidebar-link" asp-area="Admin" asp-controller="Home" asp-action="Index">
-                            <i class="fa-solid fa-cart-shopping pe-2"></i>
+                            
+                            <i class="fa-solid fa-house pe-2"></i>
                             Home
                         </a>
                     </li>
+                    @*Create  Invoice *@
+                    <li class="sidebar-item">
+
+                        <a class="sidebar-link" asp-area="Admin" asp-controller="Invoice" asp-action="Create">
+                            <i class="fa-regular fa-square-plus pe-2"></i>
+                            Create Invoice
+                        </a>
+                    </li>
+
+                    @* Inventory *@
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#pages"
                            aria-expanded="false" aria-controls="pages">
-                            <i class="fa-solid fa-boxes-stacked pe-2"></i>
+
+
+
+                            <i class="fa-solid fa-coins pe-2"></i>
                             Inventory
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -47,12 +63,18 @@
                             <li class="sidebar-item">
                                 <a class="sidebar-link" asp-area="Admin" asp-controller="UnitOfMeasurement" asp-action="Index">Units Of Measure</a>
                             </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-status="lowStock">Low Stock</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-status="outOfStock">Out of Stock</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard"
                            aria-expanded="false" aria-controls="dashboard">
-                            <i class="fa-solid fa-sliders pe-2"></i>
+                            <i class="fa-solid fa-pen-to-square pe-2"></i>
                             Invoice
                         </a>
                         <ul id="dashboard" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -68,7 +90,7 @@
                     <li class="sidebar-item">
 
                         <a class="sidebar-link" asp-area="Admin" asp-controller="Supplier" asp-action="Index">
-                            <i class="fa-solid fa-list pe-2"></i>
+                            <i class="fa-solid fa-truck-fast pe-2"></i>
                             Supplier
                         </a>
                     </li>

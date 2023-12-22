@@ -93,9 +93,23 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         #region API CALLS
 
         [HttpGet]
-        public IActionResult GetAll() {
+        public IActionResult GetAll(string? status) {
+
 
             var product = _unitOfWork.Product.GetAll(includeProperties : "Category,Supplier,UnitsOfMeasurement");
+
+            switch (status)
+            {
+                case "outOfStock":
+                    product = product.Where(u => u.Quantity == 0);
+                    break;
+                case "lowStock":
+                    product = product.Where(u => u.Quantity < 25  && u.Quantity > 0);
+                    break;
+                default:
+                    break;
+            }
+            
 
             return Json(new { data = product });
         }

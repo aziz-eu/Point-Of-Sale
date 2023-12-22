@@ -1,15 +1,25 @@
 ﻿let datatable;
 
 $(document).ready(function () {
+    var url = window.location.search;
+    if (url.includes("outOfStock")) {
+        loadDataTable("outOfStock");
+    }
+    else if (url.includes("lowStock")) {
+        loadDataTable("lowStock");
+    }
+    else {
+        loadDataTable();
+    }
 
-    loadDataTable();
+   
 })
 
-function loadDataTable() {
+function loadDataTable(status) {
 
     datatable = $("#tblData").DataTable({
         ajax: {
-            "url": "/Admin/Product/GetAll"
+            "url": "/Admin/Product/GetAll?status="+status
         },
         "columns": [
             { "data": "name" },
