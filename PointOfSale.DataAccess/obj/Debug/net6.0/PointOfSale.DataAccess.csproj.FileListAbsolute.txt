@@ -28,3 +28,5 @@ C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Debug\ne
 C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Debug\net6.0\refint\PointOfSale.DataAccess.dll
 C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Debug\net6.0\PointOfSale.DataAccess.pdb
 C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Debug\net6.0\ref\PointOfSale.DataAccess.dll
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\bin\Debug\net6.0\PointOfSale.Utility.dll
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\bin\Debug\net6.0\PointOfSale.Utility.pdb

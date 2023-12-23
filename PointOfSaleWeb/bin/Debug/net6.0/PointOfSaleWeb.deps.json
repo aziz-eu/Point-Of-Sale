@@ -2843,7 +2843,8 @@
           "Microsoft.EntityFrameworkCore": "6.0.24",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.24",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24",
-          "PointOfSale.Models": "1.0.0"
+          "PointOfSale.Models": "1.0.0",
+          "PointOfSale.Utility": "1.0.0"
         },
         "runtime": {
           "PointOfSale.DataAccess.dll": {}

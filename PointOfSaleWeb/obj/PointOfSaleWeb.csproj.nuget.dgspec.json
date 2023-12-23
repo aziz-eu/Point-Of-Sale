@@ -30,6 +30,9 @@
             "projectReferences": {
               "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.Models\\PointOfSale.Models.csproj": {
                 "projectPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.Models\\PointOfSale.Models.csproj"
+              },
+              "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.Utility\\PointOfSale.Utility.csproj": {
+                "projectPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSale.Utility\\PointOfSale.Utility.csproj"
               }
             }
           }
