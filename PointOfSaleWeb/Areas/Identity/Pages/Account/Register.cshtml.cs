@@ -189,6 +189,11 @@ namespace PointOfSaleWeb.Areas.Identity.Pages.Account
                     }
                     else
                     {
+                        if(User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin)) {
+
+                            TempData["success"] = "Add User Add Successful";
+                            return Page();
+                        }
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     }
