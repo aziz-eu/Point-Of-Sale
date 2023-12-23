@@ -45,24 +45,34 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Upsert(Category category)
         {
-
-           if(ModelState.IsValid)
+            try
             {
-                if (category.Id == 0)
+                if (ModelState.IsValid)
                 {
-                    _unitOfWork.Category.Add(category);
-                    TempData["success"] = "New Category Add Sccessful";
+                    if (category.Id == 0)
+                    {
+                        _unitOfWork.Category.Add(category);
+                        TempData["success"] = "New Category Add Sccessful";
+                    }
+                    else
+                    {
+                        _unitOfWork.Category.Update(category);
+                        TempData["success"] = "Category Update Sccessful";
+                    }
+                    _unitOfWork.Save();
+                    return RedirectToAction(nameof(Index));
                 }
-                else
-                {
-                    _unitOfWork.Category.Update(category);
-                    TempData["success"] = "Category Update Sccessful";
-                }
-                _unitOfWork.Save();
+
+                return View(category);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Sorry! Try Again";
                 return RedirectToAction(nameof(Index));
+
             }
 
-           return View(category);
+           
 
 
         }

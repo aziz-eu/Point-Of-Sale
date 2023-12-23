@@ -42,24 +42,33 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Upsert(Supplier supplier)
         {
-            if (ModelState.IsValid) {
-                if (supplier.Id == 0)  {
-
-                    _unitOfWork.Supplier.Add(supplier);
-                    TempData["success"] = "Supplier Added Successfully";
-
-                }
-            else
+            try
+            {
+                if (ModelState.IsValid)
                 {
-                    _unitOfWork.Supplier.Update(supplier);
-                    TempData["success"] = "Supplier Info Update Successfully";
+                    if (supplier.Id == 0)
+                    {
+
+                        _unitOfWork.Supplier.Add(supplier);
+                        TempData["success"] = "Supplier Added Successfully";
+
+                    }
+                    else
+                    {
+                        _unitOfWork.Supplier.Update(supplier);
+                        TempData["success"] = "Supplier Info Update Successfully";
 
 
+                    }
+                    _unitOfWork.Save();
+                    return RedirectToAction(nameof(Index));
                 }
-                _unitOfWork.Save();
+                return View(supplier);
+            } catch (Exception ex) {
+                TempData["error"] = "Something Want Wrong!";
                 return RedirectToAction(nameof(Index));
             }
-            return View(supplier);
+            
 
         }
 

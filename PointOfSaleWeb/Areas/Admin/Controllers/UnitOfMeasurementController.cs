@@ -46,23 +46,35 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         public IActionResult Upsert(UnitsOfMeasurement unitsOfMeasurement)
         {
 
-           if(ModelState.IsValid)
+            try
             {
-                if (unitsOfMeasurement.Id == 0)
+                if (ModelState.IsValid)
                 {
-                    _unitOfWork.UnitOfMeasurment.Add(unitsOfMeasurement);
-                    TempData["success"] = "New Unit Add Sccessful";
+                    if (unitsOfMeasurement.Id == 0)
+                    {
+                        _unitOfWork.UnitOfMeasurment.Add(unitsOfMeasurement);
+                        TempData["success"] = "New Unit Add Sccessful";
+                    }
+                    else
+                    {
+                        _unitOfWork.UnitOfMeasurment.Update(unitsOfMeasurement);
+                        TempData["success"] = "Unit Update Successful";
+                    }
+                    _unitOfWork.Save();
+                    return RedirectToAction(nameof(Index));
                 }
-                else
-                {
-                    _unitOfWork.UnitOfMeasurment.Update(unitsOfMeasurement);
-                    TempData["success"] = "Unit Update Successful";
-                }
-                _unitOfWork.Save();
+
+                return View(unitsOfMeasurement);
+
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Something Want Wrong!";
                 return RedirectToAction(nameof(Index));
+
             }
 
-           return View(unitsOfMeasurement);
+           
 
 
         }

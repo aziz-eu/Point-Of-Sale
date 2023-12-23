@@ -129,73 +129,83 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
         public IActionResult Save (InvoiceVM InvoiceVM)
         {
-
-            var claimIdentity = (ClaimsIdentity)User.Identity;
-            var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
-
-
-            InvoiceVM.ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product");
-            InvoiceVM.VatRate = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1);
-            InvoiceVM.InvoiceHeader.CreatedAt= DateTime.Now;
-           
-
-            foreach (var item in InvoiceVM.ListCart)
+            try
             {
-                InvoiceVM.InvoiceHeader.SubTotal += item.Count * item.Price;
-            }
-            if (InvoiceVM.InvoiceHeader.SubTotal <= 0)
-            {
-                TempData["success"] = "Please Add Item First";
-                return RedirectToAction(nameof(Create));
-            }
-            InvoiceVM.InvoiceHeader.Vat = _unitOfWork.VatRate.CalculateVat(InvoiceVM.InvoiceHeader.SubTotal, InvoiceVM.VatRate);
-            InvoiceVM.InvoiceHeader.Total = InvoiceVM.InvoiceHeader.SubTotal + InvoiceVM.InvoiceHeader.Vat;
-            InvoiceVM.InvoiceHeader.UnpaidAmount = InvoiceVM.InvoiceHeader.Total - InvoiceVM.InvoiceHeader.PaidAmount;
-            if(InvoiceVM.InvoiceHeader.UnpaidAmount < 1)
-            {
-                InvoiceVM.InvoiceHeader.UnpaidAmount = 0;
-                InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Paid;
-            }
-            else
-            {
-                InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Due;
-            }
 
-            if (InvoiceVM.InvoiceHeader.PaidAmount> InvoiceVM.InvoiceHeader.Total)
-            {
-                TempData["success"] = "Ivalid Amount";
-                return RedirectToAction(nameof(Create));
-            }
+                var claimIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            _unitOfWork.InvoiceHeader.Add(InvoiceVM.InvoiceHeader);
-            _unitOfWork.Save();
 
-            foreach (var item in InvoiceVM.ListCart)
-            {
-              
-               InvoiceDetail invoiceDetail = new()
+                InvoiceVM.ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product");
+                InvoiceVM.VatRate = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1);
+                InvoiceVM.InvoiceHeader.CreatedAt = DateTime.Now;
+
+
+                foreach (var item in InvoiceVM.ListCart)
                 {
-                   
-                    
-                    InvoiceId = InvoiceVM.InvoiceHeader.Id,
-                    ProductId = item.ProdouctId,
-                    Count = item.Count,
-                    Price = item.Price,                            
-                };
-
-                _unitOfWork.InvoiceDetail.Add(invoiceDetail);
-                _unitOfWork.Save();
-                var product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == item.ProdouctId);
-                if (product != null)
-                {
-                    product.Quantity = product.Quantity - item.Count;
-                    _unitOfWork.Save();
-                    
+                    InvoiceVM.InvoiceHeader.SubTotal += item.Count * item.Price;
                 }
+                if (InvoiceVM.InvoiceHeader.SubTotal <= 0)
+                {
+                    TempData["success"] = "Please Add Item First";
+                    return RedirectToAction(nameof(Create));
+                }
+                InvoiceVM.InvoiceHeader.Vat = _unitOfWork.VatRate.CalculateVat(InvoiceVM.InvoiceHeader.SubTotal, InvoiceVM.VatRate);
+                InvoiceVM.InvoiceHeader.Total = InvoiceVM.InvoiceHeader.SubTotal + InvoiceVM.InvoiceHeader.Vat;
+                InvoiceVM.InvoiceHeader.UnpaidAmount = InvoiceVM.InvoiceHeader.Total - InvoiceVM.InvoiceHeader.PaidAmount;
+                if (InvoiceVM.InvoiceHeader.UnpaidAmount < 1)
+                {
+                    InvoiceVM.InvoiceHeader.UnpaidAmount = 0;
+                    InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Paid;
+                }
+                else
+                {
+                    InvoiceVM.InvoiceHeader.PaymentSataus = SD.PaymentStatus_Due;
+                }
+
+                if (InvoiceVM.InvoiceHeader.PaidAmount > InvoiceVM.InvoiceHeader.Total)
+                {
+                    TempData["success"] = "Ivalid Amount";
+                    return RedirectToAction(nameof(Create));
+                }
+
+                _unitOfWork.InvoiceHeader.Add(InvoiceVM.InvoiceHeader);
+                _unitOfWork.Save();
+
+                foreach (var item in InvoiceVM.ListCart)
+                {
+
+                    InvoiceDetail invoiceDetail = new()
+                    {
+
+
+                        InvoiceId = InvoiceVM.InvoiceHeader.Id,
+                        ProductId = item.ProdouctId,
+                        Count = item.Count,
+                        Price = item.Price,
+                    };
+
+                    _unitOfWork.InvoiceDetail.Add(invoiceDetail);
+                    _unitOfWork.Save();
+                    var product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == item.ProdouctId);
+                    if (product != null)
+                    {
+                        product.Quantity = product.Quantity - item.Count;
+                        _unitOfWork.Save();
+
+                    }
+                }
+                _unitOfWork.Cart.RemoveRange(InvoiceVM.ListCart);
+                _unitOfWork.Save();
+                return RedirectToAction("Index");
+
             }
-            _unitOfWork.Cart.RemoveRange(InvoiceVM.ListCart);
-            _unitOfWork.Save();
-            return RedirectToAction("Index");
+            catch (Exception ex)
+            {
+                TempData["error"] = "Something want wrong!";
+                return RedirectToAction(nameof(Create));
+            }
+
         }
 
         public IActionResult Edit(int id)
@@ -241,10 +251,11 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-
+                TempData["error"] = "Something Want Wrong!";
+                return RedirectToAction(nameof(Edit));
             }
            
-            return View(InvoiceVM);
+           
 
         }
 
