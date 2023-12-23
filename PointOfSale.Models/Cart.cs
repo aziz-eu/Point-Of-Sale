@@ -17,10 +17,12 @@ namespace PointOfSale.Models
         [Range(1,100000)]
         public double Price { get; set; }
         [Required]
+        [Display(Name = "Qty")]
         [Range(1,int.MaxValue, ErrorMessage = "Value Mustbe Getter Then 1")]
         public int Count { get; set; }
 
         [Required]
+        [Display(Name = "Product")]
         public int ProdouctId { get; set; }
         [ForeignKey(nameof(ProdouctId))]
         [ValidateNever]

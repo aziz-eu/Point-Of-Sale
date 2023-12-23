@@ -6,7 +6,7 @@
 
 <div class="border my-3 p-3">
 
-    <h2>@(Model.Product.Id != 0 ? "Edit Supplier Info" : "Add New Supplier") </h2>
+    <h2>@(Model.Product.Id != 0 ? "Edit Product Info" : "Add New Product") </h2>
 
     <form method="post" asp-action="Upsert">
         <input asp-for="Product.Id" hidden />

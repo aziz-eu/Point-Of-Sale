@@ -18,6 +18,7 @@ namespace PointOfSale.Models
         [Display(Name = "Bar Code")]
         public string? BarCode { get; set; }
         [Required]
+        [Display (Name="Qty")]
         public int Quantity { get; set; }
         [Required]
         [Display(Name = "Unit Price")]
@@ -32,7 +33,7 @@ namespace PointOfSale.Models
 
         public Category Category { get; set; }
 
-        [Display(Name = "Supplicer")]
+        [Display(Name = "Supplier")]
         public int? SupplierId { get; set; }
         [ForeignKey(nameof(SupplierId))]
         [ValidateNever]

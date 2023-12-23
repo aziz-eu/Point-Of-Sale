@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using PointOfSale.Data;
 using PointOfSale.DataAccess.Repository;
 using PointOfSale.DataAccess.Repository.IRepository;
+using PointOfSale.Models;
 using PointOfSale.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,8 @@ builder.Services.AddDbContext<ApplicationDbContext> (options =>options.UseSqlSer
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
 
 
 

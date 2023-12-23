@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PointOfSaleWeb</title>
+    <title>@ViewData["Title"] - Anwar Al Rahmania</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PointOfSaleWeb.styles.css" asp-append-version="true" />
@@ -18,7 +18,7 @@
         <aside id="sidebar">
             <div class="h-100">
                 <div class="sidebar-logo">
-                    <a href="#" class="logo">Anwar Al Rahmania</a>
+                    <a asp-area ="Admin" asp-controller="Home" asp-action="Index" class="logo">Anwar Al Rahmania</a>
                 </div>
                 <!-- Sidebar Navigation -->
                 <ul class="sidebar-nav">
@@ -41,6 +41,14 @@
                             Create Invoice
                         </a>
                     </li>
+                    @* Add New Products *@
+                    <li class="sidebar-item">
+
+                        <a class="sidebar-link" asp-area="Admin" asp-controller="Product" asp-action="Upsert">
+                            <i class="fa-solid fa-square-parking pe-2"></i>
+                            Add New Product
+                        </a>
+                    </li>
 
                     @* Inventory *@
                     <li class="sidebar-item">
@@ -54,20 +62,25 @@
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                               <a class="sidebar-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Products</a>
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="Product" asp-action="Index">Products</a>
                                                            </li>
                             <li class="sidebar-item">
                               
-                                <a class="sidebar-link" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                            </li>
+                           
+                            <li class="sidebar-item">
+
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="Supplier" asp-action="Index">
+                                   
+                                    Supplier
+                                </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" asp-area="Admin" asp-controller="UnitOfMeasurement" asp-action="Index">Units Of Measure</a>
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-status="lowStock">Low Stock</a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-status="lowStock">Low Stock</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-status="outOfStock">Out of Stock</a>
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-status="outOfStock">Out of Stock</a>
                             </li>
                         </ul>
                     </li>
@@ -79,21 +92,15 @@
                         </a>
                         <ul id="dashboard" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a class="sidebar-link" asp-area="Admin" asp-controller="Invoice" asp-action="Index">Invoice List</a>
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="Invoice" asp-action="Index">Invoice List</a>
                              </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" asp-area="Admin" asp-controller="Invoice" asp-action="Create">Create Invoice</a>
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="Invoice" asp-action="Create">Create Invoice</a>
                             </li>
                         </ul>
                     </li>
                   
-                    <li class="sidebar-item">
-
-                        <a class="sidebar-link" asp-area="Admin" asp-controller="Supplier" asp-action="Index">
-                            <i class="fa-solid fa-truck-fast pe-2"></i>
-                            Supplier
-                        </a>
-                    </li>
+              
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#settings"
                            aria-expanded="false" aria-controls="settings">
@@ -102,10 +109,17 @@
                         </a>
                         <ul id="settings" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a class="sidebar-link" asp-area="Admin" asp-controller="Company" asp-action="Edit">Company Info</a>
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="Company" asp-action="Edit">Company Info</a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" asp-area="Admin" asp-controller="Vat" asp-action="Edit">VAT Info</a>
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="Vat" asp-action="Edit">VAT Info</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link ps-5" asp-area="Admin" asp-controller="UnitOfMeasurement" asp-action="Index">Units Of Measure</a>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link ps-5" asp-area="Identity" asp-controller="Account" asp-action="Register">Add New User</a>
                             </li>
                            
                         </ul>

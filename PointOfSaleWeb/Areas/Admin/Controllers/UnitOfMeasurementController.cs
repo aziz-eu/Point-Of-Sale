@@ -82,15 +82,25 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
         [HttpDelete]
         public IActionResult Delete(int? id) {
 
-            var units = _unitOfWork.UnitOfMeasurment.GetFirstOrDefault(u => u.Id == id);
-            if(units == null)
+            try
             {
-                return Json(new {success =  false , message= "Error while deleteing" });
+                var units = _unitOfWork.UnitOfMeasurment.GetFirstOrDefault(u => u.Id == id);
+                if (units == null)
+                {
+                    return Json(new { success = false, message = "Error while deleteing" });
+                }
+
+                _unitOfWork.UnitOfMeasurment.Remove(units);
+                _unitOfWork.Save();
+                return Json(new { success = true, message = "Delete Successful" });
+
             }
-            
-            _unitOfWork.UnitOfMeasurment.Remove(units);
-            _unitOfWork.Save();
-            return Json(new { success = true, message = "Delete Successful" });
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "First Delete the Releted Products" });
+
+            }
+           
             
         
         

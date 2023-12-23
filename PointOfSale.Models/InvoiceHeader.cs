@@ -18,11 +18,15 @@ namespace PointOfSale.Models
         public double SubTotal { get; set; }
         public double Vat {  get; set; }
         public double Total { get; set; }
+
+        [Required]
+        [Display(Name="Paid Amount")]
         public double PaidAmount { get; set; }
         public double UnpaidAmount { get; set; }
         public string PaymentSataus { get; set; }
         [Required]
         public string Name { get; set; }
+        [Display(Name = "Phone")]
         public string? PhoneNumbar { get; set; } 
         public string? Email { get; set; }
         public string? Address { get; set; }

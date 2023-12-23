@@ -25,6 +25,7 @@ using PointOfSale.Utility;
 
 namespace PointOfSaleWeb.Areas.Identity.Pages.Account
 {
+    [Authorize]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
