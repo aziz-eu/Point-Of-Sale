@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using PointOfSale.Data;
+using PointOfSale.DataAccess.DbInitializer;
 using PointOfSale.DataAccess.Repository;
 using PointOfSale.DataAccess.Repository.IRepository;
 using PointOfSale.Models;
@@ -20,13 +21,8 @@ builder.Services.AddDbContext<ApplicationDbContext> (options =>options.UseSqlSer
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-
-
-
-
-
-
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
 builder.Services.ConfigureApplicationCookie(options =>
@@ -50,6 +46,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+SeedDatabase();
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -60,3 +57,13 @@ app.MapControllerRoute(
     pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void SeedDatabase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+
+        var dbInitaliazer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitaliazer.Initialize();
+    } 
+}

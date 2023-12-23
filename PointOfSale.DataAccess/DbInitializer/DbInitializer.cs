@@ -57,6 +57,7 @@ namespace PointOfSale.DataAccess.DbInitializer
 
                 _userManager.CreateAsync(new ApplicationUser
                 {
+                    Email = "anwaralrahmaniah.uae@gmail.com",
                     UserName = "anwaralrahmaniah.uae@gmail.com",
                     NormalizedEmail = "ANWARALRAHMANIAH.UAE@GMAIL.COM",
                     PhoneNumber = "1234567890",
@@ -67,32 +68,34 @@ namespace PointOfSale.DataAccess.DbInitializer
                 _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
 
 
-                // Add init Vat info
-                _db.VatRates.AddRangeAsync(new VatRate
-                {
-                    Id = 1,
-                    Vat = 5
-                }).GetAwaiter().GetResult(); ;
+                //// Add init Vat info
+                //_db.VatRates.AddAsync(new VatRate
+                //{
+                //    Id = 1,
+                //    Vat = 5
+                //}).GetAwaiter().GetResult(); ;
 
-                //Add init Company Info
+                //_db.SaveChangesAsync();
+                ////Add init Company Info
 
-                _db.Companys.AddRangeAsync(new Company
-                {
-                    Id = 1,
-                    Name = "Company Name",
-                    AribicName = "Company Name",
-                    TRN = "123456789",
-                    ClstTRN = "123456789",
-                    Email = "someting@mail.com",
-                    PhoneNumber1 = "1234567890",
-                    PhoneNumber2 = "1234567890",
-                    AribicPhoneNumber1 = "1234567890",
-                    AribicPhoneNumber2 = "1234567890",
-                    Address = "something, UAE",
-                    AribicAddress = "someting",
-                    PostOfficeNo = "1234567890",
-                    AribicPostOfficeNo = "1234567890",
-                });
+                //_db.Companys.AddRangeAsync(new Company
+                //{
+                //    Id = 1,
+                //    Name = "Company Name",
+                //    AribicName = "Company Name",
+                //    TRN = "123456789",
+                //    ClstTRN = "123456789",
+                //    Email = "someting@mail.com",
+                //    PhoneNumber1 = "1234567890",
+                //    PhoneNumber2 = "1234567890",
+                //    AribicPhoneNumber1 = "1234567890",
+                //    AribicPhoneNumber2 = "1234567890",
+                //    Address = "something, UAE",
+                //    AribicAddress = "someting",
+                //    PostOfficeNo = "1234567890",
+                //    AribicPostOfficeNo = "1234567890",
+                //}).GetAwaiter().GetResult();
+                //_db.SaveChangesAsync();
 
             }
             
