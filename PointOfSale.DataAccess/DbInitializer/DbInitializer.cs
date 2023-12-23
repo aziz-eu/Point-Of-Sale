@@ -67,36 +67,6 @@ namespace PointOfSale.DataAccess.DbInitializer
                 ApplicationUser user = _db.ApplicationUsers.FirstOrDefault(u=>u.Email == "anwaralrahmaniah.uae@gmail.com");
                 _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
 
-
-                //// Add init Vat info
-                //_db.VatRates.AddAsync(new VatRate
-                //{
-                //    Id = 1,
-                //    Vat = 5
-                //}).GetAwaiter().GetResult(); ;
-
-                //_db.SaveChangesAsync();
-                ////Add init Company Info
-
-                //_db.Companys.AddRangeAsync(new Company
-                //{
-                //    Id = 1,
-                //    Name = "Company Name",
-                //    AribicName = "Company Name",
-                //    TRN = "123456789",
-                //    ClstTRN = "123456789",
-                //    Email = "someting@mail.com",
-                //    PhoneNumber1 = "1234567890",
-                //    PhoneNumber2 = "1234567890",
-                //    AribicPhoneNumber1 = "1234567890",
-                //    AribicPhoneNumber2 = "1234567890",
-                //    Address = "something, UAE",
-                //    AribicAddress = "someting",
-                //    PostOfficeNo = "1234567890",
-                //    AribicPostOfficeNo = "1234567890",
-                //}).GetAwaiter().GetResult();
-                //_db.SaveChangesAsync();
-
             }
             
             return;
