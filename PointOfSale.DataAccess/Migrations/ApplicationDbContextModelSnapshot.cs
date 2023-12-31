@@ -234,8 +234,8 @@ namespace PointOfSale.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
+                    b.Property<double>("Count")
+                        .HasColumnType("float");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -362,8 +362,8 @@ namespace PointOfSale.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
+                    b.Property<double>("Count")
+                        .HasColumnType("float");
 
                     b.Property<int>("InvoiceId")
                         .HasColumnType("int");
@@ -460,8 +460,8 @@ namespace PointOfSale.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.Property<double>("Quantity")
+                        .HasColumnType("float");
 
                     b.Property<double?>("SellPrice")
                         .HasColumnType("float");

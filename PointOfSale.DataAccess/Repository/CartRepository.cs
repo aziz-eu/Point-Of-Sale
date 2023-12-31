@@ -24,7 +24,7 @@ namespace PointOfSale.DataAccess.Repository
             return cart.Count;
         }
 
-        public int UpdateCount(Cart cart, int count)
+        public double UpdateCount(Cart cart, double count)
         {
             cart.Count = count;
             return cart.Count;

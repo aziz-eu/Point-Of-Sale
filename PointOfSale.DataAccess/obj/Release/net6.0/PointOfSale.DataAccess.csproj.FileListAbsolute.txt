@@ -1,0 +1,17 @@
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\bin\Release\net6.0\PointOfSale.DataAccess.deps.json
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\bin\Release\net6.0\PointOfSale.DataAccess.dll
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\bin\Release\net6.0\PointOfSale.DataAccess.pdb
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\bin\Release\net6.0\PointOfSale.Models.dll
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\bin\Release\net6.0\PointOfSale.Utility.dll
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\bin\Release\net6.0\PointOfSale.Models.pdb
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\bin\Release\net6.0\PointOfSale.Utility.pdb
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\PointOfSale.DataAccess.csproj.AssemblyReference.cache
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\PointOfSale.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\PointOfSale.DataAccess.AssemblyInfoInputs.cache
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\PointOfSale.DataAccess.AssemblyInfo.cs
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\PointOfSale.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\PointOfSale.DataAccess.csproj.CopyComplete
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\PointOfSale.DataAccess.dll
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\refint\PointOfSale.DataAccess.dll
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\PointOfSale.DataAccess.pdb
+C:\Users\18622\Desktop\ASP.NET\Point-Of-Sale\PointOfSale.DataAccess\obj\Release\net6.0\ref\PointOfSale.DataAccess.dll

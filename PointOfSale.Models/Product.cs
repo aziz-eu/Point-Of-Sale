@@ -19,7 +19,7 @@ namespace PointOfSale.Models
         public string? BarCode { get; set; }
         [Required]
         [Display (Name="Qty")]
-        public int Quantity { get; set; }
+        public double Quantity { get; set; }
         [Required]
         [Display(Name = "Unit Price")]
         public double? UnitPrice { get; set; }

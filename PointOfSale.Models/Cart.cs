@@ -19,7 +19,7 @@ namespace PointOfSale.Models
         [Required]
         [Display(Name = "Qty")]
         [Range(1,int.MaxValue, ErrorMessage = "Value Mustbe Getter Then 1")]
-        public int Count { get; set; }
+        public double Count { get; set; }
 
         [Required]
         [Display(Name = "Product")]
