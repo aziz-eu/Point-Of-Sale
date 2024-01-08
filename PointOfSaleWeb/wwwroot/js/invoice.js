@@ -20,12 +20,19 @@ function loadDataTable() {
                 "render": function (data) {
                     var date = new Date(data);
                     var month = date.getMonth() + 1;
-                    return (month.toString().length > 1 ? month : "0" + month) + "/" + date.getDate() + "/" + date.getFullYear();
+                    return date.getDate() +"/" + (month.toString().length > 1 ? month : "0" + month) + "/" + date.getFullYear();
                 }
             },
             { "data": "name" },
             {"data": "phoneNumbar" },
-            { "data": "total" },
+            {
+                "data": "total",
+                "render": function (data) {
+                    var total = data.toFixed(2);
+                    return total;
+                }
+
+            },
             {"data": "paidAmount"},
             { "data": "paymentSataus" },
             {"data": "unpaidAmount"},

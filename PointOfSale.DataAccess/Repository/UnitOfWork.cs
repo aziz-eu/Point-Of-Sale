@@ -26,6 +26,7 @@ namespace PointOfSale.DataAccess.Repository
             InvoiceHeader = new InvoiceHeaderRepository(_db);
             InvoiceDetail = new InvoiceDetailRepository (_db);
             Company = new CompanyRepository (_db);
+            Customer = new CustomerRepository (_db);
 
 
         }
@@ -43,6 +44,7 @@ namespace PointOfSale.DataAccess.Repository
 
         public IInvoiceHeaderRepository InvoiceHeader { get; private set; }
         public ICompanyRepository Company { get; private set; }
+        public ICustomerRepository Customer { get; private set; }
         public void Save()
         {
             _db.SaveChanges();
