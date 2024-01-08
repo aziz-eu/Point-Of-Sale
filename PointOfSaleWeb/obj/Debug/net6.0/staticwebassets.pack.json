@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\js\\category.js"
     },
     {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\js\\customer.js",
+      "PackagePath": "staticwebassets\\js\\customer.js"
+    },
+    {
       "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\js\\invoice.js",
       "PackagePath": "staticwebassets\\js\\invoice.js"
     },

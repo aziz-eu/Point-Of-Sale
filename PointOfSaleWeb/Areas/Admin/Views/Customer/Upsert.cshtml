@@ -1,0 +1,59 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Customer";
+}
+
+
+<div class="border my-3 p-3">
+
+    <h2>@(Model.Id != 0 ? "Edit Customer" : "Add New Customer") </h2>
+
+    <form method="post" asp-action="Upsert">
+        <input asp-for="Id" hidden />
+        <div class="my-3">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+            <span class="required-warning" asp-validation-for="Name"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="PhoneNumber"></label>
+            <input class="form-control" asp-for="PhoneNumber" />
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Email"></label>
+            <input class="form-control" asp-for="Email" />
+        </div>
+        <div class="my-3">
+            <label asp-for="Address"></label>
+            <input class="form-control" asp-for="Address" />
+        </div>
+        <div class="my-3">
+            <label asp-for="ClstTrn"></label>
+            <input class="form-control" asp-for="ClstTrn" />
+        </div>
+
+
+        <div class="my-4">
+            @if (Model.Id != 0)
+            {
+                <button class="btn btn-primary" type="submit">Update</button>
+            }
+            else
+            {
+                <button class="btn btn-primary" type="submit">Add</button>
+            }
+
+            <a asp-controller="Customer" asp-action="Index" class="btn btn-secondary">Back To List</a>
+        </div>
+
+
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

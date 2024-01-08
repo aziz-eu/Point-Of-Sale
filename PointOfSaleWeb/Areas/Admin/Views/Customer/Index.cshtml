@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Customer";
+}
+
+<div>
+    <div class="row my-4">
+        <div class="col-6"><h2>Category List</h2></div>
+        <div class="col-6 text-end"><a class="btn btn-primary" asp-controller="Customer" asp-action="Upsert">Add New Customer</a></div>
+
+    </div>
+    <table class="table table-striped" id="tblData" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Clst.TRN</th>
+                <td></td>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/customer.js"></script>
+}
