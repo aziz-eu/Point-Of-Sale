@@ -18,6 +18,7 @@ namespace PointOfSale.DataAccess.Repository.IRepository
         IVatRateRepository VatRate { get; }
         IInvoiceDetailRepository InvoiceDetail { get; }
         IInvoiceHeaderRepository InvoiceHeader { get; }
+        IDelivaryNoteRepository DelivaryNote { get; }
         ICompanyRepository Company { get; }
 
         ICustomerRepository Customer { get; }

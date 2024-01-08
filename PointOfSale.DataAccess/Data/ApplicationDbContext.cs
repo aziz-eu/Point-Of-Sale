@@ -86,6 +86,7 @@ namespace PointOfSale.Data
         public DbSet <VatRate> VatRates { get; set; }
         public DbSet <InvoiceHeader> InvoiceHeaders { get; set; }
         public DbSet<InvoiceDetail> InvoiceDetails { get; set; }
+        public DbSet<DeliveryNote> deliveryNotes { get; set; }
         public DbSet<Company> Companys { get; set; }
         public DbSet <Customer> Customers { get; set; }
        
