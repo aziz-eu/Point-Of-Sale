@@ -365,7 +365,7 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ClstTrn")
+                    b.Property<string>("CustTrn")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -383,7 +383,7 @@ namespace PointOfSale.DataAccess.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("PointOfSale.Models.DeliveryNote", b =>
+            modelBuilder.Entity("PointOfSale.Models.DeliveryNoteDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -394,7 +394,7 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Property<double>("Count")
                         .HasColumnType("float");
 
-                    b.Property<int>("InvoiceId")
+                    b.Property<int>("DeliveryNoteId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")
@@ -402,11 +402,46 @@ namespace PointOfSale.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InvoiceId");
+                    b.HasIndex("DeliveryNoteId");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("deliveryNotes");
+                    b.ToTable("DeliveryNoteDetails");
+                });
+
+            modelBuilder.Entity("PointOfSale.Models.DeliveryNoteHeader", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CustTrn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumbar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DeliveryNoteHeaders");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.InvoiceDetail", b =>
@@ -687,11 +722,11 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("PointOfSale.Models.DeliveryNote", b =>
+            modelBuilder.Entity("PointOfSale.Models.DeliveryNoteDetail", b =>
                 {
-                    b.HasOne("PointOfSale.Models.InvoiceHeader", "InvoiceHeader")
+                    b.HasOne("PointOfSale.Models.DeliveryNoteHeader", "DeliveryNoteHeader")
                         .WithMany()
-                        .HasForeignKey("InvoiceId")
+                        .HasForeignKey("DeliveryNoteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -701,7 +736,7 @@ namespace PointOfSale.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("InvoiceHeader");
+                    b.Navigation("DeliveryNoteHeader");
 
                     b.Navigation("Product");
                 });

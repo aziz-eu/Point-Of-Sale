@@ -48,6 +48,10 @@ namespace PointOfSale.Data
                 .HasOne(e=>e.InvoiceHeader)
                 .WithMany()
                 .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<DeliveryNoteDetail>()
+              .HasOne(e => e.DeliveryNoteHeader)
+              .WithMany()
+              .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<VatRate>().HasData(
                 new VatRate {
@@ -86,7 +90,8 @@ namespace PointOfSale.Data
         public DbSet <VatRate> VatRates { get; set; }
         public DbSet <InvoiceHeader> InvoiceHeaders { get; set; }
         public DbSet<InvoiceDetail> InvoiceDetails { get; set; }
-        public DbSet<DeliveryNote> deliveryNotes { get; set; }
+        public DbSet <DeliveryNoteHeader> DeliveryNoteHeaders { get; set; }
+        public DbSet<DeliveryNoteDetail> DeliveryNoteDetails { get; set; }
         public DbSet<Company> Companys { get; set; }
         public DbSet <Customer> Customers { get; set; }
        

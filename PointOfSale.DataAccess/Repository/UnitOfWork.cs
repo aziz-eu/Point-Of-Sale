@@ -27,7 +27,9 @@ namespace PointOfSale.DataAccess.Repository
             InvoiceDetail = new InvoiceDetailRepository (_db);
             Company = new CompanyRepository (_db);
             Customer = new CustomerRepository (_db);
-            DelivaryNote = new DeliveryNoteRepository (_db);
+            DeliveryNoteDetail = new DeliveryNoteDetailRepository (_db);
+            DeliveryNoteHeader = new DeliveryNoteHeaderRepository (_db);
+          
              
 
 
@@ -45,7 +47,8 @@ namespace PointOfSale.DataAccess.Repository
         public IInvoiceDetailRepository InvoiceDetail {  get; private set; }
 
         public IInvoiceHeaderRepository InvoiceHeader { get; private set; }
-        public IDelivaryNoteRepository DelivaryNote { get; private set; }
+        public IDeliveryNoteHeaderRepository DeliveryNoteHeader { get; private set; }
+        public IDeliveryNoteDetailRepository DeliveryNoteDetail { get; private set; }
         public ICompanyRepository Company { get; private set; }
         public ICustomerRepository Customer { get; private set; }
         public void Save()
