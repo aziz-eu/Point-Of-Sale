@@ -27,10 +27,10 @@ namespace PointOfSale.Models
         [ForeignKey(nameof(ProdouctId))]
         [ValidateNever]
         public Product Product { get; set; }
-        //public string ApplicationUserId { get; set; }
 
-        //[ForeignKey(nameof(ApplicationUserId))]
-        //[ValidateNever]
-        //public ApplicationUser? ApplicationUser { get; set; }
+        [NotMapped]
+        [Display(Name = "Genarate Delivery Note")]
+        public bool isGenrateDeliveryNote { get; set; }
+     
     }
 }

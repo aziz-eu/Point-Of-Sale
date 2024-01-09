@@ -10,7 +10,8 @@ namespace PointOfSale.DataAccess.Repository.IRepository
     public interface IDeliveryNoteHeaderRepository : IRepository<DeliveryNoteHeader>
     {
         void Update(DeliveryNoteHeader deliveryNoteHeader);
+        public int LastNoteId();
 
 
-    }
+    } 
 }

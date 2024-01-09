@@ -21,5 +21,15 @@ namespace PointOfSale.DataAccess.Repository
         {
             _db.DeliveryNoteHeaders.Update(deliveryNoteHeader);
         }
+
+        public int LastNoteId()
+        {
+           var noteId =  _db.DeliveryNoteHeaders.OrderByDescending(u => u.Id).FirstOrDefault().Id;
+            if(noteId == 0)
+            {
+                return 1;
+            }
+            return noteId;
+        }
     }
 }

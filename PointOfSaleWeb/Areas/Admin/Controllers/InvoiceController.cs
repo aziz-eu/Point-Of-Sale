@@ -195,6 +195,44 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
                     }
                 }
+
+
+                ////Delivery Note 
+                if (InvoiceVM.Cart.isGenrateDeliveryNote)
+                {
+                    DeliveryNoteHeader deliveryNote = new()
+                    {
+                        Name = InvoiceVM.InvoiceHeader.Name,
+                        PhoneNumbar = InvoiceVM.InvoiceHeader.PhoneNumbar,
+                        Email = InvoiceVM.InvoiceHeader.Email,
+                        Address  = InvoiceVM.InvoiceHeader.Address,
+                        CustTrn = "123"                     
+                    };
+                    _unitOfWork.DeliveryNoteHeader.Add(deliveryNote);
+
+                    _unitOfWork.Save();
+                    //villaDto.Id = VillaStore.VillaList.OrderByDescending(u => u.Id).FirstOrDefault().Id + 1;
+                    
+
+                    foreach (var item in InvoiceVM.ListCart)
+                    {
+
+                        DeliveryNoteDetail deliveryNoteDetail = new()
+                        {
+
+                            DeliveryNoteId = _unitOfWork.DeliveryNoteHeader.LastNoteId(),
+                            ProductId = item.ProdouctId,
+                            Count = item.Count,
+
+                            
+                        };
+
+                        _unitOfWork.DeliveryNoteDetail.Add(deliveryNoteDetail);
+                        _unitOfWork.Save();
+                   
+                    }
+                }
+
                 _unitOfWork.Cart.RemoveRange(InvoiceVM.ListCart);
                 _unitOfWork.Save();
                 return RedirectToAction("Index");

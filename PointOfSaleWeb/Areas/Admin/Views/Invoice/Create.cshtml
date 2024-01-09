@@ -119,6 +119,10 @@
                 </div>
 
                 <div class="my-4">
+                    <div class="mb-2">
+                    <input type="checkbox" asp-for="@Model.Cart.isGenrateDeliveryNote" />
+                    <label asp-for="@Model.Cart.isGenrateDeliveryNote"></label>
+                    </div>
                     <button class="btn btn-primary" type="submit">Save</button>
                 </div>
             </form>
