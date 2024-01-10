@@ -16,7 +16,7 @@ function loadDataTable() {
             { "data": "phoneNumber" },
             { "data": "email" },
             { "data": "address" },
-            { "data": "clstTrn" },
+            { "data": "custTrn" },
 
             {
                 "data": "id",
