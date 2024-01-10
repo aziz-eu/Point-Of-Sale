@@ -30,6 +30,8 @@ namespace PointOfSale.Models
         public string? PhoneNumbar { get; set; } 
         public string? Email { get; set; }
         public string? Address { get; set; }
+        [Display(Name="Customer TRN")]
+        public string? CustTrn {  get; set; }
 
         public string? ApplicationUserId {  get; set; }
         [ForeignKey (nameof(ApplicationUserId))]

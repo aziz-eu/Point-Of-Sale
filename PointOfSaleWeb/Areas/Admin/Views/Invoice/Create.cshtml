@@ -93,27 +93,33 @@
                         <input asp-for="@Model.InvoiceHeader.PaidAmount" class="form-control" />
                         <span asp-validation-for="@Model.InvoiceHeader.PaidAmount" class="required-warning"></span>
                     </div>
-                    <div class="my-1 col-6">
+                    <div class="my-1 col-lg-6">
                         <label asp-for="@Model.InvoiceHeader.Name"></label>
                         <input asp-for="@Model.InvoiceHeader.Name" class="form-control" />
                         <span asp-validation-for="@Model.InvoiceHeader.Name" class="required-warning"></span>
                     </div>
 
-                    <div class="my-1 col-6">
+                    <div class="my-1 col-lg-6">
                         <label asp-for="@Model.InvoiceHeader.PhoneNumbar"></label>
                         <input asp-for="@Model.InvoiceHeader.PhoneNumbar" class="form-control" />
                         <span asp-validation-for="@Model.InvoiceHeader.PhoneNumbar" class="required-warning"></span>
                     </div>
-                    <div class="my-1 col-6">
+                    <div class="my-1 col-lg-6">
                         <label asp-for="@Model.InvoiceHeader.Email"></label>
                         <input asp-for="@Model.InvoiceHeader.Email" class="form-control" />
                         <span asp-validation-for="@Model.InvoiceHeader.Email" class="required-warning"></span>
                     </div>
-                    <div class="my-1 col-6">
+                    <div class="my-1 col-lg-6">
                         <label asp-for="@Model.InvoiceHeader.Address"></label>
                         <input asp-for="@Model.InvoiceHeader.Address" class="form-control" />
                         <span asp-validation-for="@Model.InvoiceHeader.Address" class="required-warning"></span>
                     </div>
+                    <div class="my-1 col-lg-12">
+                        <label asp-for="@Model.InvoiceHeader.CustTrn"></label>
+                        <input asp-for="@Model.InvoiceHeader.CustTrn" class="form-control" />
+                        <span asp-validation-for="@Model.InvoiceHeader.CustTrn" class="required-warning"></span>
+                    </div>
+
 
 
                 </div>

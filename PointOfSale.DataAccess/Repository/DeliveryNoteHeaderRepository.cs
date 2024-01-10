@@ -25,10 +25,6 @@ namespace PointOfSale.DataAccess.Repository
         public int LastNoteId()
         {
            var noteId =  _db.DeliveryNoteHeaders.OrderByDescending(u => u.Id).FirstOrDefault().Id;
-            if(noteId == 0)
-            {
-                return 1;
-            }
             return noteId;
         }
     }

@@ -581,7 +581,11 @@ table {
                                                     <div class="trn-no">
                                                         <div class="trn-content">
                                                             <p>TRN : @Model.Company.TRN</p>
-                                                            <p>Clst.TRN: @Model.Company.ClstTRN</p>
+                                                            @if (Model.InvoiceHeader.CustTrn != null)
+                                                            {
+                                                             <p>Clst.TRN: @Model.InvoiceHeader.CustTrn</p>
+                                                            }
+                                                           
                                                             <p>Email : @Model.Company.Email</p>
                                                         </div>
                                                     </div>
