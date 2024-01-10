@@ -198,6 +198,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
 
                 ////Delivery Note 
+                
                 if (InvoiceVM.Cart.isGenrateDeliveryNote)
                 {
                     DeliveryNoteHeader deliveryNote = new()
@@ -206,12 +207,14 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                         PhoneNumbar = InvoiceVM.InvoiceHeader.PhoneNumbar,
                         Email = InvoiceVM.InvoiceHeader.Email,
                         Address  = InvoiceVM.InvoiceHeader.Address,
-                        CustTrn = "123"                     
+                        CustTrn = InvoiceVM.InvoiceHeader.CustTrn,
+                        CreatedAt = DateTime.Now,
+
+                        
                     };
                     _unitOfWork.DeliveryNoteHeader.Add(deliveryNote);
 
                     _unitOfWork.Save();
-                    //villaDto.Id = VillaStore.VillaList.OrderByDescending(u => u.Id).FirstOrDefault().Id + 1;
                     
 
                     foreach (var item in InvoiceVM.ListCart)
@@ -231,11 +234,20 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                         _unitOfWork.Save();
                    
                     }
+                    _unitOfWork.Cart.RemoveRange(InvoiceVM.ListCart);
+                    _unitOfWork.Save();
+                    TempData["success"] = "Delivery Note & Invoice Created Successful";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _unitOfWork.Cart.RemoveRange(InvoiceVM.ListCart);
+                    _unitOfWork.Save();
+                    TempData["success"] = "Invoice Create Successful";
+                    return RedirectToAction("Index");
                 }
 
-                _unitOfWork.Cart.RemoveRange(InvoiceVM.ListCart);
-                _unitOfWork.Save();
-                return RedirectToAction("Index");
+               
 
             }
             catch (Exception ex)
