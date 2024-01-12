@@ -293,3 +293,17 @@ thead {
       margin-inline-end: 10px;
     }
   }
+
+/*
+.old-customer-info{
+    display:none;
+}*/
+
+.customer-info-hide{
+    display:none;
+}
+
+.customer-info-label{
+    display:flex;
+    justify-content:space-between;
+}

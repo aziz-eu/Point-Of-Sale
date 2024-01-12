@@ -20,8 +20,7 @@ namespace PointOfSale.Models
         [Display(Name = "Phone")]
         public string? PhoneNumbar { get; set; } 
         public string? Email { get; set; }
-        public string? Address { get; set; }
-      
+        public string? Address { get; set; }      
         public string? CustTrn { get; set; }
 
 

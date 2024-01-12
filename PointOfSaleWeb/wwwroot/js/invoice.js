@@ -13,18 +13,18 @@ function loadDataTable() {
         },
         order: [0, 'desc'],
         "columns": [
-           
+
             { "data": "id" },
             {
                 "data": "createdAt",
                 "render": function (data) {
                     var date = new Date(data);
                     var month = date.getMonth() + 1;
-                    return date.getDate() +"/" + (month.toString().length > 1 ? month : "0" + month) + "/" + date.getFullYear();
+                    return date.getDate() + "/" + (month.toString().length > 1 ? month : "0" + month) + "/" + date.getFullYear();
                 }
             },
             { "data": "name" },
-            {"data": "phoneNumbar" },
+            { "data": "phoneNumbar" },
             {
                 "data": "total",
                 "render": function (data) {
@@ -33,13 +33,13 @@ function loadDataTable() {
                 }
 
             },
-            {"data": "paidAmount"},
+            { "data": "paidAmount" },
             { "data": "paymentSataus" },
-            {"data": "unpaidAmount"},
+            { "data": "unpaidAmount" },
             {
                 "data": "id",
                 "render": function (data) {
-               
+
                     return `
                     
                      <div class="btn-column">

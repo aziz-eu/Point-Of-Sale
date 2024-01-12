@@ -19,13 +19,17 @@ namespace PointOfSale.Models.ViewModels
         public VatRate VatRate { get; set; }
         public IEnumerable<Cart> ListCart { get; set; }
         public Company Company { get; set; }
+        
         public string AmountInWord { get; set; }
+        public double TotalDueAmount { get; set; }
         
         public double VatPercentage { get; set; }
 
         [ValidateNever]
         public IEnumerable<SelectListItem> ProductList { get; set; }
-      
+        [ValidateNever]
+        public IEnumerable<SelectListItem> CustomersList  { get; set; }
+
 
     }
 }

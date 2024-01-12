@@ -85,14 +85,19 @@
 
 </table>
     <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6">
             <form method="post" asp-action="Save">
-                <div class="row">
-                    <div class="my-1">
-                        <label asp-for="@Model.InvoiceHeader.PaidAmount"></label>
-                        <input asp-for="@Model.InvoiceHeader.PaidAmount" class="form-control" />
-                        <span asp-validation-for="@Model.InvoiceHeader.PaidAmount" class="required-warning"></span>
-                    </div>
+
+
+                <div class="my-1 col-lg-12 coustomer-info">
+                    <label asp-for="@Model.InvoiceHeader.PaidAmount"></label>
+                    <input asp-for="@Model.InvoiceHeader.PaidAmount" class="form-control" />
+                    <span asp-validation-for="@Model.InvoiceHeader.PaidAmount" class="required-warning"></span>
+                </div>
+
+                <div class="row customer-info-hide">
+               
+
                     <div class="my-1 col-lg-6">
                         <label asp-for="@Model.InvoiceHeader.Name"></label>
                         <input asp-for="@Model.InvoiceHeader.Name" class="form-control" />
@@ -119,10 +124,36 @@
                         <input asp-for="@Model.InvoiceHeader.CustTrn" class="form-control" />
                         <span asp-validation-for="@Model.InvoiceHeader.CustTrn" class="required-warning"></span>
                     </div>
-
+                   
 
 
                 </div>
+
+                <div class="old-customer-info">
+
+                    <div class="my-3">
+                        <div class="customer-info-label">
+                        <div>
+                        <label asp-for="@Model.InvoiceHeader.CustomerID"></label>
+                        </div>
+
+                        <div>
+                        <input id="toggle-customer" type="checkbox" />
+                        <label>New Customer</label>
+                        </div>
+                        </div>
+
+
+
+
+                        <select class="form-select" asp-for="@Model.InvoiceHeader.CustomerID" asp-items="Model.CustomersList">
+                            <option selected disabled>-- Select Customer --</option>
+                        </select>
+                        <span class="required-warning"></span>
+                    </div>
+                </div>
+
+
 
                 <div class="my-4">
                     <div class="mb-2">
@@ -134,7 +165,7 @@
             </form>
         </div>
 
-        <div class="col-6">
+        <div class="col-lg-6">
             <table width="100%" class="create-invoice-calcuation-table">
                 <tbody>
                     <tr>

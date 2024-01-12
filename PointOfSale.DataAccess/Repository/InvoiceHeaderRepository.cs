@@ -16,6 +16,13 @@ namespace PointOfSale.DataAccess.Repository
         {
             _db = db;
         }
+
+        public double CalculateDue(int? id)
+        {
+           double totalDue = _db.InvoiceHeaders.Where(u => u.RegularCustomerId == id).Sum(c => c.UnpaidAmount);
+            return totalDue;
+        }
+
         public void Update(InvoiceHeader invoiceHeader)
         {
             _db.InvoiceHeaders.Update(invoiceHeader);
@@ -36,5 +43,7 @@ namespace PointOfSale.DataAccess.Repository
             return 0;
 
         }
+
+
     }
 }

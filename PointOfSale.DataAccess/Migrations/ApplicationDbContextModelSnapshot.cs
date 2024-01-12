@@ -510,6 +510,9 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Property<string>("PhoneNumbar")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("RegularCustomerId")
+                        .HasColumnType("int");
+
                     b.Property<double>("SubTotal")
                         .HasColumnType("float");
 

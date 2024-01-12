@@ -33,6 +33,8 @@ namespace PointOfSale.Models
         [Display(Name="Customer TRN")]
         public string? CustTrn {  get; set; }
 
+        public int? RegularCustomerId { get; set; }
+
         public string? ApplicationUserId {  get; set; }
         [ForeignKey (nameof(ApplicationUserId))]
         [ValidateNever]
@@ -40,6 +42,10 @@ namespace PointOfSale.Models
 
         [NotMapped]
         public double UpdateDue {  get; set; }
+        [NotMapped]
+
+        [Display (Name= "Select Customer")]
+        public int? CustomerID { get; set; }
 
     }
 }

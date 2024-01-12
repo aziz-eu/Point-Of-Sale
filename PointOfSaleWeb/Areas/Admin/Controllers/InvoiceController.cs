@@ -35,7 +35,11 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 Company = _unitOfWork.Company.GetFirstOrDefault(x => x.Id == 1),
                 UnitsOfMeasurement = _unitOfWork.UnitOfMeasurment.GetAll()                
             };
-            var totalAmmount = Convert.ToInt32(Math.Round(InvoiceVM.InvoiceHeader.Total));
+            if (InvoiceVM.InvoiceHeader.RegularCustomerId != null)
+            {
+                InvoiceVM.TotalDueAmount = _unitOfWork.InvoiceHeader.CalculateDue(InvoiceVM.InvoiceHeader.RegularCustomerId);
+            }
+            var totalAmmount = Convert.ToInt32(Math.Floor(InvoiceVM.InvoiceHeader.Total));
             InvoiceVM.AmountInWord = NumberToWords(totalAmmount);
             return View(InvoiceVM);
         }
@@ -52,10 +56,16 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                         Text = u.Name,
                         Value = u.Id.ToString(),
                     }),
-                ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product"),        
+                ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product"),
                 UnitsOfMeasurement = _unitOfWork.UnitOfMeasurment.GetAll(),
                 InvoiceHeader = new(),
-                VatRate = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1)
+                VatRate = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1),
+                CustomersList = _unitOfWork.Customer.GetAll().Select(
+                   u => new SelectListItem
+                   {
+                       Text = u.Name,
+                       Value = u.Id.ToString(),
+                   })
             };
 
             foreach(var item in invoiceVM.ListCart)
@@ -135,8 +145,11 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 var claimIdentity = (ClaimsIdentity)User.Identity;
                 var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
+              
+
 
                 InvoiceVM.ListCart = _unitOfWork.Cart.GetAll(includeProperties: "Product");
+                
                 InvoiceVM.VatRate = _unitOfWork.VatRate.GetFirstOrDefault(u => u.Id == 1);
                 InvoiceVM.InvoiceHeader.CreatedAt = DateTime.Now;
 
@@ -169,8 +182,29 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Create));
                 }
 
-                _unitOfWork.InvoiceHeader.Add(InvoiceVM.InvoiceHeader);
-                _unitOfWork.Save();
+                if (InvoiceVM.InvoiceHeader.CustomerID != null)
+                {
+                    var customerInfo = _unitOfWork.Customer.GetFirstOrDefault(u => u.Id == InvoiceVM.InvoiceHeader.CustomerID);
+
+                    InvoiceVM.InvoiceHeader.Name = customerInfo.Name;
+                    InvoiceVM.InvoiceHeader.PhoneNumbar = customerInfo.PhoneNumber;
+                    InvoiceVM.InvoiceHeader.Email = customerInfo.Email;
+                    InvoiceVM.InvoiceHeader.Address = customerInfo.Address;
+                   InvoiceVM.InvoiceHeader.CustTrn = customerInfo.CustTrn;
+                    InvoiceVM.InvoiceHeader.RegularCustomerId = InvoiceVM.InvoiceHeader.CustomerID;
+                    _unitOfWork.InvoiceHeader.Add(InvoiceVM.InvoiceHeader);
+                    _unitOfWork.Save();
+
+
+                }
+                else
+                {
+
+                    _unitOfWork.InvoiceHeader.Add(InvoiceVM.InvoiceHeader);
+                    _unitOfWork.Save();
+                }
+
+               
 
                 foreach (var item in InvoiceVM.ListCart)
                 {

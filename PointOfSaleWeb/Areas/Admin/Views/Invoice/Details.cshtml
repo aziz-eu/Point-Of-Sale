@@ -558,7 +558,11 @@ table {
                             <a class="btn btn-primary" onclick="printDiv('printArea')">Print</a>
                             <a class="btn btn-primary" asp-controller="Invoice" asp-action="DeliveryNote" asp-route-id="@Model.InvoiceHeader.Id">Delivery Note</a>
                         </div>
-
+                       @if(Model.TotalDueAmount != 0){
+                        <div class="text-center">
+                                <p class="text-danger mt-2 font-weight-bold">  The Customer has total Due Of @Model.TotalDueAmount AED !</p>
+                            </div>
+                       }
                         <div class="invoice printArea" id="printArea">
                             <!-- Invoice Header Section -->
                             <section>
