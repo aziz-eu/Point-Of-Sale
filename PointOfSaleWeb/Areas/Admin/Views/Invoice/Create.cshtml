@@ -95,7 +95,7 @@
                     <span asp-validation-for="@Model.InvoiceHeader.PaidAmount" class="required-warning"></span>
                 </div>
 
-                <div class="row customer-info-hide">
+                <div class="row customer-info-hide" id="newCustomerInfo">
                
 
                     <div class="my-1 col-lg-6">
@@ -129,7 +129,7 @@
 
                 </div>
 
-                <div class="old-customer-info">
+                <div class="old-customer-info" id="regularCustomer">
 
                     <div class="my-3">
                         <div class="customer-info-label">
