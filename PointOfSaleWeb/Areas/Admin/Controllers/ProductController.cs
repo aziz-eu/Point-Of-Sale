@@ -142,7 +142,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 }
             } catch (Exception ex)
             {
-                return Json(new { success = false, message = "Error Whiling Delete! Some Invoice Has the item!" });
+                return Json(new { success = false, message = "Error ! Invoices and delivery Note: Restrict the deletion of the item!" });
             }
         
           

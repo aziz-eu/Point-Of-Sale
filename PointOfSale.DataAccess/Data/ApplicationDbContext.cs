@@ -49,6 +49,10 @@ namespace PointOfSale.Data
                 .WithMany()
                 .OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<DeliveryNoteDetail>()
+               .HasOne(e => e.Product)
+               .WithMany()
+               .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<DeliveryNoteDetail>()
               .HasOne(e => e.DeliveryNoteHeader)
               .WithMany()
               .OnDelete(DeleteBehavior.Cascade);
