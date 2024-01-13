@@ -114,7 +114,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                     product = product.Where(u => u.Quantity == 0);
                     break;
                 case "lowStock":
-                    product = product.Where(u => u.Quantity < 25  && u.Quantity > 0);
+                    product = product.Where(u => u.Quantity < 6  && u.Quantity > 0);
                     break;
                 default:
                     break;

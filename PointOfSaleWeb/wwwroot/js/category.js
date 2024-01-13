@@ -13,8 +13,17 @@ function loadDataTable() {
         },
         "columns": [
             { "data": "name" },
-            { "data": "description" },
+            {
+                "data": "description",
+                "render": function (data) {
 
+                    if (data == null)
+                        return "-"
+                    else
+                        return data;
+                }
+            }
+            ,
             {
                 "data": "id",
                 "render": function (data) {

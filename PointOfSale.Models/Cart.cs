@@ -14,7 +14,7 @@ namespace PointOfSale.Models
     {
         public int Id { get; set; }
 
-        [Range(1,100000)]
+        [Range(0,100000)]
         public double Price { get; set; }
         [Required]
         [Display(Name = "Qty")]

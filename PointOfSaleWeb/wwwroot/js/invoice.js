@@ -28,7 +28,7 @@ function loadDataTable() {
             {
                 "data": "total",
                 "render": function (data) {
-                    var total = data.toFixed(2);
+                    let total = data.toFixed(2);
                     return total;
                 }
 

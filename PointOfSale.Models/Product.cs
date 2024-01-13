@@ -19,11 +19,14 @@ namespace PointOfSale.Models
         public string? BarCode { get; set; }
         [Required]
         [Display (Name="Qty")]
+        [Range(0, 1000000, ErrorMessage = "Qty Can't Less then 0")]
         public double Quantity { get; set; }
-        [Required]
+ 
         [Display(Name = "Unit Price")]
+        [Range(1, 1000000, ErrorMessage = "Unit Price Can't Less then 0")]
         public double? UnitPrice { get; set; }
         [Display(Name= "Sell Price")]
+        [Range(0, 1000000, ErrorMessage = "Sell Price Can't Less then 0")]
         public double? SellPrice { get; set; }
         [Display(Name = "Category")]
         public int CategoryId { get; set; }

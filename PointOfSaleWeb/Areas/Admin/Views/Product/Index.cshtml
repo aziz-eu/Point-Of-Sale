@@ -4,7 +4,10 @@
 
 <div>
     <div class="row my-4">
-        <div class="col-6"><h2>Product List</h2></div>
+        <div class="col-6" id="productListTitle"><h2>Product List</h2></div>
+        <div class="col-6 customer-info-hide" id="lowStockTitle"><h2>Low Stock</h2></div>
+        <div class="col-6 customer-info-hide" id="outOfStock"><h2>Out Of Stock</h2></div>
+        
         <div class="col-6 text-end"><a class="btn btn-primary" asp-controller="Product" asp-action="Upsert">Add New Product</a></div>
 
     </div>

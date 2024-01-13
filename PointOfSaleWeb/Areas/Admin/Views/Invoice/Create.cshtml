@@ -16,7 +16,7 @@
        
         <div class="my-3 col-lg-6">
             <label asp-for="Cart.ProdouctId"></label>
-            <select class="form-select" asp-for="Cart.ProdouctId" asp-items="Model.ProductList">
+            <select id="products" class="form-select" asp-for="Cart.ProdouctId" asp-items="Model.ProductList">
                 <option selected disabled>-- Select Product --</option>
             </select>
             <span class="required-warning" asp-validation-for="Cart.ProdouctId"></span>
@@ -195,6 +195,13 @@
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+        $('#products').select2({
+            placeholder: 'Select an option'
+        });
+    </script>
 }
 
 

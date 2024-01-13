@@ -566,7 +566,6 @@ namespace PointOfSale.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<double?>("UnitPrice")
-                        .IsRequired()
                         .HasColumnType("float");
 
                     b.Property<int>("UnitsOfMeasurementId")

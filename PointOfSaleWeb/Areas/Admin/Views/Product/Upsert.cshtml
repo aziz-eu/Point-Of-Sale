@@ -10,55 +10,66 @@
 
     <form method="post" asp-action="Upsert">
         <input asp-for="Product.Id" hidden />
-        <div class="my-3">
+        <div class="mb-2 mt-3">
             <label asp-for="Product.Name"></label>
             <input class="form-control" asp-for="Product.Name" />
             <span class="required-warning" asp-validation-for="Product.Name"></span>
         </div>
 
-        <div class="my-3">
+        <div class="my-2">
             <label asp-for="Product.BarCode"></label>
-            <input class="form-control" asp-for="Product.BarCode" />
+            <input class="form-control" asp-for="Product.BarCode" placeholder="Optional" />
         </div>
 
-        <div class="my-3">
+        <div class="row">
+        <div class="my-2 col-lg-6">
             <label asp-for="Product.UnitPrice"></label>
-            <input class="form-control" asp-for="Product.UnitPrice" />
-            <span class="required-warning" asp-validation-for="Product.UnitPrice"></span>
+            <input class="form-control" asp-for="Product.UnitPrice" placeholder="Optional" />
+            <span class="required-warning" asp-validation-for="Product.UnitPrice" ></span>
         </div>
 
-        <div class="my-3">
+        <div class="my-2 col-lg-6">
             <label asp-for="Product.SellPrice"></label>
-            <input class="form-control" asp-for="Product.SellPrice" />
+            <input class="form-control" asp-for="Product.SellPrice" placeholder="Optional" />
+                <span class="required-warning" asp-validation-for="Product.SellPrice"></span>
         </div>
 
-        <div class="my-3">
+        </div>
+
+        <div class="row">
+
+        <div class="my-2 col-lg-6">
             <label asp-for="Product.Quantity"></label>
             <input class="form-control" asp-for="Product.Quantity" />
             <span class="required-warning" asp-validation-for="Product.Quantity"></span>
         </div>
 
-        <div class="my-3">
-            <label asp-for="Product.CategoryId"></label>
-            <select class="form-select" asp-for="Product.CategoryId" asp-items="Model.CategoryList">
-                <option selected disabled>-- Select Category --</option>
-            </select>            
-            <span class="required-warning" asp-validation-for="Product.CategoryId"></span>
-        </div>
-        <div class="my-3">
+        <div class="my-2 col-lg-6">
             <label asp-for="Product.SupplierId"></label>
             <select class="form-select" asp-for="Product.SupplierId" asp-items="Model.SupplierList">
                 <option selected disabled>-- Select Supplier --</option>
             </select>
             <span class="required-warning" asp-validation-for="Product.SupplierId"></span>
         </div>
+        </div>
 
-        <div class="my-3">
+        <div class="row">
+
+            <div class="my-2 col-lg-6">
+            <label asp-for="Product.CategoryId"></label>
+            <select class="form-select" asp-for="Product.CategoryId" asp-items="Model.CategoryList">
+                <option selected disabled>-- Select Category --</option>
+            </select>            
+            <span class="required-warning" asp-validation-for="Product.CategoryId"></span>
+        </div>
+
+            <div class="my-2 col-lg-6">
             <label asp-for="Product.UnitsOfMeasurementId"></label>
             <select class="form-select" asp-for="Product.UnitsOfMeasurementId" asp-items="Model.UnitsList">
-                <option selected disabled>-- Select Category --</option>
+                <option selected disabled>-- Select Measurement Unit --</option>
             </select>
             <span class="required-warning" asp-validation-for="Product.UnitsOfMeasurementId"></span>
+        </div>
         </div>
 
 
