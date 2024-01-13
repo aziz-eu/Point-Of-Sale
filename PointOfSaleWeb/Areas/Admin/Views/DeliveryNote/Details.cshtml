@@ -244,7 +244,9 @@
 
 
         .invoice {
+            border:2px solid rgba(49, 57, 66, 0.5);
             max-width: 850px;
+            margin-top: 1rem;
             margin-right: auto;
             margin-left: auto;
             align-items: center;
@@ -338,7 +340,7 @@
         }
 
         .items-section {
-            min-height: 55vh;
+            min-height: 53vh;
         }
 
 
@@ -409,7 +411,12 @@
                 }
         }
 
+        .invoice-footer{
+            border-top: 1px solid black;
+            padding-top: 1rem;
+        }
         .row.signiture {
+            margin-top:3.5rem;
             font-weight: bold;
             font-size: .8rem;
         }
@@ -598,7 +605,7 @@
                                                         <div class="trn-content">
                                                             <p>TRN : @Model.Company.TRN</p>
                                                             @if(@Model.DeliveryNoteHeader.CustTrn !=null){
-                                                            <p>Clst.TRN: @Model.DeliveryNoteHeader.CustTrn</p>
+                                                            <p>Cust.TRN: @Model.DeliveryNoteHeader.CustTrn</p>
                                                             }
                                                           
                                                             <p>Email : @Model.Company.Email</p>
@@ -625,7 +632,7 @@
 
 
                                 <div class="row contact-info">
-                                    <div class="col-4 invoice-info invoice-no"><P>NO: DN - @Model.DeliveryNoteHeader.Id</P></div>
+                                    <div class="col-4 invoice-info invoice-no"><P>NO : DN - @Model.DeliveryNoteHeader.Id</P></div>
                                     <div class="col-4 text-center invoice-info">
                                        <P>Delivery Note</P>
                                     </div>
@@ -645,22 +652,35 @@
 
 
                                 <div class="row customer-info">
-                                    <div class="col-4">
+                                    <div class="col-4 mt-1">
                                         <p>Name : @Model.DeliveryNoteHeader.Name</p>
+                                        @* <p>Address : @Model.DeliveryNoteHeader.Address </p> *@
+                                    </div>
+
+                                    <div class="col-4 ps-0 mt-1">
+                                        <p>Phone : @Model.DeliveryNoteHeader.PhoneNumbar</p>
+                                        @* <p>D.Location :@Model.DeliveryNoteHeader.Address </p> *@
+                                    </div>
+                                    <div class="col-4 ps-0 mt-1">
+                                        <p>Date: @Model.DeliveryNoteHeader.CreatedAt.ToString("dd/MM/yyyy")</p>
+                                        @* <p>Delivary Date : @Model.DeliveryNoteHeader.CreatedAt.ToString("dd/MM/yyyy")</p> *@
+                                    </div>
+                                    <div class="col-8 my-1">
+
                                         <p>Address : @Model.DeliveryNoteHeader.Address </p>
                                     </div>
 
-                                    <div class="col-4">
-                                        <p>Phone : @Model.DeliveryNoteHeader.PhoneNumbar</p>
-                                        <p>D.Location :@Model.DeliveryNoteHeader.Address </p>
-                                    </div>
-                                    <div class="col-4">
-                                        <p>Date: @Model.DeliveryNoteHeader.CreatedAt.ToString("dd/MM/yyyy")</p>
+
+                         @*            <div class="col-4">
+
                                         <p>Delivary Date : @Model.DeliveryNoteHeader.CreatedAt.ToString("dd/MM/yyyy")</p>
-                                    </div>
+                                    </div> *@
 
                                 </div>
+                               
+                                   
 
+                                
                             </section>
 
 
@@ -710,11 +730,12 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                </section>
                                 <!-- Calculation -->
                                 
                             <!-- Footer Section  -->
                             <section>
-                                <div class="row">
+                                <div class="row invoice-footer">
                                     <div class="col-6 p-0">
                                         <p class="fw-bold">D.D DUCAB - CLIPSAL -ABB -PHILIPS - AND LITTING</p>
                                         <p>Goods received in Perfect Condition: </p>
@@ -724,7 +745,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row mt-5 signiture">
+                                <div class="row signiture">
                                     <div class="col-6 p-0">Customer Signiture</div>
                                         <div class="col-6 p-0 text-end">
 
