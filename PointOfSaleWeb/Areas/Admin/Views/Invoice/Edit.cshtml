@@ -55,17 +55,52 @@
 
        
 
-        <div class="row">
-        </div>
+
+      
 
         <form method="post" asp-action="EditPost">
+    <div class="row">
             <input hidden asp-for="InvoiceHeader.Id"/>
-        <div class="my-3 col-lg-2">
+        <div class="col-lg-4">
             <label asp-for="InvoiceHeader.UpdateDue"></label>
             <input class="form-control" asp-for="InvoiceHeader.UpdateDue" />
             <span class="required-warning" asp-validation-for="InvoiceHeader.UpdateDue"></span>
         </div>
-
+        <div class="col-8"></div>
+            <div class="my-1 col-lg-4">
+            <label asp-for="InvoiceHeader.CreatedAt"></label>
+                <input class="form-control" type="date"  asp-for="InvoiceHeader.CreatedAt" />
+            <span class="required-warning" asp-validation-for="InvoiceHeader.CreatedAt"></span>
+        </div>
+            @if(Model.InvoiceHeader.RegularCustomerId != null)
+            {
+                <div class="my-1 col-lg-4">
+                    <label asp-for="InvoiceHeader.Name"></label>
+                    <input class="form-control" disabled asp-for="InvoiceHeader.Name" />
+                    <span class="required-warning" asp-validation-for="InvoiceHeader.Name"></span>
+                </div>
+            }
+            else
+            {
+                <div class="my-1 col-lg-4">
+                    <label asp-for="InvoiceHeader.Name"></label>
+                    <input class="form-control" asp-for="InvoiceHeader.Name" />
+                    <span class="required-warning" asp-validation-for="InvoiceHeader.Name"></span>
+                </div>
+            }
+           
+            <div class="my-1 col-lg-4">
+                <label asp-for="InvoiceHeader.PhoneNumbar"></label>
+                <input class="form-control" asp-for="InvoiceHeader.PhoneNumbar" />
+                <span class="required-warning" asp-validation-for="InvoiceHeader.PhoneNumbar"></span>
+            </div>
+            <div class="my-1 col-lg-12">
+                <label asp-for="InvoiceHeader.Address"></label>
+                <input class="form-control" asp-for="InvoiceHeader.Address" />
+                <span class="required-warning" asp-validation-for="InvoiceHeader.Address"></span>
+            </div>
+        </div>
+      
 
             <div class="my-4 col-lg-2">
                 <button class="btn btn-primary" type="submit">Save</button>

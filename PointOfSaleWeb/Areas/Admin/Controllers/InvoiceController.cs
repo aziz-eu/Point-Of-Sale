@@ -314,7 +314,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
                 if (InvoiceVM.InvoiceHeader.UpdateDue > invoiceHeader.UnpaidAmount  || InvoiceVM.InvoiceHeader.UpdateDue <0)
                 {
-                    TempData["Success"] = "Please Enter Valid Ammount";
+                    TempData["error"] = "Please Enter Valid Ammount";
                     return RedirectToAction(nameof(Edit), new {id = invoiceHeader.Id});
                 }
                 invoiceHeader.PaidAmount = invoiceHeader.PaidAmount + InvoiceVM.InvoiceHeader.UpdateDue;
@@ -324,19 +324,39 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 {
                     invoiceHeader.PaymentSataus = SD.PaymentStatus_Paid;
                     invoiceHeader.UnpaidAmount = 0;
+                    
                 }
-             
+                if (InvoiceVM.InvoiceHeader.Name == null)
+                {
+                    invoiceHeader.Name = invoiceHeader.Name;
+                }
+                else
+                {
+                    invoiceHeader.Name = InvoiceVM.InvoiceHeader.Name;
+                }
+                invoiceHeader.CreatedAt = InvoiceVM.InvoiceHeader.CreatedAt;
+               
+                invoiceHeader.PhoneNumbar = InvoiceVM.InvoiceHeader.PhoneNumbar;
+                invoiceHeader.Address = InvoiceVM.InvoiceHeader.Address;
 
+
+
+
+
+
+
+
+               
                 _unitOfWork.InvoiceHeader.Update(invoiceHeader);
-                    _unitOfWork.Save();
-                
-                
+                _unitOfWork.Save();
+
+                TempData["success"] = "Invoice info Update Successful";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 TempData["error"] = "Something Want Wrong!";
-                return RedirectToAction(nameof(Edit));
+                return RedirectToAction(nameof(Edit),  new { id = InvoiceVM.InvoiceHeader.Id });
             }
            
            
