@@ -611,11 +611,11 @@
                     <div class="mb-3">
 
 
-                        <div class="col-10 mt-4 text-end">
+                        <div class="col-11 pe-4 mt-4 text-end">
                             <a class="btn btn-primary" asp-controller="Invoice" asp-action="Edit" asp-route-id="@Model.InvoiceHeader.Id">Edit</a>
 
                             <a class="btn btn-primary" onclick="printDiv('printArea')">Print</a>
-                            <a class="btn btn-primary" asp-controller="Invoice" asp-action="DeliveryNote" asp-route-id="@Model.InvoiceHeader.Id">Delivery Note</a>
+                         
                         </div>
                        @if(Model.TotalDueAmount != 0){
                         <div class="text-center">

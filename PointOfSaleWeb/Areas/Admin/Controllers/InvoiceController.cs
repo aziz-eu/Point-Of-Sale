@@ -396,18 +396,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             }
 
         }
-        public IActionResult DeliveryNote(int id)
-        {
-            InvoiceVM = new InvoiceVM()
-            {
-                InvoiceHeader = _unitOfWork.InvoiceHeader.GetFirstOrDefault(x => x.Id == id),
-                InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties: "Product"),
-                Company = _unitOfWork.Company.GetFirstOrDefault(x => x.Id == 1),
-                UnitsOfMeasurement = _unitOfWork.UnitOfMeasurment.GetAll()
-            };      
-            
-            return View(InvoiceVM);
-        }
+ 
         #endregion
 
 
