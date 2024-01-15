@@ -68,7 +68,6 @@ namespace PointOfSale.Data
                 Name = "Company Name",
                 AribicName = "Company Name",
                 TRN = "123456789",
-                ClstTRN = "123456789",
                 Email = "someting@mail.com",
                 PhoneNumber1 = "1234567890",
                 PhoneNumber2 = "1234567890",

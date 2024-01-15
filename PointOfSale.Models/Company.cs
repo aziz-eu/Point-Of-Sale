@@ -18,9 +18,7 @@ namespace PointOfSale.Models
         public string AribicName { get; set; }
         [Required]
         public string TRN {  get; set; }
-        [Required]
-        [Display(Name = "Clst.TRN")]
-        public string ClstTRN { get; set; }
+       
         [Required]
         public string Email { get; set; }
         [Required]
