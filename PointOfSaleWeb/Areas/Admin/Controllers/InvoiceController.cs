@@ -240,11 +240,13 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                         Name = InvoiceVM.InvoiceHeader.Name,
                         PhoneNumbar = InvoiceVM.InvoiceHeader.PhoneNumbar,
                         Email = InvoiceVM.InvoiceHeader.Email,
-                        Address  = InvoiceVM.InvoiceHeader.Address,
+                        Address = InvoiceVM.InvoiceHeader.Address,
                         CustTrn = InvoiceVM.InvoiceHeader.CustTrn,
                         CreatedAt = DateTime.Now,
+                        RegularCustomerId = InvoiceVM.InvoiceHeader.RegularCustomerId
 
-                        
+
+
                     };
                     _unitOfWork.DeliveryNoteHeader.Add(deliveryNote);
 
@@ -260,6 +262,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                             DeliveryNoteId = _unitOfWork.DeliveryNoteHeader.LastNoteId(),
                             ProductId = item.ProdouctId,
                             Count = item.Count,
+                            
 
                             
                         };
