@@ -186,7 +186,7 @@ namespace PointOfSaleWeb.Areas.Identity.Pages.Account
                     {
                         if(User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin)) {
 
-                            TempData["success"] = "Add User Add Successful";
+                            TempData["success"] = "New User Added successfully";
                             return Page();
                         }
                         await _signInManager.SignInAsync(user, isPersistent: false);

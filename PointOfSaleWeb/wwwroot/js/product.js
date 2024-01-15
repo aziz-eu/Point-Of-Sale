@@ -73,7 +73,11 @@ function loadDataTable(status) {
                 }
 
             }
-        ]
+        ],
+        "columnDefs": [{
+            "targets": '_all',
+            "defaultContent": "-"
+        }],
     })
 
 }
