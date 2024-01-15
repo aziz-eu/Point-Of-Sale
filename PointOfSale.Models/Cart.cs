@@ -14,11 +14,11 @@ namespace PointOfSale.Models
     {
         public int Id { get; set; }
 
-        [Range(0,100000)]
+        [Range(0.01, int.MaxValue, ErrorMessage = "Price Can't be 0")]
         public double Price { get; set; }
         [Required]
         [Display(Name = "Qty")]
-        [Range(1,int.MaxValue, ErrorMessage = "Value Mustbe Getter Then 1")]
+        [Range(0.01,int.MaxValue, ErrorMessage = "Qty Can't be 0")]
         public double Count { get; set; }
 
         [Required]

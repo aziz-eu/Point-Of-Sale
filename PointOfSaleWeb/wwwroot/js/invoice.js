@@ -18,9 +18,11 @@ function loadDataTable() {
             {
                 "data": "createdAt",
                 "render": function (data) {
-                    var date = new Date(data);
-                    var month = date.getMonth() + 1;
-                    return date.getDate() + "/" + (month.toString().length > 1 ? month : "0" + month) + "/" + date.getFullYear();
+                    let dateTime = new Date(data);
+                    let date = dateTime.getDate();
+                    let month = dateTime.getMonth() + 1;
+                    let year = dateTime.getFullYear();
+                    return (date.toString().length > 1 ? date : "0" + date) + "/" + (month.toString().length > 1 ? month : "0" + month) + "/" + year;
                 }
             },
             { "data": "name" },
@@ -33,9 +35,22 @@ function loadDataTable() {
                 }
 
             },
-            { "data": "paidAmount" },
+            {
+                "data": "paidAmount",
+
+            "render": function (data) {
+                let paidAmount = data.toFixed(2);
+                return paidAmount;
+                }
+            },
             { "data": "paymentSataus" },
-            { "data": "unpaidAmount" },
+            {
+                "data": "unpaidAmount",
+                "render": function (data) {
+                    let unpaidAmount = data.toFixed(2);
+                    return unpaidAmount;
+                }
+            },
             {
                 "data": "id",
                 "render": function (data) {
@@ -55,7 +70,7 @@ function loadDataTable() {
         ],
         "columnDefs": [{
             "targets": '_all',
-            "defaultContent": "###"
+            "defaultContent": "-"
         }],
     })
 

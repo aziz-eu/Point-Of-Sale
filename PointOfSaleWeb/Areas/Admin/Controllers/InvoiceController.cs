@@ -160,7 +160,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 }
                 if (InvoiceVM.InvoiceHeader.SubTotal <= 0)
                 {
-                    TempData["success"] = "Please Add Item First";
+                    TempData["error"] = "Please Add Item First";
                     return RedirectToAction(nameof(Create));
                 }
                 InvoiceVM.InvoiceHeader.Vat = _unitOfWork.VatRate.CalculateVat(InvoiceVM.InvoiceHeader.SubTotal, InvoiceVM.VatRate);
@@ -314,7 +314,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
                 if (InvoiceVM.InvoiceHeader.UpdateDue > invoiceHeader.UnpaidAmount  || InvoiceVM.InvoiceHeader.UpdateDue <0)
                 {
-                    TempData["error"] = "Please Enter Valid Ammount";
+                    TempData["error"] = "Please Enter Valid Amount";
                     return RedirectToAction(nameof(Edit), new {id = invoiceHeader.Id});
                 }
                 invoiceHeader.PaidAmount = invoiceHeader.PaidAmount + InvoiceVM.InvoiceHeader.UpdateDue;

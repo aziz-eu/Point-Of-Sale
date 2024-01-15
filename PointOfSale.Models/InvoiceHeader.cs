@@ -13,6 +13,8 @@ namespace PointOfSale.Models
     public class InvoiceHeader
     {
         public int Id { get; set; }
+
+        [Display(Name="Date")]
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public double SubTotal { get; set; }
@@ -27,7 +29,8 @@ namespace PointOfSale.Models
         [Required]
         public string Name { get; set; }
         [Display(Name = "Phone")]
-        public string? PhoneNumbar { get; set; } 
+        public string? PhoneNumbar { get; set; }
+        [EmailAddress]
         public string? Email { get; set; }
         public string? Address { get; set; }
         [Display(Name="Customer TRN")]
@@ -41,9 +44,12 @@ namespace PointOfSale.Models
         public ApplicationUser? ApplicationUser { get; set; }
 
         [NotMapped]
+        [Range(0, int.MaxValue, ErrorMessage = "Qty Can't Less then 0")]
+        [Display(Name="Update Due")]
         public double UpdateDue {  get; set; }
         [NotMapped]
 
+        [Required]
         [Display (Name= "Select Customer")]
         public int? CustomerID { get; set; }
 

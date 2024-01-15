@@ -146,10 +146,11 @@
 
 
 
-                        <select class="form-select" asp-for="@Model.InvoiceHeader.CustomerID" asp-items="Model.CustomersList">
+                        <select class="form-select"  asp-for="@Model.InvoiceHeader.CustomerID" asp-items="Model.CustomersList">
                             <option selected disabled>-- Select Customer --</option>
                         </select>
                         <span class="required-warning"></span>
+                        <span asp-validation-for="@Model.InvoiceHeader.CustomerID" class="required-warning"></span>
                     </div>
                 </div>
 

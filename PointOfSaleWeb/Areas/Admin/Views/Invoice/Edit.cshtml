@@ -21,8 +21,8 @@
 
                 <tr>
                     <td>@item.Product.Name</td>
-                    <td>@item.Count</td>
-                    <td>@item.Price</td>
+                <td>@item.Count</td>
+                <td>@item.Price.ToString("n")</td>
                     <td>@((item.Price* @item.Count).ToString("n"))</td>
                    
                 </tr>
@@ -32,22 +32,22 @@
                 <td></td>
                 <td></td>
                 <td>Total</td>
-                <td>@Model.InvoiceHeader.Total</td>  
-                <td></td>
+            <td>@Model.InvoiceHeader.Total.ToString("n")</td>
+            <td></td>
             </tr>
 
             <tr>
                 <td></td>
                 <td></td>
                 <td>Paid</td>
-                <td>@Model.InvoiceHeader.PaidAmount</td>
+            <td>@Model.InvoiceHeader.PaidAmount.ToString("n")</td>
                 <td></td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
                 <td>Due</td>
-                <td>@Model.InvoiceHeader.UnpaidAmount</td>
+            <td>@Model.InvoiceHeader.UnpaidAmount.ToString("n")</td>
                 <td></td>
             </tr>
 
