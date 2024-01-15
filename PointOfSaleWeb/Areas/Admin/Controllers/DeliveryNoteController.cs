@@ -39,66 +39,71 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             return View(DeliveryNoteVM);
         }
 
-     
 
-        
-     
+        public IActionResult Edit(int id)
+        {
+            DeliveryNoteVM = new DeliveryNoteVM()
+            {
+                DeliveryNoteHeader = _unitOfWork.DeliveryNoteHeader.GetFirstOrDefault(x => x.Id == id),
+                DeliveryNoteDetails = _unitOfWork.DeliveryNoteDetail.GetAll(x => x.DeliveryNoteId == id, includeProperties: "Product")
 
- 
+            };
+            return View(DeliveryNoteVM);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditPost(DeliveryNoteVM DeliveryNoteVM)
+        {
+            try
+            {
+                var deliveryNoteHeader = _unitOfWork.DeliveryNoteHeader.GetFirstOrDefault(u => u.Id == DeliveryNoteVM.DeliveryNoteHeader.Id);
+
+               
+                if (DeliveryNoteVM.DeliveryNoteHeader.Name == null)
+                {
+                    deliveryNoteHeader.Name = deliveryNoteHeader.Name;
+                }
+                else
+                {
+                    deliveryNoteHeader.Name = DeliveryNoteVM.DeliveryNoteHeader.Name;
+                }
+                deliveryNoteHeader.CreatedAt = DeliveryNoteVM.DeliveryNoteHeader.CreatedAt;
+
+                deliveryNoteHeader.PhoneNumbar = DeliveryNoteVM.DeliveryNoteHeader.PhoneNumbar;
+                deliveryNoteHeader.Address = DeliveryNoteVM.DeliveryNoteHeader.Address;
 
 
-        //public IActionResult Edit(int id)
-        //{
-        //    InvoiceVM = new InvoiceVM()
-        //    {
-        //        InvoiceHeader = _unitOfWork.InvoiceHeader.GetFirstOrDefault(x => x.Id == id),
-        //        InvoiceDetails = _unitOfWork.InvoiceDetail.GetAll(x => x.InvoiceId == id, includeProperties: "Product")
 
-        //    };
-        //    return View(InvoiceVM);
 
-        //}
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult EditPost(InvoiceVM InvoiceVM)
-        //{
-        //    try
-        //    {
-        //       var invoiceHeader =  _unitOfWork.InvoiceHeader.GetFirstOrDefault(u=> u.Id == InvoiceVM.InvoiceHeader.Id);
 
-        //        if (InvoiceVM.InvoiceHeader.UpdateDue > invoiceHeader.UnpaidAmount  || InvoiceVM.InvoiceHeader.UpdateDue <0)
-        //        {
-        //            TempData["Success"] = "Please Enter Valid Ammount";
-        //            return RedirectToAction(nameof(Edit), new {id = invoiceHeader.Id});
-        //        }
-        //        invoiceHeader.PaidAmount = invoiceHeader.PaidAmount + InvoiceVM.InvoiceHeader.UpdateDue;
-        //        invoiceHeader.UnpaidAmount = invoiceHeader.UnpaidAmount - InvoiceVM.InvoiceHeader.UpdateDue;
 
-        //        if(invoiceHeader.UnpaidAmount< 1)
-        //        {
-        //            invoiceHeader.PaymentSataus = SD.PaymentStatus_Paid;
-        //            invoiceHeader.UnpaidAmount = 0;
-        //        }
-             
 
-        //        _unitOfWork.InvoiceHeader.Update(invoiceHeader);
-        //            _unitOfWork.Save();
-                
-                
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData["error"] = "Something Want Wrong!";
-        //        return RedirectToAction(nameof(Edit));
-        //    }
-           
-           
 
-        //}
+                _unitOfWork.DeliveryNoteHeader.Update(deliveryNoteHeader);
+                _unitOfWork.Save();
 
-        
+                TempData["success"] = "Delivery Note Update Successful";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Something Want Wrong!";
+                return RedirectToAction(nameof(Edit), new { id = DeliveryNoteVM.DeliveryNoteHeader.Id });
+            }
+
+
+
+        }
+
+
+
+
+
+
+
 
 
         #region API CALLS

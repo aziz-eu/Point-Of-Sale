@@ -23,6 +23,8 @@ namespace PointOfSale.Models
         public string? Address { get; set; }      
         public string? CustTrn { get; set; }
 
+        public int? RegularCustomerId { get; set; }
+
 
     }
 }

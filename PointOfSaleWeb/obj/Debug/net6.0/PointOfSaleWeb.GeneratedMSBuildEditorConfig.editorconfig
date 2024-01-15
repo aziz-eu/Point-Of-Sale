@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGVsaXZlcnlOb3RlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/18622/Desktop/ASP.NET/Point-Of-Sale/PointOfSaleWeb/Areas/Admin/Views/DeliveryNote/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGVsaXZlcnlOb3RlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/18622/Desktop/ASP.NET/Point-Of-Sale/PointOfSaleWeb/Areas/Admin/Views/DeliveryNote/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGVsaXZlcnlOb3RlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
