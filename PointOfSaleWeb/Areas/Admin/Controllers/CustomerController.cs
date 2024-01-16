@@ -107,7 +107,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { success = false, message = "First Delete the Releted Products" });
+                return Json(new { success = false, message = "Error! First, delete the customer invoice and delivery note." });
             }
 
            
