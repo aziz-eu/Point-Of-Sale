@@ -26,7 +26,7 @@ namespace PointOfSale.Models
         public int? CustomerId { get; set; }
         [ForeignKey(nameof(CustomerId))]
         [ValidateNever]
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
 
     }
 }

@@ -56,6 +56,15 @@ namespace PointOfSale.Data
               .HasOne(e => e.DeliveryNoteHeader)
               .WithMany()
               .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<InvoiceHeader>().
+                HasOne(e => e.Customer).
+                WithMany().
+                OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<DeliveryNoteHeader>().
+                HasOne(e => e.Customer).
+                WithMany().
+                OnDelete(DeleteBehavior.NoAction);
+
 
             modelBuilder.Entity<VatRate>().HasData(
                 new VatRate {

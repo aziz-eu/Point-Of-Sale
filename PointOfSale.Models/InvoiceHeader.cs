@@ -36,13 +36,13 @@ namespace PointOfSale.Models
         [Display(Name="Customer TRN")]
         public string? CustTrn {  get; set; }
 
-        [Required]
+      
         [Display(Name = "Select Customer")]
         public int? CustomerId { get; set; }
         [ForeignKey(nameof(CustomerId))]
         [ValidateNever]
 
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
 
         public string? ApplicationUserId {  get; set; }
         [ForeignKey (nameof(ApplicationUserId))]
