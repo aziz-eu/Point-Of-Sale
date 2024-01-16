@@ -20,5 +20,27 @@ namespace PointOfSale.DataAccess.Repository
         {
             _db.Customers.Update(customer);
         }
+
+        public void UpdateCustomerNameToDeliveryNote(int id, string name)
+        {
+            var data = _db.DeliveryNoteHeaders.Where(u => u.CustomerId == id).ToList();
+
+            foreach (var item in data)
+            {
+                item.Name = name;
+                _db.DeliveryNoteHeaders.Update(item);
+            }
+        }
+
+        public void UpdateCustomerNameToInvoices(int id, string name)
+        {
+           var data =  _db.InvoiceHeaders.Where(u => u.CustomerId == id).ToList();
+
+            foreach (var item in data)
+            {
+                item.Name = name;
+                _db.InvoiceHeaders.Update(item);
+            }
+        }
     }
 }

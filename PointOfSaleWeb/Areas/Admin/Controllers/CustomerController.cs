@@ -57,6 +57,9 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                     else
                     {
                         _unitOfWork.Customer.Update(customer);
+                        _unitOfWork.Customer.UpdateCustomerNameToInvoices(customer.Id, customer.Name);
+                        _unitOfWork.Customer.UpdateCustomerNameToDeliveryNote(customer.Id, customer.Name);
+
                         TempData["success"] = "Customer Update Sccessful";
                     }
                     _unitOfWork.Save();
