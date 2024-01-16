@@ -13,6 +13,70 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\Cetagory.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\Cetagory.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\Product.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\Product.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\add-customer.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\add-customer.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\add-invoice.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\add-invoice.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\add-product.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\add-product.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\addon.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\addon.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\customer.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\customer.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\delivery-note-List.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\delivery-note-List.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\delivery-note.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\delivery-note.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\due-diligence.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\due-diligence.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\due-invoice.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\due-invoice.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\invoice-1.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\invoice-1.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\invoice.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\invoice.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\measure-tape.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\measure-tape.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\new-product.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\new-product.png"
+    },
+    {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\images\\flatIcon\\receive-amount.png",
+      "PackagePath": "staticwebassets\\images\\flatIcon\\receive-amount.png"
+    },
+    {
       "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\Point-Of-Sale\\PointOfSaleWeb\\wwwroot\\js\\category.js",
       "PackagePath": "staticwebassets\\js\\category.js"
     },

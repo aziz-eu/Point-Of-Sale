@@ -323,3 +323,59 @@ thead {
     padding: 1rem;
 }
 
+/*Home Page*/
+
+.product-card {
+    background-color: #EB455F;
+}
+
+.total-amount-card {
+    background-color: #43766C;
+}
+
+.due-amount-card {
+    background-color: #2B3467;
+}
+
+.invoice-count-card {
+    background-color: #711DB0;
+}
+
+.due-invoice-card {
+    background-color: #6DB9EF;
+}
+
+.count-deliveryNote-card {
+    background-color: #8ADAB2;
+}
+
+.card-icon {
+    height: 50px;
+}
+
+.card-heading {
+    white-space: nowrap;
+}
+
+.report-card {
+    width: 100%;
+}
+
+.report-card-body {
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.short-menu {
+    justify-content: space-between;
+}
+
+.short-cut-link {
+    background-color: #fff;
+    margin: .8rem;
+    border-radius: 5px;
+}
+
+.short-cut-link-img {
+    height: 50px;
+}

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PointOfSale.DataAccess.Repository.IRepository;
 using PointOfSale.Models;
+using PointOfSale.Models.ViewModels;
 using System.Diagnostics;
 
 namespace PointOfSaleWeb.Areas.Admin.Controllers
@@ -9,17 +11,25 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-    
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            HomeVM HomeVM = new HomeVM();
+            HomeVM.CalculateInvoiceAmount = _unitOfWork.Home.CalculateInvoiceAmount();
+            HomeVM.CalculateDueInvoiceAmount = _unitOfWork.Home.CalculateDueInvoiceAmount();
+            HomeVM.CountProduct = _unitOfWork.Home.CountProduct();
+            HomeVM.CountDeliveryNote = _unitOfWork.Home.CountDeliveryNote();
+            HomeVM.CountInvoice = _unitOfWork.Home.CountInvoice();
+            HomeVM.CountDueInvoice = _unitOfWork.Home.CountDueInvoice();
+            
+            return View(HomeVM);
         }
 
         public IActionResult Privacy()

@@ -29,6 +29,7 @@ namespace PointOfSale.DataAccess.Repository
             Customer = new CustomerRepository (_db);
             DeliveryNoteDetail = new DeliveryNoteDetailRepository (_db);
             DeliveryNoteHeader = new DeliveryNoteHeaderRepository (_db);
+            Home = new HomeRepository (_db);
           
              
 
@@ -51,6 +52,7 @@ namespace PointOfSale.DataAccess.Repository
         public IDeliveryNoteDetailRepository DeliveryNoteDetail { get; private set; }
         public ICompanyRepository Company { get; private set; }
         public ICustomerRepository Customer { get; private set; }
+        public IHomeRepository Home { get; private set; }
         public void Save()
         {
             _db.SaveChanges();

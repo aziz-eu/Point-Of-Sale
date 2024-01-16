@@ -1,8 +1,117 @@
-﻿@{
+﻿@model PointOfSale.Models.ViewModels.HomeVM
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 >Welcome</h1>
-   
+<div class="row mt-3">
+    <div class="col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+        <div class="card report-card product-card fw-bold text-white">
+            <div class="card-header">
+                <span class="card-icon"><img class="card-icon" src="~/images/flatIcon/new-product.png" alt=""></span> <span class="text-center ms-2 card-heading">Total Product </span>
+            </div>
+            <div class="card-body report-card-body text-center">
+                @Model.CountProduct
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+        <div class="card report-card total-amount-card fw-bold text-white">
+            <div class="card-header">
+                <span class="card-icon"><img class="card-icon" src="~/images/flatIcon/receive-amount.png" alt=""></span> <span class="text-center ms-2 card-heading">Total Invoice Amount</span>
+            </div>
+            <div class="card-body report-card-body text-center">
+                @Model.CalculateInvoiceAmount.ToString("n")
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+        <div class="card report-card peoduct-card due-amount-card fw-bold text-white">
+            <div class="card-header">
+                <span class="card-icon"><img class="card-icon" src="~/images/flatIcon/due-diligence.png" alt=""></span> <span class="text-center ms-2 card-heading">Total Amount of Due </span>
+            </div>
+            <div class="card-body report-card-body text-center">
+                @Model.CalculateDueInvoiceAmount.ToString("n")
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+        <div class="card report-card invoice-count-card fw-bold text-white">
+            <div class="card-header">
+                <span class="card-icon"><img class="card-icon" src="~/images/flatIcon/invoice-1.png" alt=""></span> <span class="text-center ms-2 card-heading">Number of Invoices </span>
+            </div>
+            <div class="card-body report-card-body text-center">
+                @Model.CountInvoice
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+        <div class="card report-card due-invoice-card fw-bold text-white">
+            <div class="card-header">
+                <span class="card-icon"><img class="card-icon" src="~/images/flatIcon/due-invoice.png" alt=""></span> <span class="text-center ms-2 card-heading">Number of Due Invoices</span>
+            </div>
+            <div class="card-body report-card-body text-center">
+                @Model.CountDueInvoice
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+        <div class="card report-card count-deliveryNote-card fw-bold text-white">
+            <div class="card-header">
+                <span class="card-icon"><img class="card-icon" src="~/images/flatIcon/delivery-note.png" alt=""></span> <span class="text-center ms-2 card-heading">Number of Delivery Notes </span>
+            </div>
+            <div class="card-body report-card-body text-center">
+                @Model.CountDeliveryNote
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class="row short-menu">
+    <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/invoice.png" alt=""></div>
+        <a asp-controller="Invoice" asp-action="Index">Invoice List</a>
+    </div>
+    <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/delivery-note-List.png" alt=""></div>
+        <a asp-controller="DeliveryNote" asp-action="Index">Delivery Note List</a>
+    </div> <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/Product.png" alt=""></div>
+        <a asp-controller="Product" asp-action="Index">Products</a>
+    </div> <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/Cetagory.png" alt=""></div>
+        <a asp-controller="Category" asp-action="Index">Category</a>
+    </div> <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/customer.png" alt=""></div>
+        <a asp-controller="Customer" asp-action="Index">Customers</a>
+    </div>
+    <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/add-invoice.png" alt=""></div>
+        <a asp-controller="Invoice" asp-action="Create">Create Invoice</a>
+    </div>
+    <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/measure-tape.png" alt=""></div>
+        <a asp-controller="UnitOfMeasurement" asp-action="Upsert">Add Measure Unit</a>
+    </div>
+    <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/add-product.png" alt=""></div>
+        <a asp-controller="Product" asp-action="Upsert">Add Product</a>
+    </div>
+    <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/addon.png" alt=""></div>
+        <a asp-controller="Category" asp-action="Upsert">Add Category</a>
+    </div>
+    <div class="col-lg-2 col-md-5 col-sm-3 short-cut-link text-center ">
+        <div><img class="short-cut-link-img" src="~/images/flatIcon/add-customer.png" alt=""></div>
+        <a asp-controller="Customer" asp-action="Upsert">Add Customer</a>
+    </div>
 </div>

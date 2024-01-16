@@ -22,6 +22,7 @@ namespace PointOfSale.DataAccess.Repository.IRepository
         IDeliveryNoteDetailRepository DeliveryNoteDetail { get; }
         ICompanyRepository Company { get; }
         ICustomerRepository Customer { get; }
+        IHomeRepository Home {  get; }
         void Save();
     }
 }
