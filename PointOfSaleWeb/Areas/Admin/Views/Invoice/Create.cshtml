@@ -146,7 +146,7 @@
 
 
 
-                        <select class="form-select"  asp-for="@Model.InvoiceHeader.CustomerId" asp-items="Model.CustomersList">
+                        <select class="form-select" required  asp-for="@Model.InvoiceHeader.CustomerId" asp-items="Model.CustomersList">
                             <option selected disabled>-- Select Customer --</option>
                         </select>
                         <span class="required-warning"></span>
