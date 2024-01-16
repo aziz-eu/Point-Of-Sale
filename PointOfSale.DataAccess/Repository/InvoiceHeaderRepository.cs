@@ -19,7 +19,7 @@ namespace PointOfSale.DataAccess.Repository
 
         public double CalculateDue(int? id)
         {
-           double totalDue = _db.InvoiceHeaders.Where(u => u.RegularCustomerId == id).Sum(c => c.UnpaidAmount);
+           double totalDue = _db.InvoiceHeaders.Where(u => u.CustomerId == id).Sum(c => c.UnpaidAmount);
             return totalDue;
         }
 

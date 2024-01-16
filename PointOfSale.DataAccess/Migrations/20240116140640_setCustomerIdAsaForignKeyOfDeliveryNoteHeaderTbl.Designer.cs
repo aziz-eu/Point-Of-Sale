@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PointOfSale.Data;
 
@@ -11,9 +12,10 @@ using PointOfSale.Data;
 namespace PointOfSale.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240116140640_setCustomerIdAsaForignKeyOfDeliveryNoteHeaderTbl")]
+    partial class setCustomerIdAsaForignKeyOfDeliveryNoteHeaderTbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -494,10 +496,6 @@ namespace PointOfSale.DataAccess.Migrations
                     b.Property<string>("CustTrn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CustomerId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -514,6 +512,9 @@ namespace PointOfSale.DataAccess.Migrations
 
                     b.Property<string>("PhoneNumbar")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RegularCustomerId")
+                        .HasColumnType("int");
 
                     b.Property<double>("SubTotal")
                         .HasColumnType("float");
@@ -533,8 +534,6 @@ namespace PointOfSale.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("CustomerId");
 
                     b.ToTable("InvoiceHeaders");
                 });
@@ -787,15 +786,7 @@ namespace PointOfSale.DataAccess.Migrations
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("PointOfSale.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("ApplicationUser");
-
-                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("PointOfSale.Models.Product", b =>

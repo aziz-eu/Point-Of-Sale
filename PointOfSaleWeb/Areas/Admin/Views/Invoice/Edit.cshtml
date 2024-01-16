@@ -72,7 +72,7 @@
                 <input class="form-control" type="date"  asp-for="InvoiceHeader.CreatedAt" />
             <span class="required-warning" asp-validation-for="InvoiceHeader.CreatedAt"></span>
         </div>
-            @if(Model.InvoiceHeader.RegularCustomerId != null)
+            @if(Model.InvoiceHeader.CustomerId != null)
             {
                 <div class="my-1 col-lg-4">
                     <label asp-for="InvoiceHeader.Name"></label>

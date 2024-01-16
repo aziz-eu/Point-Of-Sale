@@ -43,7 +43,7 @@
                 <input class="form-control" type="date" asp-for="DeliveryNoteHeader.CreatedAt" />
                 <span class="required-warning" asp-validation-for="DeliveryNoteHeader.CreatedAt"></span>
             </div>
-            @if (Model.DeliveryNoteHeader.RegularCustomerId != null)
+            @if (Model.DeliveryNoteHeader.CustomerId != null)
             {
                 <div class="my-1 col-lg-4">
                     <label asp-for="DeliveryNoteHeader.Name"></label>

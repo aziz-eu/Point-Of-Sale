@@ -23,8 +23,10 @@ namespace PointOfSale.Models
         public string? Address { get; set; }      
         public string? CustTrn { get; set; }
 
-        public int? RegularCustomerId { get; set; }
-
+        public int? CustomerId { get; set; }
+        [ForeignKey(nameof(CustomerId))]
+        [ValidateNever]
+        public Customer Customer { get; set; }
 
     }
 }

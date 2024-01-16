@@ -134,7 +134,7 @@
                     <div class="my-3">
                         <div class="customer-info-label">
                         <div>
-                        <label asp-for="@Model.InvoiceHeader.CustomerID"></label>
+                        <label asp-for="@Model.InvoiceHeader.CustomerId"></label>
                         </div>
 
                         <div>
@@ -146,11 +146,11 @@
 
 
 
-                        <select class="form-select"  asp-for="@Model.InvoiceHeader.CustomerID" asp-items="Model.CustomersList">
+                        <select class="form-select"  asp-for="@Model.InvoiceHeader.CustomerId" asp-items="Model.CustomersList">
                             <option selected disabled>-- Select Customer --</option>
                         </select>
                         <span class="required-warning"></span>
-                        <span asp-validation-for="@Model.InvoiceHeader.CustomerID" class="required-warning"></span>
+                        <span asp-validation-for="@Model.InvoiceHeader.CustomerId" class="required-warning"></span>
                     </div>
                 </div>
 

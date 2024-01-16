@@ -35,9 +35,9 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                 Company = _unitOfWork.Company.GetFirstOrDefault(x => x.Id == 1),
                 UnitsOfMeasurement = _unitOfWork.UnitOfMeasurment.GetAll()                
             };
-            if (InvoiceVM.InvoiceHeader.RegularCustomerId != null)
+            if (InvoiceVM.InvoiceHeader.CustomerId != null)
             {
-                InvoiceVM.TotalDueAmount = _unitOfWork.InvoiceHeader.CalculateDue(InvoiceVM.InvoiceHeader.RegularCustomerId);
+                InvoiceVM.TotalDueAmount = _unitOfWork.InvoiceHeader.CalculateDue(InvoiceVM.InvoiceHeader.CustomerId);
             }
             var totalAmmount = Convert.ToInt32(Math.Floor(InvoiceVM.InvoiceHeader.Total));
             InvoiceVM.AmountInWord = NumberToWords(totalAmmount);
@@ -182,16 +182,16 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Create));
                 }
 
-                if (InvoiceVM.InvoiceHeader.CustomerID != null)
+                if (InvoiceVM.InvoiceHeader.CustomerId != null)
                 {
-                    var customerInfo = _unitOfWork.Customer.GetFirstOrDefault(u => u.Id == InvoiceVM.InvoiceHeader.CustomerID);
+                    var customerInfo = _unitOfWork.Customer.GetFirstOrDefault(u => u.Id == InvoiceVM.InvoiceHeader.CustomerId);
 
                     InvoiceVM.InvoiceHeader.Name = customerInfo.Name;
                     InvoiceVM.InvoiceHeader.PhoneNumbar = customerInfo.PhoneNumber;
                     InvoiceVM.InvoiceHeader.Email = customerInfo.Email;
                     InvoiceVM.InvoiceHeader.Address = customerInfo.Address;
                    InvoiceVM.InvoiceHeader.CustTrn = customerInfo.CustTrn;
-                    InvoiceVM.InvoiceHeader.RegularCustomerId = InvoiceVM.InvoiceHeader.CustomerID;
+                    InvoiceVM.InvoiceHeader.CustomerId = InvoiceVM.InvoiceHeader.CustomerId;
                     _unitOfWork.InvoiceHeader.Add(InvoiceVM.InvoiceHeader);
                     _unitOfWork.Save();
 
@@ -243,7 +243,7 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
                         Address = InvoiceVM.InvoiceHeader.Address,
                         CustTrn = InvoiceVM.InvoiceHeader.CustTrn,
                         CreatedAt = DateTime.Now,
-                        RegularCustomerId = InvoiceVM.InvoiceHeader.RegularCustomerId
+                        CustomerId = InvoiceVM.InvoiceHeader.CustomerId
 
 
 

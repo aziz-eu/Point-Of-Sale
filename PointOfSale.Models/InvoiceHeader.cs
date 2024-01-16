@@ -36,7 +36,13 @@ namespace PointOfSale.Models
         [Display(Name="Customer TRN")]
         public string? CustTrn {  get; set; }
 
-        public int? RegularCustomerId { get; set; }
+        [Required]
+        [Display(Name = "Select Customer")]
+        public int? CustomerId { get; set; }
+        [ForeignKey(nameof(CustomerId))]
+        [ValidateNever]
+
+        public Customer Customer { get; set; }
 
         public string? ApplicationUserId {  get; set; }
         [ForeignKey (nameof(ApplicationUserId))]
@@ -47,11 +53,10 @@ namespace PointOfSale.Models
         [Range(0, int.MaxValue, ErrorMessage = "Qty Can't Less then 0")]
         [Display(Name="Update Due")]
         public double UpdateDue {  get; set; }
-        [NotMapped]
+       
 
-        [Required]
-        [Display (Name= "Select Customer")]
-        public int? CustomerID { get; set; }
+       
+      
 
     }
 }
