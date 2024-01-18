@@ -14,7 +14,12 @@ function loadDataTable() {
         order: [0, 'desc'],
         "columns": [
            
-            { "data": "id" },
+            {
+                "data": "id",
+                "render": function (data) {
+                    return "DN -" + data;
+                },
+            },
             {
                 "data": "createdAt",
                 "render": function (data) {
@@ -45,7 +50,8 @@ function loadDataTable() {
         ],
         "columnDefs": [{
             "targets": '_all',
-            "defaultContent": "-"
+            "defaultContent": "-",
+            "targets": 3, "type": "date-eu" 
         }],
     })
 

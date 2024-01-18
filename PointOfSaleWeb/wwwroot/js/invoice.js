@@ -1,4 +1,5 @@
 ﻿let datatable;
+let i = 1;
 
 $(document).ready(function () {
 
@@ -11,12 +12,14 @@ function loadDataTable() {
         ajax: {
             "url": "/Admin/Invoice/GetAll"
         },
-        order: [0, 'desc'],
+        order: [[0, 'desc'], [9, 'asc']],
         "columns": [
 
-            { "data": "id" },
-            {
-                "data": "createdAt",
+
+
+            { "data": "id"},
+            { 
+              "data": "createdAt",
                 "render": function (data) {
                     let dateTime = new Date(data);
                     let date = dateTime.getDate();
@@ -28,7 +31,7 @@ function loadDataTable() {
             { "data": "name" },
             { "data": "phoneNumbar" },
             {
-                "data": "total",
+              "data": "total",
                 "render": function (data) {
                     let total = data.toFixed(2);
                     return total;
@@ -36,11 +39,11 @@ function loadDataTable() {
 
             },
             {
-                "data": "paidAmount",
+               "data": "paidAmount",
 
-            "render": function (data) {
-                let paidAmount = data.toFixed(2);
-                return paidAmount;
+                "render": function (data) {
+                     let paidAmount = data.toFixed(2);
+                     return paidAmount;
                 }
             },
             { "data": "paymentSataus" },
@@ -66,12 +69,15 @@ function loadDataTable() {
 
                 }
 
-            }
+            },
+           
         ],
         "columnDefs": [{
             "targets": '_all',
-            "defaultContent": "-"
-        }],
+            "defaultContent": "-",
+            
+        },
+           ],
     })
 
 }

@@ -2,10 +2,16 @@
 
 $(document).ready(function () {
     var url = window.location.search;
+    let productListTitle = $("#productListTitle");
     if (url.includes("outOfStock")) {
+        $("#productListTitle").addClass("customer-info-hide");
+        $("#outOfStock").removeClass("customer-info-hide");
+       
         loadDataTable("outOfStock");
     }
     else if (url.includes("lowStock")) {
+        $("#productListTitle").addClass("customer-info-hide");
+        $("#lowStockTitle").removeClass("customer-info-hide");
         loadDataTable("lowStock");
     }
     else {
@@ -25,9 +31,29 @@ function loadDataTable(status) {
             { "data": "name" },
             { "data": "supplier.company" },
             { "data": "category.name" },
-            { "data": "quantity"},
+            {
+                "data": "quantity",
+                "render": function (data) {
+                    if (data % 1 != 0) {
+                       let qty =  data.toFixed(2);
+                        return qty;
+                    }
+                    return data;
+                }
+            },
             { "data": "unitsOfMeasurement.name" },
-            { "data": "sellPrice" },
+            {
+                "data": "sellPrice",
+                "render": function (data) {
+                    if (data != null) {
+                        let total = data.toFixed(2);
+                        return total;
+                    }
+
+                    return "-";
+                   
+                }
+            },
 
 
             {
@@ -47,7 +73,11 @@ function loadDataTable(status) {
                 }
 
             }
-        ]
+        ],
+        "columnDefs": [{
+            "targets": '_all',
+            "defaultContent": "-"
+        }],
     })
 
 }

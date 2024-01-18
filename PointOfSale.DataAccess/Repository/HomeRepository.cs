@@ -39,7 +39,7 @@ namespace PointOfSale.DataAccess.Repository
 
         public int CountDueInvoice()
         {
-            int dueInvoiceCount = _db.InvoiceHeaders.Where(u=>u.PaidAmount!=0).Select(u =>u.Id).Count();
+            int dueInvoiceCount = _db.InvoiceHeaders.Where(u=>u.UnpaidAmount!=0).Select(u =>u.Id).Count();
             return dueInvoiceCount;
         }
 

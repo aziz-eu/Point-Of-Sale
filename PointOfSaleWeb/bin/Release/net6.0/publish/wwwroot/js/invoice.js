@@ -13,26 +13,48 @@ function loadDataTable() {
         },
         order: [0, 'desc'],
         "columns": [
-           
+
             { "data": "id" },
             {
                 "data": "createdAt",
                 "render": function (data) {
-                    var date = new Date(data);
-                    var month = date.getMonth() + 1;
-                    return (month.toString().length > 1 ? month : "0" + month) + "/" + date.getDate() + "/" + date.getFullYear();
+                    let dateTime = new Date(data);
+                    let date = dateTime.getDate();
+                    let month = dateTime.getMonth() + 1;
+                    let year = dateTime.getFullYear();
+                    return (date.toString().length > 1 ? date : "0" + date) + "/" + (month.toString().length > 1 ? month : "0" + month) + "/" + year;
                 }
             },
             { "data": "name" },
-            {"data": "phoneNumbar" },
-            { "data": "total" },
-            {"data": "paidAmount"},
+            { "data": "phoneNumbar" },
+            {
+                "data": "total",
+                "render": function (data) {
+                    let total = data.toFixed(2);
+                    return total;
+                }
+
+            },
+            {
+                "data": "paidAmount",
+
+            "render": function (data) {
+                let paidAmount = data.toFixed(2);
+                return paidAmount;
+                }
+            },
             { "data": "paymentSataus" },
-            {"data": "unpaidAmount"},
+            {
+                "data": "unpaidAmount",
+                "render": function (data) {
+                    let unpaidAmount = data.toFixed(2);
+                    return unpaidAmount;
+                }
+            },
             {
                 "data": "id",
                 "render": function (data) {
-               
+
                     return `
                     
                      <div class="btn-column">
@@ -48,7 +70,7 @@ function loadDataTable() {
         ],
         "columnDefs": [{
             "targets": '_all',
-            "defaultContent": "###"
+            "defaultContent": "-"
         }],
     })
 

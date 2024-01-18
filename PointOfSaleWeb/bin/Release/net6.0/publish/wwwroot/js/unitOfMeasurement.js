@@ -27,12 +27,15 @@ function loadDataTable() {
                         
                
                     
-                    
                     `
                 }
 
             }
-        ]
+        ],
+        "columnDefs": [{
+            "targets": '_all',
+            "defaultContent": "-"
+        }],
     })
 
 }
