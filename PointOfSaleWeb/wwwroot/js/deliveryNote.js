@@ -15,11 +15,7 @@ function loadDataTable() {
         "columns": [
            
             {
-                "data": "id",
-                "render": function (data) {
-                    return "DN -" + data;
-                },
-            },
+                "data": "id" },
             {
                 "data": "createdAt",
                 "render": function (data) {
@@ -46,13 +42,24 @@ function loadDataTable() {
 
                 }
 
+            },
+            {
+                "data": "id",
+                "render": function (data) {
+                    return "D" + data;
+                }
             }
         ],
         "columnDefs": [{
             "targets": '_all',
             "defaultContent": "-",
-            "targets": 3, "type": "date-eu" 
-        }],
+            
+        },
+            {
+                target: 5,
+                visible: false,
+                searchable: true
+            }],
     })
 
 }
