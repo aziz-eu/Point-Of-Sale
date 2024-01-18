@@ -391,6 +391,11 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
             {
                 return Json(new { success = false, message = "Error Whiling Delete" });
             }
+
+            if(inovceHeader.UnpaidAmount != 0)
+            {
+                return Json(new { success = false, message = "Sorry! The invoice due isn't paid." });
+            }
             else
             {
                 _unitOfWork.InvoiceHeader.Remove(inovceHeader);

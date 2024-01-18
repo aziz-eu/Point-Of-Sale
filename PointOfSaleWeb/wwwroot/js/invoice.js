@@ -113,7 +113,7 @@ function Delete(url) {
                         toastr.success(data.message);
                     }
                     else {
-                        toastr.success(data.message);
+                        toastr.error(data.message);
 
                     }
                 }
