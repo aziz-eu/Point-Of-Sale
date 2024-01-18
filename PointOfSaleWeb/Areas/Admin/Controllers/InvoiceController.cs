@@ -188,10 +188,17 @@ namespace PointOfSaleWeb.Areas.Admin.Controllers
 
                     InvoiceVM.InvoiceHeader.Name = customerInfo.Name;
                     InvoiceVM.InvoiceHeader.PhoneNumbar = customerInfo.PhoneNumber;
-                    InvoiceVM.InvoiceHeader.Email = customerInfo.Email;
-                    InvoiceVM.InvoiceHeader.Address = customerInfo.Address;
+                    InvoiceVM.InvoiceHeader.Email = customerInfo.Email;                    
                    InvoiceVM.InvoiceHeader.CustTrn = customerInfo.CustTrn;
                     InvoiceVM.InvoiceHeader.CustomerId = InvoiceVM.InvoiceHeader.CustomerId;
+                    if(InvoiceVM.InvoiceHeader.Loaction == null)
+                    {
+                        InvoiceVM.InvoiceHeader.Address = customerInfo.Address;
+                    }
+                    else
+                    {
+                        InvoiceVM.InvoiceHeader.Address = InvoiceVM.InvoiceHeader.Loaction;
+                    }
                     _unitOfWork.InvoiceHeader.Add(InvoiceVM.InvoiceHeader);
                     _unitOfWork.Save();
 

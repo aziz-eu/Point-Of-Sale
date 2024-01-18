@@ -53,7 +53,9 @@ namespace PointOfSale.Models
         [Range(0, int.MaxValue, ErrorMessage = "Qty Can't Less then 0")]
         [Display(Name="Update Due")]
         public double UpdateDue {  get; set; }
-       
+        [NotMapped]
+        [Display(Name = "Address")]
+        public string? Loaction {  get; set; }
 
        
       
