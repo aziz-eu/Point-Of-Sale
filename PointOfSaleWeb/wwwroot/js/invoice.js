@@ -70,14 +70,23 @@ function loadDataTable() {
                 }
 
             },
-           
+            {
+                "data": "id",
+                "render": function (data) {
+                    return "I"+data;
+                }
+            }
         ],
         "columnDefs": [{
             "targets": '_all',
             "defaultContent": "-",
             
         },
-           ],
+            {
+                target: 9,
+                visible: false,
+                searchable: true
+            }],
     })
 
 }
